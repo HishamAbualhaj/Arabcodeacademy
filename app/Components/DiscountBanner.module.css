@@ -1,0 +1,15 @@
+.banner {
+    background-color: #5a2373; 
+    color: white; 
+    padding: 32px; 
+    font-family: 'Arial', sans-serif; 
+    font-size: 1.5rem; 
+  }
+  .bannerContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  
