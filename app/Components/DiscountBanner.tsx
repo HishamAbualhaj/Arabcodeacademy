@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from 'react';
+
 import styles from "./DiscountBanner.module.css";
 
 interface Props {
