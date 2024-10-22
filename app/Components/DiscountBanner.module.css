@@ -1,15 +1,13 @@
 .banner {
-    background-color: #5a2373; 
-    color: white; 
-    padding: 32px; 
-    font-family: 'tajawal', sans-serif; 
-    font-size:18px; 
-  }
-  .bannerContent {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-  }
-
-  
+  background-color: #5a2373;
+  color: white;
+  padding: 32px;
+  font-family: "tajawal", sans-serif;
+  font-size: 18px;
+}
+.bannerContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
