@@ -1,5 +1,5 @@
 import React from "react";
-import DiscountBanner from "./Components/DiscountBanner";
+import DiscountBanner from "../Components/DiscountBanner";
 
 export default function Home() {
   return (
