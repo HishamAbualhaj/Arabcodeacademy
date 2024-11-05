@@ -1,3 +1,4 @@
+import { Provider } from "@/components/ui/provider"
 import type { Metadata } from "next";
 import "../styles/globals.css";
 
@@ -13,9 +14,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning >
       <body>
-        {children}
+        <Provider>{children}</Provider>
       </body>
     </html>
   );
