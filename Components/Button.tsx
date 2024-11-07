@@ -38,6 +38,7 @@ const Button: React.FC<Props> = ({
       alignItems={"center"}
       display={"flex"}
       gap={"10px"}
+      cursor={"pointer"}
     >
       {text}
       {icon}
