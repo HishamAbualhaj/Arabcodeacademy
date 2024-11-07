@@ -2,6 +2,11 @@
     max-width: 1200px;
     margin: 0 auto;
 }
+
+.max_container {
+    max-width: 1700px;
+    margin: 0 auto;
+}
 .bg_image {
     background-image: url(../public/images/hero_image.jpeg);
     background-size: cover;

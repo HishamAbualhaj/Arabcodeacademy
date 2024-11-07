@@ -19,7 +19,7 @@ export const cornerRadiusDesktopAndTablet = 10;
 //     y: 1,
 //     spread: 2
 // }
-export const shadowEffectTablet = "0 1px 20px 2px black"
+export const shadowEffectTablet = "0 1px 20px 2px rgba(0, 0, 0, 0.25)"
 
 
 // export const shadowEffectMobile = {
@@ -29,7 +29,7 @@ export const shadowEffectTablet = "0 1px 20px 2px black"
 //     spread: 0
 // }
 
-export const shadowEffectMobile = "0 1px 10px 0 black"
+export const shadowEffectMobile = "0 1px 10px 0 rgba(0, 0, 0, 0.25)"
 
 // export const shadowEffectDesktop = {
 //     x: 0,
@@ -38,7 +38,7 @@ export const shadowEffectMobile = "0 1px 10px 0 black"
 //     spread: 1
 // }
 
-export const shadowEffectDesktop = "0 1px 20px 1px black"
+export const shadowEffectDesktop = "0 1px 20px 1px rgba(0, 0, 0, 0.25)"
 
 // use Color Highlight extension
 export const colors = {
