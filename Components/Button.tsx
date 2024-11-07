@@ -1,48 +1,47 @@
 import React, { ReactNode } from "react";
+import { chakra } from "@chakra-ui/react";
+
 interface Props {
   text: string;
-  icon?: ReactNode,
-  padding?: number;
-  px?: number;
-  py?: number;
-  radius?: number;
+  icon?: ReactNode;
+  padding?: number | string;
+  px?: number | string;
+  py?: number | string;
+  rounded?: number | string;
   bgColor?: string;
-  textColor?: string;
-  textSize?: number;
-  textWight?: number | string; 
+  color?: string;
+  fontSize?: number | string;
+  fontWeight?: number | string;
 }
-
 const Button: React.FC<Props> = ({
   text,
   icon,
   padding,
   px,
   py,
-  radius,
+  rounded,
   bgColor,
-  textColor,
-  textSize,
-  textWight,
-}) => {
+  color,
+  fontSize,
+  fontWeight,
+}: Props) => {
   return (
-    <div
-      style={{
-        display: "flex",
-        gap: "10px",
-        alignItems: "center",
-        padding: padding,
-        paddingInline: px,
-        paddingTop:py,
-        paddingBottom: py,
-        borderRadius: radius,
-        background: bgColor,
-        color: textColor,
-        width: 'fit-content',
-      }}
+    <chakra.button
+      padding={padding}
+      px={px}
+      py={py}
+      rounded={rounded}
+      bgColor={bgColor}
+      color={color}
+      fontSize={fontSize}
+      fontWeight={fontWeight}
+      alignItems={"center"}
+      display={"flex"}
+      gap={"10px"}
     >
-      <div style={{fontSize: textSize, fontWeight: textWight}}>{text}</div>
+      {text}
       {icon}
-    </div>
+    </chakra.button>
   );
 };
 
