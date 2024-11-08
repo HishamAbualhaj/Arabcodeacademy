@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Provider } from "../app/Components/ui/Provider"
 import "./globals.css";
+import DiscountBanner from "../app/Components/discountBanner/DiscountBanner"
+
+import Script from "next/script";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,10 +28,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html suppressHydrationWarning>
+        <head>
+        <Script
+          src="https://plausible.io/js/plausible.js"
+          data-domain="chakra-ui.com"
+        />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+      <Provider>
+      <DiscountBanner
+       announcementText="خصومات بنسبة 20% على الكورسات"
+       startDate="2024-11-02T16:59:59"
+       endDate="2024-11-09T23:59:59"
+        />
+       {children}
+       </Provider>
       </body>
     </html>
   );
 }
+
+
