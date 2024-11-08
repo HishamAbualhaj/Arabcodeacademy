@@ -23,9 +23,8 @@ import { cornerRadiusDesktopAndTablet, cornerRadiusMobile, shadowEffectDesktop, 
 export const Promo: 
 React.FC<{ children: React.ReactNode, isNotFullVisible?: boolean, width: Array<string>, height: Array<string> }> = ({ 
   children,
-  isNotFullVisible = false,
-  width,
-  height }) => {
+  isNotFullVisible = false
+ }) => {
   return (
       <Flex          
           textAlign="center" 
@@ -34,8 +33,9 @@ React.FC<{ children: React.ReactNode, isNotFullVisible?: boolean, width: Array<s
           alignItems="center" 
           shadow={[shadowEffectDesktop, shadowEffectTablet, shadowEffectMobile]} 
           bg={isNotFullVisible ? ['rgba(255, 254, 254, 0.9)', 'rgba(255, 254, 254, 0.83)', 'rgba(255, 254, 254, 0.9)'] : 'white'} 
-          width= {width} 
-          height= {height}
+          padding={'20px'}
+          min-width={'40%'}
+          max-width={'60%'}
           borderRadius={[cornerRadiusDesktopAndTablet, cornerRadiusDesktopAndTablet, cornerRadiusMobile]}
       >
           {children}
