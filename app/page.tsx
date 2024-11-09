@@ -6,6 +6,7 @@ import React from "react";
 import "../styles/swiper_home.css";
 import Brief from "@/Components/Brief";
 import QuizzSection from "@/Components/QuizzSection/QuizzSection";
+import { Contact } from "@/Components/Contact";
 // import SwiperCustom from "../Components/SwiperCustom";
 // import Button from "../Components/Button";
 
@@ -25,6 +26,7 @@ export default function Home() {
         isPanigation={true}
         sliderNumber={1}
       /> */}
+      <Contact />
     </>
   );
 }
