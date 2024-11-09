@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+
+.banner {
+background-color: #462576;
+color: white;
+padding: 15px;
+line-height: 30px;
+  font-size: 25px;
+}
+.bannerContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+}
+.announcementText{
+  color: white;
+  font-size: 25px;
+  font-family: 'Tajawal', sans-serif;
+}
+
+@media screen and (max-width: 1920px) and (min-width: 1140px) {
+  .announcementText {
+      font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 1140px) and (min-width: 390px) {
+  .announcementText {
+      font-size: 23px;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .announcementText {
+      font-size: 12px;
+  }
+}
