@@ -13,8 +13,8 @@ export const Contact = () => {
       justifyContent={{ sm: "center", md: "center", xl: "flex-end" }}
     >
       <Flex
-        width={{ base: "90%", md: "100%", xl: "60%" }}
-        height={{ base: "90vh", md: "100vh", xl: "100vh" }}
+        width={{ sm: "90%", md: "100%", xl: "60%" }}
+        height={{ sm: "90vh", md: "100vh", xl: "100vh" }}
         justifyContent={"center"}
         alignItems={"center"}
       >
