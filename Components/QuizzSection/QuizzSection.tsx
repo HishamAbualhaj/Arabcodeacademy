@@ -1,9 +1,11 @@
 import { Box, Grid, GridItem } from "@chakra-ui/react";
-import { Image } from "@chakra-ui/react";
+import Image from "next/image";
+import { Image as ImageChakara } from "@chakra-ui/react";
 import React from "react";
 import QuizzType from "./QuizzType";
-// import { FaItunesNote } from "react-icons/fa";
-
+import test_skill from "@/public/icons/test_skills.png";
+import code from "@/public/icons/code.png";
+// import certificate from "@/public/icons/certificate.png";
 const QuizzSection: React.FC = () => {
   return (
     <>
@@ -36,7 +38,7 @@ const QuizzSection: React.FC = () => {
             alignItems="center"
             justifyContent="center"
           >
-            <Image
+            <ImageChakara
               src="images/people.png"
               alt="Quiz Section Image1"
               width="50%"
@@ -48,7 +50,7 @@ const QuizzSection: React.FC = () => {
               }}
             />
 
-            <Image
+            <ImageChakara
               src="images/people_2.png"
               alt="Quiz Section Image2"
               width="50%"
@@ -75,19 +77,24 @@ const QuizzSection: React.FC = () => {
             <QuizzType
               title="اختبر قدراتك"
               paragraph="تمكنك الأكاديمية العربية للبرمجة من اختبار مهاراتك البرمجية عبر الإنترنت بسهولة ومرونة. من خلال خدمة الامتحان البرمجي الإلكتروني"
-              // icon={FaItunesNote}
+              icon={
+                <Image width={25} height={25} src={test_skill} alt="icon" />
+              }
               displayButton={false}
             />
             <QuizzType
               title="قم بالاختيار"
               paragraph="يمكنك اختيار اللغة البرمجية التي تود اختبار معرفتك بها سواء كانت Python, Java, JavaScript أو أي لغة أخرى من اللغات المتاحة"
-              // icon={FaItunesNote}
+              icon={<Image width={25} height={25} src={code} alt="icon" />}
               displayButton={false}
             />
+            {/* {Couldn't import this section icon from figma } */}
             <QuizzType
               title="اعرف ترتيبك"
               paragraph="قم برفع تقييمك لترتيب قدراتك بين الطلاب المتقدمين للاختبارات، مما سيمكنك من معرفة درجة التميز والرتب بين أقرانك."
-              // icon={FaItunesNote}
+              // icon={
+              //   <Image width={25} height={25} src={certificate} alt="icon" />
+              // }
               displayButton={true}
             />
           </GridItem>

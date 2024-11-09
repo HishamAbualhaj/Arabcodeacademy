@@ -1,33 +1,28 @@
 // ButtonComponent.tsx
-import React, { ReactNode } from 'react';
-import { Button, ButtonProps } from '@chakra-ui/react';
+import React, { ReactNode } from "react";
+import { Button, ButtonProps } from "@chakra-ui/react";
+import { background } from "@/styles/global-info";
 
 interface CustomButtonProps extends ButtonProps {
   text: string;
   icon?: ReactNode;
-  sizeType: 'lg' | 'md' | 'sm';
-  ButtonColor:'green' |'orange'
+  sizeType: "lg" | "md" | "sm";
+  ButtonColor: "green" | "orange";
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({
   text,
-  // icon: Icon,
+  icon: icon,
   sizeType,
   ButtonColor,
   ...rest
 }) => {
-
-  const background = {
-    green: { backgroundColor: '#00BE98' },
-    orange: { backgroundColor: '#FF6542' },
-  };
-
-  const { backgroundColor}=background[ButtonColor];
+  const { backgroundColor } = background[ButtonColor];
   return (
     <Button
-   // width={width}
-    //height={height}
-    size={sizeType}
+      // width={width}
+      //height={height}
+      size={sizeType}
       backgroundColor={backgroundColor}
       color="white"
       borderRadius="5px"
@@ -36,7 +31,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
       boxShadow="0px 1px 10px 0px rgba(0, 0, 0, 0.1)"
       {...rest}
     >
-     {/* {Icon ? <Icon /> : undefined} */}
+      {icon}
       {text}
     </Button>
   );

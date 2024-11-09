@@ -1,18 +1,10 @@
 "use client";
 import React from "react";
 // import DiscountBanner from "../Components/DiscountBanner";
-
-// import hero from "../data/data";
 import "../styles/swiper_home.css";
 import Brief from "@/Components/Brief";
 import QuizzSection from "@/Components/QuizzSection/QuizzSection";
 import { Contact } from "@/Components/Contact";
-// import SwiperCustom from "../Components/SwiperCustom";
-// import Button from "../Components/Button";
-
-// import Chalkboard from "@/public/icons/Chalkboard_Teacher.svg";
-
-// import { Promo } from "@/Components/Promo";
 // import DiscountBanner from "@/Components/DiscountBanner";
 export default function Home() {
   return (
@@ -20,11 +12,6 @@ export default function Home() {
       {/* <DiscountBanner announcementText="خصومات بنسبة 20% على الكورسات" /> */}
       <QuizzSection />
       <Brief />
-      {/* <SwiperCustom
-        swiperslide={[<Slide />, <Slide />]}
-        isPanigation={true}
-        sliderNumber={1}
-      /> */}
       <Contact />
     </>
   );
