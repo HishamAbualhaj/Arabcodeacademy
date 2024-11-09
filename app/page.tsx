@@ -18,7 +18,6 @@ export default function Home() {
     <>
       {/* <DiscountBanner announcementText="خصومات بنسبة 20% على الكورسات" /> */}
       <QuizzSection />
-
       <Brief />
       {/* <SwiperCustom
         swiperslide={[<Slide />, <Slide />]}

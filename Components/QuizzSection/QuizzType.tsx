@@ -47,5 +47,6 @@ const QuizzType: React.FC<Props> = ({ title, paragraph, displayButton }) => { //
   );
 };
 
+
 export default QuizzType;
 
