@@ -10,32 +10,13 @@ export const heading3Desktop = 23;
 export const heading3Mobile = 16;
 export const heading3Tablet = 25;
 
-export const cornerRadiusMobile = 5;
-export const cornerRadiusDesktopAndTablet = 10;
+export const cornerRadiusMobile = "5px";
+export const cornerRadiusDesktopAndTablet = "10px";
 
-// export const shadowEffectTablet = {
-//     x: 0,
-//     blur: 20,
-//     y: 1,
-//     spread: 2
-// }
 export const shadowEffectTablet = "0 1px 20px 2px rgba(0, 0, 0, 0.25)";
-
-// export const shadowEffectMobile = {
-//     x: 0,
-//     blur: 10,
-//     y: 1,
-//     spread: 0
-// }
 
 export const shadowEffectMobile = "0 1px 10px 0 rgba(0, 0, 0, 0.25)";
 
-// export const shadowEffectDesktop = {
-//     x: 0,
-//     blur: 20,
-//     y: 1,
-//     spread: 1
-// }
 
 export const shadowEffectDesktop = "0 1px 20px 1px rgba(0, 0, 0, 0.25)";
 

@@ -1,4 +1,4 @@
-import { Flex } from "@chakra-ui/react";
+import { Flex, FlexProps } from "@chakra-ui/react";
 import {
   cornerRadiusDesktopAndTablet,
   cornerRadiusMobile,
@@ -7,12 +7,11 @@ import {
   shadowEffectTablet,
 } from "@/styles/global-info.js";
 
-export const Promo: React.FC<{
+interface PromoProps extends FlexProps {
   children: React.ReactNode;
   isNotFullVisible?: boolean;
-  px: Array<number | string>;
-  py: Array<number | string>;
-}> = ({ children, isNotFullVisible = false, px, py }) => {
+}
+export const Promo: React.FC<PromoProps> = ({ children, isNotFullVisible = false, ...obj }) => {
   return (
     <Flex
       textAlign="center"
@@ -29,13 +28,13 @@ export const Promo: React.FC<{
             ]
           : "white"
       }
-      px={px}
-      py={py}
       borderRadius={[
-        cornerRadiusDesktopAndTablet,
-        cornerRadiusDesktopAndTablet,
         cornerRadiusMobile,
+        cornerRadiusDesktopAndTablet,
+        cornerRadiusDesktopAndTablet,
+        
       ]}
+      {...obj}
     >
       {children}
     </Flex>

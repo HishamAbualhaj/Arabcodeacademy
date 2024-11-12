@@ -1,18 +1,34 @@
 "use client";
 import React from "react";
+import  "@/styles/globals.css"
 // import DiscountBanner from "../Components/DiscountBanner";
 import "../styles/swiper_home.css";
-import Brief from "@/Components/Brief";
-import QuizzSection from "@/Components/QuizzSection/QuizzSection";
-import { Contact } from "@/Components/Contact";
+// import Brief from "@/Components/Brief";
+// import QuizzSection from "@/Components/QuizzSection/QuizzSection";
+// import { Contact } from "@/Components/Contact";
+import CourseCard from "@/Components/CourseCard";
+import { Flex } from "@chakra-ui/react";
 // import DiscountBanner from "@/Components/DiscountBanner";
 export default function Home() {
   return (
     <>
       {/* <DiscountBanner announcementText="خصومات بنسبة 20% على الكورسات" /> */}
-      <QuizzSection />
+      {/* <QuizzSection />
       <Brief />
-      <Contact />
+      <Contact /> */}
+      <Flex justifyContent={'center'} alignItems={'center'} height={'100vh'}>
+        <CourseCard
+          courseName="اسم الكورس"
+          price={100}
+          trainer="اسم المدرب"
+          numberOfHours={30}
+          numberOfMinutes={54}
+          numberOfVedios={90}
+          icon={'/images/html.png'}
+          soon
+
+        />
+      </Flex>
     </>
   );
 }
