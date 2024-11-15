@@ -1,5 +1,12 @@
-.mySwiper {
-  background-color: white;
+.swiper-section-1 .custom-next,
+.swiper-section-2 .custom-next {
+  top: 250px;
+  right: -100px !important;
+}
+.swiper-section-1 .custom-prev,
+.swiper-section-2 .custom-prev {
+  top: 250px;
+  left: -100px !important;
 }
 .swiper-button-next::after,
 .swiper-button-prev::after {
@@ -7,18 +14,17 @@
 }
 .custom-next {
   display: block !important;
-  right: 100px !important;
+}
+.custom-prev {
+  display: block !important;
+  transform: scaleX(-1);
 }
 .custom-next svg,
 .custom-prev svg {
   width: auto !important;
   height: auto !important;
 }
-.custom-prev {
-  display: block !important;
-  transform: scaleX(-1);
-  left: 200px !important;
-}
+
 .swiper-pagination {
   bottom: 40px !important;
 }
@@ -39,11 +45,13 @@
   }
 }
 
-@media (min-width: 992px) {
-  .custom-next {
-    right: 100px !important;
+@media (max-width: 1400px) {
+  .swiper-section-1 .custom-next,
+  .swiper-section-2 .custom-next {
+    right: 0px !important;
   }
-  .custom-prev {
-    left: 100px !important;
+  .swiper-section-1 .custom-prev,
+  .swiper-section-2 .custom-prev {
+    left: 0px !important;
   }
 }

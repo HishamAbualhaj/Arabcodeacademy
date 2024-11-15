@@ -9,28 +9,30 @@ import LandingPage from "@/styles/landing.module.css";
 export const CourseSection = () => {
   return (
     <>
-      <Box marginX={"auto"} maxW={"1550px"}>
+      <Box position="relative" marginX="auto" maxW="1550px">
         <Flex
           flexDirection={{ base: "column-reverse", "2xl": "row" }}
           justifyContent={{ base: "space-between" }}
           alignItems={{ base: "center", xl: "flex-start", "2xl": "flex-end" }}
-          height={{ base: "180px", xl: "252px", "2xl": "193px" }}
+          
         >
           <Box
-        
             borderBottomColor={colors.color1}
-            borderBottomWidth={"2px"}
-            textAlign={"center"}
+            borderBottomWidth="2px"
+            textAlign="center"
             fontWeight={700}
-            fontSize={"23px"}
+            fontSize="23px"
             color={colors.color1}
           >
             الدورات التدريبه
           </Box>
           <SearchBar />
         </Flex>
-        <Box marginTop={"40px"}>
+        <Box marginTop="40px">
           <SwiperCustom
+          swiperClass="swiper-section-1"
+            nextBtn="swiper-next-1"
+            prevBtn="swiper-prev-1"
             swiperslide={courses.map((course) => {
               return (
                 <SwiperSlide key={course.id}>
@@ -52,24 +54,24 @@ export const CourseSection = () => {
         </Box>
       </Box>
 
-      <Box marginTop={"40px"} marginX={"auto"} maxW={"1550px"}>
-        <Flex
-          justifyContent={"flex-start"}
-          alignItems={"flex-end"}
-        >
+      <Box position="relative" marginTop="40px" marginX="auto" maxW="1550px">
+        <Flex justifyContent="flex-start" alignItems="flex-end">
           <Box
             borderBottomColor={colors.color1}
-            borderBottomWidth={"2px"}
-            textAlign={"center"}
+            borderBottomWidth="2px"
+            textAlign="center"
             fontWeight={700}
-            fontSize={"23px"}
+            fontSize="23px"
             color={colors.color1}
           >
             قريباً
           </Box>
         </Flex>
-        <Box marginTop={"40px"}>
+        <Box marginTop="40px">
           <SwiperCustom
+          swiperClass="swiper-section-2"
+            nextBtn="swiper-next-2"
+            prevBtn="swiper-prev-2"
             swiperslide={courses.map((course) => {
               return (
                 <SwiperSlide key={course.id}>

@@ -17,18 +17,6 @@ export default function Home() {
       {/* <QuizzSection />
       <Brief />
       <Contact /> */}
-      <Flex justifyContent={'center'} alignItems={'center'} height={'100vh'}>
-        <CourseCard
-          courseName="اسم الكورس"
-          price={100}
-          trainer="اسم المدرب"
-          numberOfHours={30}
-          numberOfMinutes={54}
-          numberOfVedios={90}
-          icon={'/images/html.png'}
-          soon
-        />
-      </Flex>
       <CourseSection></CourseSection>
     </>
   );
