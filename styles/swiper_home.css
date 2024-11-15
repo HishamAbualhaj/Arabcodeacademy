@@ -1,10 +1,31 @@
+.mySwiper{
+  
+  background-color: white;
+  /* width:calc(1920px - 450px); */
+  height: 600px;
+}
+
+.swiper-wrapper{
+  width: 100% !important;
+  flex-direction: row !important;
+  /* justify-content: center !important; */
+  align-items: center !important;
+
+}
+.swiper-slide{
+  width: 350px !important;
+  height: 509px !important;
+  margin-left: 11px !important;
+  margin-right: 8px !important;
+
+}
 .swiper-button-next::after,
 .swiper-button-prev::after {
   content: "" !important;
 }
 .custom-next {
   display: block !important;
-  right: 50px !important;
+  right: 100px !important;
 }
 .custom-next svg,
 .custom-prev svg {
@@ -14,7 +35,7 @@
 .custom-prev {
   display: block !important;
   transform: scaleX(-1);
-  left: 50px !important;
+  left: 200px !important;
 }
 .swiper-pagination {
   bottom: 40px !important;

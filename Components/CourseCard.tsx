@@ -1,8 +1,9 @@
 import { Box, Flex, Text, Image } from "@chakra-ui/react";
-import { colors, heading2Desktop } from "@/styles/global-info";
+import { colors } from "@/styles/global-info";
 import { Promo } from "./Promo";
 import CustomButton from "./CustomButton";
 import Cart from "@/public/icons/svgCart.svg";
+import ReadMore from "@/public/icons/readMore.svg";
 import Soon from "./soon.svg"
 interface PromoProps {
   courseName: string;
@@ -27,7 +28,7 @@ const CourseCard: React.FC<PromoProps> = ({
 
   console.log(icon);
   return (
-    <Promo width={"350px"} height={"509px"} fontFamily={"Tajawal"} position={'relative'}>
+    <Promo width={{xl: "372px", '2xl': "350px"}} height={{xl: "526px", '2xl':"509px"}} fontFamily={"Tajawal"} position={'relative'}>
       {soon && <Box position="absolute" top='-5px' left='-5px' >
         <Soon width="157.5px" height="154.78px" />
       </Box>}
@@ -63,17 +64,16 @@ const CourseCard: React.FC<PromoProps> = ({
             css={{
               "& span": {
                 color: colors.color1,
-                fontSize: heading2Desktop,
                 fontWeight: 700,
                 bottom: "10px",
               },
             }}
           >
-            <Text as="span">{courseName}</Text>
-            <Text as="span">${price}</Text>
+            <Text as="span" fontSize={{xl: "25px", "2xl": "23px"}}>{courseName}</Text>
+            <Text as="span" fontSize={{xl: "25px", "2xl": "23px"}}>${price}</Text>
           </Flex>
           <Box pt={"10px"}>{trainer}</Box>
-          <Box>
+          <Box fontSize={{xl: "20px", "2xl": "18px"}}>
             {numberOfVedios}فيديو.
             {numberOfHours}ساعة و{numberOfMinutes}دقيقه
           </Box>
@@ -83,7 +83,7 @@ const CourseCard: React.FC<PromoProps> = ({
             text="أقرا المزيد"
             sizeType="lg"
             ButtonColor="green"
-            icon={<Cart width="25px" height="25px" />}
+            icon={<ReadMore width="25px" height="25px" />}
           ></CustomButton>
           <CustomButton
             text="أقرا المزيد"

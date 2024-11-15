@@ -1,27 +1,28 @@
 import "../styles/swiper_home.css";
 import React, { ReactNode } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Arrow from "@/public/icons/swiper-arrow.svg";
 import { Navigation, Pagination } from "swiper/modules";
+import { Box } from "@chakra-ui/react";
 interface SwiperData {
   swiperslide: Array<ReactNode>;
-  isPanigation: boolean;
+  isPagination: boolean;
   sliderNumber: number;
 }
-function SwiperCustom({ swiperslide, isPanigation , sliderNumber}: SwiperData) {
+function SwiperCustom({ swiperslide, isPagination , sliderNumber}: SwiperData) {
   return (
-    <div>
-      <div className="swiper-button-next custom-next">
+    <Box position={'relative'}>
+      <div className="swiper-button-next custom-next" style={{position:'absolute'}}>
         <Arrow width="50" height="50" />
       </div>
       <div className="swiper-button-prev custom-prev">
         <Arrow width="50" height="50" />
       </div>
       <Swiper
-        pagination={isPanigation}
+        pagination={isPagination}
         modules={[Navigation, Pagination]}
         className="mySwiper"
         navigation={{
@@ -30,12 +31,11 @@ function SwiperCustom({ swiperslide, isPanigation , sliderNumber}: SwiperData) {
         }}
         spaceBetween={50}
         slidesPerView={sliderNumber}
+      
       >
-        {swiperslide.map((slide) => (
-          <SwiperSlide>{slide}</SwiperSlide>
-        ))}
+        {swiperslide}
       </Swiper>
-    </div>
+    </Box>
   );
 }
 export default SwiperCustom;
