@@ -8,6 +8,7 @@ import "../styles/swiper_home.css";
 // import { Contact } from "@/Components/Contact";
 import CourseCard from "@/Components/CourseCard";
 import { Flex } from "@chakra-ui/react";
+import CourseSection from "@/Components/CourseSection";
 // import DiscountBanner from "@/Components/DiscountBanner";
 export default function Home() {
   return (
@@ -26,9 +27,9 @@ export default function Home() {
           numberOfVedios={90}
           icon={'/images/html.png'}
           soon
-
         />
       </Flex>
+      <CourseSection></CourseSection>
     </>
   );
 }
