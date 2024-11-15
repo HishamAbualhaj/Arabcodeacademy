@@ -41,10 +41,10 @@ export const shadowEffectDesktop = "0 1px 20px 1px rgba(0, 0, 0, 0.25)";
 
 // use Color Highlight extension
 export const colors = {
-  color1: "#783BA2",
-  color2: "#462576",
-  color3: "#00BE98",
-  color4: "#FF6542",
+  mainColor: "#783BA2",
+  secondaryColor: "#462576",
+  green: "#00BE98",
+  orange: "#FF6542",
   color5: "#EADAC1",
 };
 

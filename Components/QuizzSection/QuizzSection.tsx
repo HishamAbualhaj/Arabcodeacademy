@@ -11,7 +11,7 @@ const QuizzSection: React.FC = () => {
     <>
       <Box
         width="100%"
-        aspectRatio={1960 / 740}
+        aspectRatio={1920 / 740}
         bgGradient="to-r"
         gradientFrom="#462576"
         gradientTo="#783BA2"

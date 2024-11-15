@@ -5,14 +5,19 @@ import "../styles/swiper_home.css";
 import Brief from "@/Components/Brief";
 import QuizzSection from "@/Components/QuizzSection/QuizzSection";
 import { Contact } from "@/Components/Contact";
+import ResourcesSection from "@/Components/ResourcesSection";
+
+
 // import DiscountBanner from "@/Components/DiscountBanner";
 export default function Home() {
   return (
     <>
-      {/* <DiscountBanner announcementText="خصومات بنسبة 20% على الكورسات" /> */}
+     <QuizzSection />
+    <ResourcesSection/>
       <QuizzSection />
       <Brief />
       <Contact />
+     
     </>
   );
 }
