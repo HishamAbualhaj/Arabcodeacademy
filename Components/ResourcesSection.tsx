@@ -1,10 +1,10 @@
 import React from "react";
-import CoursesCard from '@/Components/ResourcesCard';
+import CoursesCard from "@/Components/ResourcesCard";
 import Image from "next/image";
 import { Container } from "@chakra-ui/react";
 import SwiperCustom from "./SwiperCustom";
 import { SwiperSlide } from "swiper/react";
-
+import Arrow_slider from "@/public/icons/swiper-arrow-2.svg";
 const dataCard = [
   { id: 1, name: "دروس وانماط الميدجورني", imgPath: "/icons/book.png" },
   { id: 2, name: "بنك الأسئلة التقنية", imgPath: "/icons/list.png" },
@@ -22,29 +22,43 @@ const ResourcesSection: React.FC = () => {
       display="flex"
       justifyContent="center"
       alignItems="center"
-    
     >
-        <Container
+      <Container
         width={{ base: "204px", lg: "900px", md: "520px", sm: "204px" }}
         height={{ base: "297px", lg: "450px", md: "433px", sm: "297px" }}
         shadow="0px 1px 20px 3px rgba(0, 0, 0, 0.2)"
         borderRadius="10px"
       >
-     
-        <SwiperCustom isPanigation={false} sliderNumber={3}   >
-   
-          {dataCard.map((item) => (
+        <SwiperCustom
+          swiperClass="swiper-section-3"
+          nextBtn="swiper-next-3"
+          prevBtn="swiper-prev-3"
+          breakpoint={{
+            320: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+          isPagination={false}
+          sliderNumber={3}
+          arrow={<Arrow_slider />}
+          swiperslide={dataCard.map((item) => (
             <SwiperSlide key={item.id}>
               <CoursesCard
-                img={<Image src={item.imgPath} alt={item.name} width={65} height={65} />}
+                img={
+                  <Image
+                    src={item.imgPath}
+                    alt={item.name}
+                    width={65}
+                    height={65}
+                  />
+                }
                 courseName={item.name}
               />
             </SwiperSlide>
           ))}
-        
-        </SwiperCustom>
-        </Container>
-     </Container>
+        />
+      </Container>
+    </Container>
   );
 };
 

@@ -3,9 +3,9 @@ import SwiperCustom from "@/Components/SwiperCustom";
 import { Box, Flex } from "@chakra-ui/react";
 import SearchBar from "./SearchBar";
 import { colors } from "@/styles/global-info";
-import { courses } from "@/data/data";
+import { courses } from "@/styles/global-info";
 import CourseCard from "./CourseCard";
-
+import Arrow_slider from "@/public/icons/swiper-arrow-2.svg";
 export const CourseSection = () => {
   return (
     <>
@@ -20,12 +20,12 @@ export const CourseSection = () => {
           pb={{ "2xl": "10px" }}
         >
           <Box
-            borderBottomColor={colors.color1}
+            borderBottomColor={colors.mainColor}
             borderBottomWidth="2px"
             textAlign="center"
             fontWeight={700}
             fontSize="23px"
-            color={colors.color1}
+            color={colors.mainColor}
           >
             الدورات التدريبه
           </Box>
@@ -36,6 +36,19 @@ export const CourseSection = () => {
             swiperClass="swiper-section-1"
             nextBtn="swiper-next-1"
             prevBtn="swiper-prev-1"
+            isPagination={false}
+            breakpoint={{
+              0: { slidesPerView: 1 },
+
+              1280: {
+                slidesPerView: 2,
+                spaceBetween: 40,
+              },
+              1700: {
+                slidesPerView: 4,
+                spaceBetween: 40,
+              },
+            }}
             swiperslide={courses.map((course) => {
               return (
                 <SwiperSlide key={course.id}>
@@ -51,8 +64,8 @@ export const CourseSection = () => {
                 </SwiperSlide>
               );
             })}
-            isPagination={false}
             sliderNumber={4}
+            arrow={<Arrow_slider />}
           />
         </Box>
       </Box>
@@ -60,12 +73,12 @@ export const CourseSection = () => {
       <Box position="relative" marginTop="40px" marginX="auto" maxW="1550px">
         <Flex justifyContent="flex-start" alignItems="flex-end">
           <Box
-            borderBottomColor={colors.color1}
+            borderBottomColor={colors.mainColor}
             borderBottomWidth="2px"
             textAlign="center"
             fontWeight={700}
             fontSize="23px"
-            color={colors.color1}
+            color={colors.mainColor}
           >
             قريباً
           </Box>
@@ -75,6 +88,19 @@ export const CourseSection = () => {
             swiperClass="swiper-section-2"
             nextBtn="swiper-next-2"
             prevBtn="swiper-prev-2"
+            isPagination={false}
+            breakpoint={{
+              0: { slidesPerView: 1 },
+
+              1280: {
+                slidesPerView: 2,
+                spaceBetween: 40,
+              },
+              1700: {
+                slidesPerView: 4,
+                spaceBetween: 40,
+              },
+            }}
             swiperslide={courses.map((course) => {
               return (
                 <SwiperSlide key={course.id}>
@@ -91,8 +117,8 @@ export const CourseSection = () => {
                 </SwiperSlide>
               );
             })}
-            isPagination={false}
             sliderNumber={4}
+            arrow={<Arrow_slider />}
           />
         </Box>
       </Box>

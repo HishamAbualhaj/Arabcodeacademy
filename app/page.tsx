@@ -7,13 +7,14 @@ import Brief from "@/Components/Brief";
 import QuizzSection from "@/Components/QuizzSection/QuizzSection";
 import { Contact } from "@/Components/Contact";
 import CourseSection from "@/Components/CourseSection";
+import ResourcesSection from "@/Components/ResourcesSection";
 export default function Home() {
   return (
     <>
       <QuizzSection />
       <Brief />
       <Contact />
-
+      <ResourcesSection />
       <CourseSection />
     </>
   );
