@@ -1,14 +1,10 @@
-.swiper-wrapper{
-
+.swiper-wrapper {
+  padding-bottom: 20px;
 }
-.swiper-section-1 .custom-next,
-.swiper-section-2 .custom-next {
-  top: 250px;
+.custom-next {
   right: -100px !important;
 }
-.swiper-section-1 .custom-prev,
-.swiper-section-2 .custom-prev {
-  top: 250px;
+.custom-prev {
   left: -100px !important;
 }
 .swiper-button-next::after,
@@ -20,7 +16,11 @@
 }
 .custom-prev {
   display: block !important;
-  transform: scaleX(-1);
+  transform: scaleX(-1) translateY(-50%) !important;
+}
+.custom-next {
+  top: 50% !important;
+  transform: translateY(-50%);
 }
 .custom-next svg,
 .custom-prev svg {
@@ -49,12 +49,10 @@
 }
 
 @media (max-width: 1400px) {
-  .swiper-section-1 .custom-next,
-  .swiper-section-2 .custom-next {
+  .custom-next {
     right: 0px !important;
   }
-  .swiper-section-1 .custom-prev,
-  .swiper-section-2 .custom-prev {
+  .custom-prev {
     left: 0px !important;
   }
 }
