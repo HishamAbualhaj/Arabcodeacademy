@@ -41,24 +41,18 @@ function SwiperCustom({
           prevEl: `.${prevBtn}`,
         }}
         breakpoints={{
-          350: { slidesPerView: 1 },
-          768: {
-            slidesPerView: 1,
-            spaceBetween: 20,
-          },
-          992: {
+          0: { slidesPerView: 1 },
+          
+          1280: {
             slidesPerView: 2,
-            spaceBetween: 30,
-          },
-          1200: {
-            slidesPerView: 3,
             spaceBetween: 40,
           },
-          1400: {
+          1700: {
             slidesPerView: 4,
             spaceBetween: 40,
           },
         }}
+        
         spaceBetween={50}
         slidesPerView={sliderNumber}
       >

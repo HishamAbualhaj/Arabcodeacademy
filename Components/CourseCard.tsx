@@ -28,7 +28,7 @@ const CourseCard: React.FC<PromoProps> = ({
 
   console.log(icon);
   return (
-    <Promo width={{xl: "372px", '2xl': "350px"}} height={{xl: "526px", '2xl':"509px"}} fontFamily={"Tajawal"} position={'relative'}>
+    <Promo width={{base: "260px", xl: "372px", '2xl': "350px"}} height={{base: "378px", xl: "526px", '2xl':"509px"}} fontFamily={"Tajawal"} position={'relative'}>
       {soon && <Box position="absolute" top='-5px' left='-5px' >
         <Soon width="157.5px" height="154.78px" />
       </Box>}
@@ -56,7 +56,7 @@ const CourseCard: React.FC<PromoProps> = ({
         color={colors.color1}
         borderBottomRadius={"inherit"}
       >
-        <Box>
+        <Flex flexDirection={{base: "column"}} >
           <Flex
             justifyContent={"space-between"}
             mt={"-4px"}
@@ -66,28 +66,27 @@ const CourseCard: React.FC<PromoProps> = ({
                 color: colors.color1,
                 fontWeight: 700,
                 bottom: "10px",
+                
               },
             }}
           >
-            <Text as="span" fontSize={{xl: "25px", "2xl": "23px"}}>{courseName}</Text>
-            <Text as="span" fontSize={{xl: "25px", "2xl": "23px"}}>${price}</Text>
+            <Text  as="span" fontSize={{base:"16px", xl: "25px", "2xl": "23px"}}>{courseName}</Text>
+            <Text as="span" fontSize={{base:"16px", xl: "25px", "2xl": "23px"}}>${price}</Text>
           </Flex>
-          <Box pt={"10px"}>{trainer}</Box>
+          <Box pt={"10px"} textAlign={{base: "center", xl:"right"}}>{trainer}</Box>
           <Box fontSize={{xl: "20px", "2xl": "18px"}}>
             {numberOfVedios}فيديو.
             {numberOfHours}ساعة و{numberOfMinutes}دقيقه
           </Box>
-        </Box>
+        </Flex>
         <Flex mt={"23px"} justifyContent={"space-between"}>
           <CustomButton
             text="أقرا المزيد"
-            sizeType="lg"
             ButtonColor="green"
             icon={<ReadMore width="25px" height="25px" />}
           ></CustomButton>
           <CustomButton
             text="أقرا المزيد"
-            sizeType="lg"
             ButtonColor="orange"
             icon={<Cart width="25px" height="25px" />}
           ></CustomButton>

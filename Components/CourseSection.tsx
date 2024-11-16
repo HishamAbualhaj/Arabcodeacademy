@@ -5,7 +5,7 @@ import SearchBar from "./SearchBar";
 import { colors } from "@/styles/global-info";
 import { courses } from "@/data/data";
 import CourseCard from "./CourseCard";
-import LandingPage from "@/styles/landing.module.css";
+
 export const CourseSection = () => {
   return (
     <>
@@ -14,7 +14,10 @@ export const CourseSection = () => {
           flexDirection={{ base: "column-reverse", "2xl": "row" }}
           justifyContent={{ base: "space-between" }}
           alignItems={{ base: "center", xl: "flex-start", "2xl": "flex-end" }}
-          
+          height={{ base: "180px", xl: "252px", "2xl": "193px" }}
+          px={{ base: "45px", xl: "245px" }}
+          pt={{ base: "60px", xl: "117px", "2xl": "63px" }}
+          pb={{ "2xl": "10px" }}
         >
           <Box
             borderBottomColor={colors.color1}
@@ -30,7 +33,7 @@ export const CourseSection = () => {
         </Flex>
         <Box marginTop="40px">
           <SwiperCustom
-          swiperClass="swiper-section-1"
+            swiperClass="swiper-section-1"
             nextBtn="swiper-next-1"
             prevBtn="swiper-prev-1"
             swiperslide={courses.map((course) => {
@@ -69,7 +72,7 @@ export const CourseSection = () => {
         </Flex>
         <Box marginTop="40px">
           <SwiperCustom
-          swiperClass="swiper-section-2"
+            swiperClass="swiper-section-2"
             nextBtn="swiper-next-2"
             prevBtn="swiper-prev-2"
             swiperslide={courses.map((course) => {

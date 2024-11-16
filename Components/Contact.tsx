@@ -57,7 +57,6 @@ export const Contact = () => {
             color="white"
             fontSize={17}
             fontWeight={900}
-            sizeType="lg"
               icon={<Chalkboard width="30" height="24" />}
           />
         </Promo>

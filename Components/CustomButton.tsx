@@ -1,4 +1,3 @@
-// ButtonComponent.tsx
 import React, { ReactNode } from "react";
 import { Button, ButtonProps } from "@chakra-ui/react";
 import { background } from "@/styles/global-info";
@@ -6,23 +5,20 @@ import { background } from "@/styles/global-info";
 interface CustomButtonProps extends ButtonProps {
   text: string;
   icon?: ReactNode;
-  sizeType: "lg" | "md" | "sm";
   ButtonColor: "green" | "orange";
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({
   text,
   icon: icon,
-  sizeType,
   ButtonColor,
   ...rest
 }) => {
   const { backgroundColor } = background[ButtonColor];
   return (
     <Button
-      // width={width}
-      //height={height}
-      size={sizeType}
+     
+      size={{sm:"xs", md:"xs", "2xl":"lg"}}
       backgroundColor={backgroundColor}
       color="white"
       borderRadius="5px"
