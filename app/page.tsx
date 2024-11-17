@@ -1,26 +1,23 @@
 "use client";
 import React from "react";
 import "@/styles/globals.css";
-// import DiscountBanner from "../Components/DiscountBanner";
 import "../styles/swiper_home.css";
 import Brief from "@/Components/Brief";
 import QuizzSection from "@/Components/QuizzSection/QuizzSection";
 import { Contact } from "@/Components/Contact";
 import CourseSection from "@/Components/CourseSection";
 import ResourcesSection from "@/Components/ResourcesSection";
-import ResourcesCard from "@/Components/ResourcesCard";
+import ReviewCard from "@/Components/ReviewSection/ReviewCard";
+import ReviewSection from "@/Components/ReviewSection/ReviewSection";
 export default function Home() {
   return (
     <>
-      {/* <QuizzSection /> */}
-      {/* <Brief /> */}
-      {/* <Contact /> */}
-      <ResourcesSection />
-      <CourseSection />
-      {/* <ResourcesCard 
-        courseName="بنك الأسئلة التقنية"
-        img="/icons/ai.png"
-      /> */}
+      {/* <ResourcesSection />
+      <QuizzSection />
+      <Brief />
+      <Contact />
+      <CourseSection /> */}
+      <ReviewSection />
     </>
   );
 }

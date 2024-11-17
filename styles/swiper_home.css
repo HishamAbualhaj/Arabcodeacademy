@@ -24,8 +24,8 @@
 }
 .custom-next svg,
 .custom-prev svg {
-  width: auto !important;
-  height: auto !important;
+  width: 40px !important;
+  height: 40px !important;
 }
 
 .swiper-pagination {
@@ -48,7 +48,17 @@
   }
 }
 
+
 @media (max-width: 1400px) {
+  .custom-next {
+    right: 0px !important;
+  }
+  .custom-prev {
+    left: 0px !important;
+  }
+}
+
+@media (min-width: 1400px) {
   .custom-next {
     right: 0px !important;
   }
