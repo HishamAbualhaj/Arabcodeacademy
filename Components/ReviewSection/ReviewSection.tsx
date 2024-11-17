@@ -1,12 +1,10 @@
 "use client";
-import { Box } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import SwiperCustom from "../SwiperCustom";
 import { reviewCards } from "@/styles/global-info";
 import { SwiperSlide } from "swiper/react";
 import ReviewCard from "./ReviewCard";
 import Arrow_slider from "@/public/icons/swiper-arrow-2.svg";
-import { Flex } from "antd";
-import swiper from "@/styles/swiper.module.css";
 const ReviewSection = ({}) => {
   return (
     <Flex justify="center">
