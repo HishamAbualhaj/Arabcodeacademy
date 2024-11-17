@@ -1,7 +1,7 @@
 import React from "react";
 import CoursesCard from "@/Components/ResourcesCard";
 import Image from "next/image";
-import { Container } from "@chakra-ui/react";
+import { Container, Flex } from "@chakra-ui/react";
 import SwiperCustom from "./SwiperCustom";
 import { SwiperSlide } from "swiper/react";
 import Arrow_slider from "@/public/icons/swiper-arrow-2.svg";
@@ -16,51 +16,54 @@ const dataCard = [
 
 const ResourcesSection: React.FC = () => {
   return (
-    <Container
-      bgColor='white'
-      width="100%"
-      height={{ base: "220px", lg: "350px", md: "333px", sm: "220px" }}
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-    >
+    <Flex justify="center">
       <Container
-        width={{ base: "204px", lg: "900px", md: "520px", sm: "204px" }}
-        height={{ base: "297px", lg: "450px", md: "433px", sm: "297px" }}
-        shadow="0px 1px 20px 3px rgba(0, 0, 0, 0.2)"
-        borderRadius="10px"
         bgColor='white'
+        maxW="1400px"
+        width="100%"
+        height={{ base: "220px", lg: "350px", md: "333px", sm: "220px" }}
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
       >
-        <SwiperCustom
-          swiperClass="swiper-section-3"
-          nextBtn="swiper-next-3"
-          prevBtn="swiper-prev-3"
-          breakpoint={{
-            320: { slidesPerView: 1 },
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-          }}
-          isPagination={false}
-          sliderNumber={3}
-          arrow={<Arrow_slider />}
-          swiperslide={dataCard.map((item) => (
-            <SwiperSlide key={item.id}>
-              <CoursesCard
-                img={
-                  <Image
-                    src={item.imgPath}
-                    alt={item.name}
-                    width={65}
-                    height={65}
-                  />
-                }
-                courseName={item.name}
-              />
-            </SwiperSlide>
-          ))}
-        />
+        <Container
+          width={{ base: "204px", lg: "900px", md: "520px", sm: "204px" }}
+          height={{ base: "297px", lg: "450px", md: "433px", sm: "297px" }}
+          shadow="0px 1px 20px 3px rgba(0, 0, 0, 0.2)"
+          borderRadius="10px"
+          bgColor='white'
+        >
+          <SwiperCustom
+            swiperClass="swiper-section-3"
+            nextBtn="swiper-next-3"
+            prevBtn="swiper-prev-3"
+            breakpoint={{
+              320: { slidesPerView: 1 },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+            isPagination={false}
+            sliderNumber={3}
+            arrow={<Arrow_slider />}
+            swiperslide={dataCard.map((item) => (
+              <SwiperSlide key={item.id}>
+                <CoursesCard
+                  img={
+                    <Image
+                      src={item.imgPath}
+                      alt={item.name}
+                      width={65}
+                      height={65}
+                    />
+                  }
+                  courseName={item.name}
+                />
+              </SwiperSlide>
+            ))}
+          />
+        </Container>
       </Container>
-    </Container>
+    </Flex>
   );
 };
 
