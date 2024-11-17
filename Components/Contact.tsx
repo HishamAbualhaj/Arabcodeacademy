@@ -50,14 +50,13 @@ export const Contact = () => {
           <CustomButton
             marginTop={"50px"}
             text="تواصل معنا"
-            px={"51px"}
-            py={"20px"}
+            sizeType="secondary"
             ButtonColor="green"
             rounded={10}
             color="white"
             fontSize={17}
             fontWeight={900}
-              icon={<Chalkboard width="30" height="24" />}
+            icon={<Chalkboard width="30" height="24" />}
           />
         </Promo>
       </Flex>
