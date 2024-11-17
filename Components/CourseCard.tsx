@@ -44,7 +44,7 @@ const CourseCard: React.FC<PromoProps> = ({
       <Flex
         width="100%"
         height={{ base: "232px", xl: "280px", "2xl": "286px" }}
-        bg={colors.color4}
+        bg={colors.orange}
         borderTopRadius={"inherit"}
         justifyContent={"center"}
         alignItems={"center"}
@@ -68,7 +68,7 @@ const CourseCard: React.FC<PromoProps> = ({
         pl={{ base: "24px", xl: "17px", "2xl": "28.25px" }}
         pr={{ base: "28px", xl: "24px", "2xl": "28.25px" }}
         textAlign={"right"}
-        color={colors.color1}
+        color={colors.mainColor}
         borderBottomRadius={"inherit"}
       >
         <Flex flexDirection={{ base: "column" }}>
@@ -76,7 +76,7 @@ const CourseCard: React.FC<PromoProps> = ({
             justifyContent={"space-between"}
             css={{
               "& span": {
-                color: colors.color1,
+                color: colors.mainColor,
                 fontWeight: 700,
                 bottom: "10px",
               },
