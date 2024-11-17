@@ -48,6 +48,7 @@ export default function Brief() {
               </Promo>
               <div style={{ marginTop: "40px" }}>
                 <CustomButton
+                  sizeType="primary"
                   text="المسارات التعليمية"
                   px={"51px"}
                   py={"20px"}

@@ -54,6 +54,7 @@ const QuizzType: React.FC<Props> = ({
       </Text>
       {displayButton && (
         <CustomButton
+        sizeType="secondary"
           text="  قسم الامتحانات "
           icon={<Image width={25} height={25} src={Exams} alt="icon" />}
           ButtonColor="orange"
