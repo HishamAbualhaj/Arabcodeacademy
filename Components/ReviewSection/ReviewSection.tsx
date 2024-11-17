@@ -7,7 +7,7 @@ import Arrow_slider from "@/public/icons/swiper-arrow-2.svg";
 
 const ReviewSection = ({}) => {
   return (
-    <Box width={"100%"} height={{ base: "438px", xl: "639px", "2xl": "622px" }}>
+    <Box width={"100%"} height={{ base: "438px", xl: "639px", "2xl": "622px" }} py= {{base: "90px", xl: "151px", "2xl": "111px"}}>
       <Box marginTop="40px">
         <SwiperCustom
           swiperClass="swiper-section-4"
