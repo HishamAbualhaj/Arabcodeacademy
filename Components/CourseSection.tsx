@@ -6,6 +6,7 @@ import { colors } from "@/styles/global-info";
 import { courses } from "@/styles/global-info";
 import CourseCard from "./CourseCard";
 import Arrow_slider from "@/public/icons/swiper-arrow-2.svg";
+
 export const CourseSection = () => {
   return (
     <>
@@ -44,7 +45,7 @@ export const CourseSection = () => {
                 slidesPerView: 2,
                 spaceBetween: 40,
               },
-              1700: {
+              1536: {
                 slidesPerView: 4,
                 spaceBetween: 40,
               },
@@ -71,7 +72,7 @@ export const CourseSection = () => {
       </Box>
 
       <Box position="relative" marginTop="40px" marginX="auto" maxW="1550px">
-        <Flex justifyContent="flex-start" alignItems="flex-end">
+        <Flex justifyContent={{base: "center",  xl: "flex-start"}} alignItems="flex-end" px={{base: 0, xl: "245px" }}>
           <Box
             borderBottomColor={colors.mainColor}
             borderBottomWidth="2px"
@@ -96,7 +97,7 @@ export const CourseSection = () => {
                 slidesPerView: 2,
                 spaceBetween: 40,
               },
-              1700: {
+              1536: {
                 slidesPerView: 4,
                 spaceBetween: 40,
               },

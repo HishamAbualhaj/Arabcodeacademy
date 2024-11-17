@@ -17,6 +17,7 @@ const dataCard = [
 const ResourcesSection: React.FC = () => {
   return (
     <Container
+      bgColor='white'
       width="100%"
       height={{ base: "220px", lg: "350px", md: "333px", sm: "220px" }}
       display="flex"
@@ -28,6 +29,7 @@ const ResourcesSection: React.FC = () => {
         height={{ base: "297px", lg: "450px", md: "433px", sm: "297px" }}
         shadow="0px 1px 20px 3px rgba(0, 0, 0, 0.2)"
         borderRadius="10px"
+        bgColor='white'
       >
         <SwiperCustom
           swiperClass="swiper-section-3"
