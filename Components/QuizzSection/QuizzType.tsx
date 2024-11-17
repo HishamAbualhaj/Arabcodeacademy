@@ -16,7 +16,7 @@ const QuizzType: React.FC<Props> = ({
   displayButton,
   icon,
 }) => {
-  // Destructure displayButton here
+
   return (
     <Box
       color="white"
@@ -33,12 +33,13 @@ const QuizzType: React.FC<Props> = ({
         gap="10px"
         color="white"
         p={4}
+      
       >
         {icon}
 
         <Text
           fontSize={{ base: "md", lg: "lg", md: "lg", sm: "md" }}
-          fontWeight="700"
+          fontWeight="700" 
         >
           {title}
         </Text>
@@ -46,7 +47,7 @@ const QuizzType: React.FC<Props> = ({
       <Text
         fontSize={{ base: "sm", lg: "md", md: "md", sm: "sm" }}
         fontWeight="500"
-        marginRight="5%"
+        marginRight="7%"
         width={{ base: "100%", xl: "65%" }}
       >
         {paragraph}
@@ -55,10 +56,9 @@ const QuizzType: React.FC<Props> = ({
         <CustomButton
           text="  قسم الامتحانات "
           icon={<Image width={25} height={25} src={Exams} alt="icon" />}
-          sizeType="lg"
           ButtonColor="orange"
           marginRight="6%"
-          marginTop="4%"
+          marginTop="6%"
         />
       )}
     </Box>

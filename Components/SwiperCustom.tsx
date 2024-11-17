@@ -5,33 +5,38 @@ import { Swiper } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import Arrow from "@/public/icons/swiper-arrow.svg";
 import { Navigation, Pagination } from "swiper/modules";
+
 import { Box } from "@chakra-ui/react";
 
 interface SwiperData {
-  swiperslide: Array<ReactNode>;
   isPagination: boolean;
+  swiperslide: Array<ReactNode>;
   sliderNumber: number;
   swiperClass: string;
   nextBtn: string;
   prevBtn: string;
+  breakpoint: any;
+  arrow: ReactNode;
 }
+
 function SwiperCustom({
-  swiperslide,
   isPagination,
+  swiperslide,
   sliderNumber,
   swiperClass,
   nextBtn,
   prevBtn,
+  breakpoint,
+  arrow
 }: SwiperData) {
   return (
-    <Box px="40px" className={swiperClass}>
+    <Box px="40px" position="relative" className={swiperClass}>
       <div className={`swiper-button-next custom-next ${nextBtn}`}>
-        <Arrow width="50" height="50" />
+        {arrow}
       </div>
       <div className={`swiper-button-prev custom-prev ${prevBtn}`}>
-        <Arrow width="50" height="50" />
+        {arrow}
       </div>
       <Swiper
         pagination={isPagination}
@@ -40,25 +45,15 @@ function SwiperCustom({
           nextEl: `.${nextBtn}`,
           prevEl: `.${prevBtn}`,
         }}
-        breakpoints={{
-          0: { slidesPerView: 1 },
-          
-          1280: {
-            slidesPerView: 2,
-            spaceBetween: 40,
-          },
-          1700: {
-            slidesPerView: 4,
-            spaceBetween: 40,
-          },
-        }}
-        
-        spaceBetween={50}
+        breakpoints={breakpoint}
+        spaceBetween={0}
         slidesPerView={sliderNumber}
+
       >
         {swiperslide}
       </Swiper>
     </Box>
   );
 }
+
 export default SwiperCustom;

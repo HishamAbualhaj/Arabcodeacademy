@@ -1,7 +1,7 @@
-import { Flex, Text } from "@chakra-ui/react";
 import { Promo } from "./Promo";
 import CustomButton from "./CustomButton";
 import Chalkboard from "@/public/icons/Chalkboard_Teacher.svg";
+import { Flex, Text } from "@chakra-ui/react";
 export const Contact = () => {
   return (
     <Flex

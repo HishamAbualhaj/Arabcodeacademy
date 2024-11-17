@@ -74,7 +74,6 @@ const CustomButton: React.FC<CustomButtonProps> = ({
       backgroundColor={backgroundColor}
       color="white"
       borderRadius="5px"
-      padding="10px 20px"
       gap="10px"
       boxShadow="0px 1px 10px 0px rgba(0, 0, 0, 0.1)"
       {...rest}
