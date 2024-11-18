@@ -41,13 +41,25 @@ export const CourseSection = () => {
             breakpoint={{
               0: { slidesPerView: 1 },
 
-              1280: {
+              '800': {
                 slidesPerView: 2,
-                spaceBetween: 40,
+                spaceBetween: 0,
               },
-              1536: {
+              '1125':{
+                slidesPerView: 3,
+                spaceBetween: 0,
+              },
+              1297: {
+                slidesPerView: 2,
+                spaceBetween: 0,
+              },
+              '1572':{
+                slidesPerView: 3,
+                spaceBetween: 0,
+              },
+              '1750': {
                 slidesPerView: 4,
-                spaceBetween: 40,
+                spaceBetween: 0,
               },
             }}
             swiperslide={courses.map((course) => {
@@ -93,13 +105,25 @@ export const CourseSection = () => {
             breakpoint={{
               0: { slidesPerView: 1 },
 
-              1280: {
+              '800': {
                 slidesPerView: 2,
-                spaceBetween: 40,
+                spaceBetween: 0,
               },
-              1536: {
+              '1125':{
+                slidesPerView: 3,
+                spaceBetween: 0,
+              },
+              1297: {
+                slidesPerView: 2,
+                spaceBetween: 0,
+              },
+              '1572':{
+                slidesPerView: 3,
+                spaceBetween: 0,
+              },
+              '1750': {
                 slidesPerView: 4,
-                spaceBetween: 40,
+                spaceBetween: 0,
               },
             }}
             swiperslide={courses.map((course) => {

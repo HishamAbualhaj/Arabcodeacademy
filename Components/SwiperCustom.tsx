@@ -32,7 +32,7 @@ function SwiperCustom({
   ...rest
 }: SwiperData) {
   return (
-    <Box px="40px" position="relative" className={swiperClass}>
+    <Box px="40px" width={'100%'} position="relative" className={swiperClass}>
       <div className={`swiper-button-next custom-next ${nextBtn}`}>
         {arrow}
       </div>

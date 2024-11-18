@@ -8,9 +8,9 @@ import ReviewSection from "@/Components/ReviewSection/ReviewSection";
 export default function Home() {
   return (
     <>
-      <ResourcesSection />
+      {/* <ResourcesSection /> */}
       <CourseSection />
-      <ReviewSection /> 
+      {/* <ReviewSection />  */}
     </>
   );
 }

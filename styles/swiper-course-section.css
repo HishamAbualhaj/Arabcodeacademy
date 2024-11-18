@@ -1,5 +1,21 @@
+/* 
 .swiper-slide {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-}
+  }
+  .swiper .swiper-slide .swiper-initialized .swiper-horizontal .swiper-rtl .swiper-backface-hidden{
+    display: flex !important;
+    align-items: center  !important;
+    justify-content: center !important;
+    align-content: center !important;
+    margin-top: auto !important;
+  }
+  .swiper {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .swiper-wrapper{
+    margin: 0 !important;
+  } */
