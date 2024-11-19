@@ -7,9 +7,10 @@ import ReviewCard from "./ReviewCard";
 import Arrow_slider from "@/public/icons/swiper-arrow-2.svg";
 const ReviewSection = ({}) => {
   return (
-    <Flex justify="center">
+    <Flex justifyContent={"center"}>
       <Box
-        maxW="1400px"
+        position={"relative"}
+        maxW="1650px"
         height={{ base: "438px", xl: "639px", "2xl": "622px" }}
         py={{ base: "90px", xl: "151px", "2xl": "111px" }}
       >
@@ -23,9 +24,9 @@ const ReviewSection = ({}) => {
               0: { slidesPerView: 1 },
               1280: {
                 slidesPerView: 2,
-                spaceBetween: 0,
+                spaceBetween: 40,
               },
-              1536: {
+              1736: {
                 slidesPerView: 3,
                 spaceBetween: 40,
               },

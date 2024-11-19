@@ -1,7 +1,7 @@
 import React from "react";
 import CoursesCard from "@/Components/ResourcesCard";
 import Image from "next/image";
-import { Container, Flex } from "@chakra-ui/react";
+import { Container, Flex, Box } from "@chakra-ui/react";
 import SwiperCustom from "./SwiperCustom";
 import { SwiperSlide } from "swiper/react";
 import Arrow_slider from "@/public/icons/swiper-arrow-2.svg";
@@ -16,31 +16,35 @@ const dataCard = [
 
 const ResourcesSection: React.FC = () => {
   return (
-    <Flex justify="center">
+    <Flex justify="center" position="relative" width="100%">
       <Container
-        bgColor='white'
+        bgColor="white"
         maxW="1400px"
         width="100%"
-        height={{ base: "220px", lg: "350px", md: "333px", sm: "220px" }}
+        height={{ base: "220px", '2xl': "350px", xl: "333px", sm: "220px" }}
         display="flex"
         justifyContent="center"
         alignItems="center"
       >
         <Container
-          width={{ base: "204px", lg: "900px", md: "520px", sm: "204px" }}
-          height={{ base: "297px", lg: "450px", md: "433px", sm: "297px" }}
+          width={{ base: "204px", '2xl': "900px", xl: "520px", sm: "204px" }}
+          height={{ base: "297px", '2xl': "450px", xl: "433px", sm: "297px" }}
           shadow="0px 1px 20px 3px rgba(0, 0, 0, 0.2)"
           borderRadius="10px"
-          bgColor='white'
+          bgColor="white"
         >
           <SwiperCustom
             swiperClass="swiper-section-3"
             nextBtn="swiper-next-3"
             prevBtn="swiper-prev-3"
             breakpoint={{
-              320: { slidesPerView: 1 },
-              768: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
+              0: { slidesPerView: 1,
+                spaceBetween: 30
+               },
+              1270: { slidesPerView: 2,
+                spaceBetween: 30
+               },
+              1530: { slidesPerView: 3 },
             }}
             isPagination={false}
             sliderNumber={3}

@@ -17,15 +17,15 @@ const ResourcesCard: React.FC<Props> = ({ img, courseName }) => {
         gap="7"
         direction="column"
         wrap="wrap"
-        height={{ base: "297px", lg: "450px", md: "433px", sm: "297px" }}
-        width={{ base: "204px", lg: "300px", md: "270px", sm: "204px" }}
+        height={{ base: "297px", '2xl': "450px", xl: "433px", sm: "297px" }}
+        width={{ base: "204px", '2xl': "300px", xl: "270px", sm: "204px" }}
         alignItems="center"
         justifyContent="center"
         bgColor="#fff"
       >
         <Box
-          width={{ base: "120px", lg: "130px", md: "173px", sm: "120px" }}
-          height={{ base: "111px", lg: "130px", md: "173px", sm: "111px" }}
+          width={{ base: "120px", '2xl': "130px", xl: "173px", sm: "120px" }}
+          height={{ base: "111px", '2xl': "130px", xl: "173px", sm: "111px" }}
           bgColor={mainColor}
           borderRadius="50%"
           display="flex"
@@ -36,14 +36,14 @@ const ResourcesCard: React.FC<Props> = ({ img, courseName }) => {
           {img}
         </Box>
         <Box
-          width={{ base: "139px", lg: "226px", md: "200px", sm: "139px" }}
-          height={{ base: "36px", lg: "56px", md: "52px", sm: "36px" }}
+          width={{ base: "139px", '2xl': "226px", xl: "200px", sm: "139px" }}
+          height={{ base: "36px", '2xl': "56px", xl: "52px", sm: "36px" }}
         >
           <Text
             color={mainColor}
             textAlign="center"
             fontWeight="700"
-            fontSize={{ base: "18px", lg: "23px", md: "25px", sm: "18px" }}
+            fontSize={{ base: "18px", '2xl': "23px", xl: "25px", sm: "18px" }}
             
           >
             
