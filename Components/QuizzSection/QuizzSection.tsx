@@ -39,7 +39,7 @@ const QuizzSection: React.FC = () => {
             justifyContent="center"
           >
             <ImageChakara
-              src="images/people.png"
+              src="images/people.jpg"
               alt="Quiz Section Image1"
               width="50%"
               maxWidth={{
@@ -51,7 +51,7 @@ const QuizzSection: React.FC = () => {
             />
 
             <ImageChakara
-              src="images/people_2.png"
+              src="images/people_2.jpg"
               alt="Quiz Section Image2"
               width="50%"
               maxWidth={{ base: "150px", lg: "250", md: "250px", sm: "150px" }}

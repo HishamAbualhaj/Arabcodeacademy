@@ -53,7 +53,7 @@ export const courses = [
   {
     id: "1",
     name: "اسم الكورس",
-    image: "/images/html.png",
+    image: "/images/html.jpg",
     price: 24,
     trainer: "اسم المدرب",
     time: {
@@ -65,7 +65,7 @@ export const courses = [
   {
     id: "2",
     name: "اسم الكورس",
-    image: "/images/laravel.png",
+    image: "/images/laravel.jpg",
     price: 24,
     trainer: "اسم المدرب",
     time: {
@@ -78,7 +78,7 @@ export const courses = [
   {
     id: "3",
     name: "اسم الكورس",
-    image: "/images/java.png",
+    image: "/images/java.jpg",
     price: 24,
     trainer: "اسم المدرب",
     time: {
@@ -91,7 +91,7 @@ export const courses = [
   {
     id: "4",
     name: "اسم الكورس",
-    image: "/images/html.png",
+    image: "/images/html.jpg",
     price: 24,
     trainer: "اسم المدرب",
     time: {

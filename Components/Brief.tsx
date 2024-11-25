@@ -1,7 +1,7 @@
 import { Promo } from "./Promo";
 import { Flex, Text } from "@chakra-ui/react";
 import Image from "next/image";
-import girl from "@/public/images/girl_study.png";
+import girl from "@/public/images/girl_study.jpg";
 import CustomButton from "./CustomButton";
 import Chalkboard from "@/public/icons/Chalkboard_Teacher.svg";
 import landing from "../styles/landing.module.css";

@@ -7,7 +7,7 @@ export const Contact = () => {
     <Flex
       width="100%"
       height="89vh"
-      backgroundImage="url('/images/group_people.png')"
+      backgroundImage="url('/images/group_people.jpg')"
       backgroundSize="cover"
       direction={"row"}
       justifyContent={{ sm: "center", md: "center", xl: "flex-end" }}
