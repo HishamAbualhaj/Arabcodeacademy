@@ -1,7 +1,7 @@
 import React from "react";
 import CoursesCard from "@/Components/ResourcesCard";
 import Image from "next/image";
-import { Container, Flex, Box } from "@chakra-ui/react";
+import { Container, Flex } from "@chakra-ui/react";
 import SwiperCustom from "./SwiperCustom";
 import { SwiperSlide } from "swiper/react";
 import Arrow_slider from "@/public/icons/swiper-arrow-2.svg";
@@ -49,7 +49,8 @@ const ResourcesSection: React.FC = () => {
             isPagination={false}
             sliderNumber={3}
             arrow={<Arrow_slider />}
-            swiperslide={dataCard.map((item) => (
+            swiperslide={
+              dataCard.map((item) => (
               <SwiperSlide key={item.id}>
                 <CoursesCard
                   img={
@@ -65,6 +66,7 @@ const ResourcesSection: React.FC = () => {
               </SwiperSlide>
             ))}
           />
+       
         </Container>
       </Container>
     </Flex>
