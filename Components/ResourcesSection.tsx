@@ -26,8 +26,8 @@ const ResourcesSection: React.FC = () => {
         justifyContent="center"
         alignItems="center"
       >
-        <Container
-          width={{ base: "204px", lg: "900px", md: "520px", sm: "204px" }}
+           <Container
+          width={{ base: "240px", lg: "900px", md: "520px", sm: "240px" }}
           height={{ base: "297px", lg: "450px", md: "433px", sm: "297px" }}
           shadow="0px 1px 20px 3px rgba(0, 0, 0, 0.2)"
           borderRadius="10px"
@@ -38,14 +38,15 @@ const ResourcesSection: React.FC = () => {
             nextBtn="swiper-next-3"
             prevBtn="swiper-prev-3"
             breakpoint={{
-              320: { slidesPerView: 1 },
+              340: { slidesPerView: 1 },
               768: { slidesPerView: 2 },
               1024: { slidesPerView: 3 },
             }}
             isPagination={false}
             sliderNumber={3}
             arrow={<Arrow_slider />}
-            swiperslide={dataCard.map((item) => (
+            swiperslide={
+              dataCard.map((item) => (
               <SwiperSlide key={item.id}>
                 <CoursesCard
                   img={
@@ -61,6 +62,7 @@ const ResourcesSection: React.FC = () => {
               </SwiperSlide>
             ))}
           />
+       
         </Container>
       </Container>
     </Flex>

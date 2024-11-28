@@ -18,7 +18,7 @@ const ResourcesCard: React.FC<Props> = ({ img, courseName }) => {
         direction="column"
         wrap="wrap"
         height={{ base: "297px", lg: "450px", md: "433px", sm: "297px" }}
-        width={{ base: "204px", lg: "300px", md: "270px", sm: "204px" }}
+        width={{ base: "204px", lg: "300px", md: "270px", sm: "215px" }}
         alignItems="center"
         justifyContent="center"
         bgColor="#fff"
