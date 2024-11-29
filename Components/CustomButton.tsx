@@ -1,67 +1,70 @@
-import React, { ReactNode } from "react";
-import { Button, ButtonProps } from "@chakra-ui/react";
+import React from "react";
+import {  Button, ButtonProps } from "@chakra-ui/react";
 import { background } from "@/styles/global-info";
-
+import Image from 'next/image';
 interface CustomButtonProps extends ButtonProps {
   text: string;
-  icon?: ReactNode;
+  icon: string ; // Expecting the icon to be a valid string representing SVG
   ButtonColor: "green" | "orange";
   sizeType: "primary" | "secondary" | "thirdly";
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({
   text,
-  icon: icon,
+  icon,
   ButtonColor,
   sizeType,
   ...rest
 }) => {
+
+  console.log(icon)
   const width = {
     widthDesktop:
-      sizeType == "primary"
+      sizeType === "primary"
         ? "310px"
-        : sizeType == "secondary"
+        : sizeType === "secondary"
         ? "200px"
         : "140px",
     widthTablet:
-      sizeType == "primary"
+      sizeType === "primary"
         ? "330px"
-        : sizeType == "secondary"
+        : sizeType === "secondary"
         ? "234px"
         : "160px",
     widthMobile:
-      sizeType == "primary"
+      sizeType === "primary"
         ? "200px"
-        : sizeType == "secondary"
+        : sizeType === "secondary"
         ? "150px"
         : "100px",
   };
 
   const height = {
     heightDesktop:
-      sizeType == "primary"
+      sizeType === "primary"
         ? "80px"
-        : sizeType == "secondary"
+        : sizeType === "secondary"
         ? "60px"
         : "44px",
     heightTablet:
-      sizeType == "primary"
+      sizeType === "primary"
         ? "85px"
-        : sizeType == "secondary"
+        : sizeType === "secondary"
         ? "70px"
         : "50px",
     heightMobile:
-      sizeType == "primary"
+      sizeType === "primary"
         ? "60px"
-        : sizeType == "secondary"
+        : sizeType === "secondary"
         ? "50px"
         : "40px",
   };
-
+  
   const { backgroundColor } = background[ButtonColor];
+
   return (
     <Button
-      _hover={{bg : ButtonColor === 'green'? '#04B08E' : '#FA4E27'}}
+      _hover={{ bg: ButtonColor === "green" ? "#04B08E" : "#FA4E27" }}
       width={{
         base: width.widthMobile,
         xl: width.widthTablet,
@@ -79,7 +82,13 @@ const CustomButton: React.FC<CustomButtonProps> = ({
       boxShadow="0px 1px 10px 0px rgba(0, 0, 0, 0.1)"
       {...rest}
     >
-      {icon}
+        <Image
+          width= {25}
+          height= {25}
+          src = {icon}
+          alt = "button icon"
+        />
+
       {text}
     </Button>
   );
