@@ -1,3 +1,23 @@
+/**
+ * VideoBackground Component
+ *
+ * A React component for displaying a video as a fullscreen or section background.
+ * It ensures the video fills its container while maintaining aspect ratio and
+ * provides a slot for rendering child components over the video background.
+ *
+ * @component
+ * @example
+ *
+ *   <VideoBackground videoSrc="/path/to/video.mp4">
+ *     <h1 style={{ color: 'white', textAlign: 'center' }}>Welcome to My Website</h1>
+ *   </VideoBackground>
+ * @param {Object} props - The component props.
+ * @param {React.ReactNode} props.children - The content to render over the video.
+ * @param {string} props.videoSrc - The source URL of the video to be used as background.
+ *
+ * @returns {JSX.Element} The rendered VideoBackground component.
+ */
+
 import { Box } from "@chakra-ui/react";
 import React from "react";
 

@@ -1,8 +1,20 @@
+/** 
+ * Intro Component 
+ *  
+ * The Intro component is a responsive section designed for presenting an introductory message with visual and textual content.
+ *  
+ * @example 
+ * <Intro /> 
+ *  
+ * @returns {React.ReactElement} An introduction details. 
+ */
+
+
 import { Text, Flex } from "@chakra-ui/react";
 import React from "react";
 import CustomButton from "../CustomButton";
 import Image from "next/image";
-import letter from "./letter.jpg";
+import letter from "./letter_transparent.png";
 import { useBreakpointValue } from "@chakra-ui/react";
 const Intro = () => {
   const letterImageStyle = {
@@ -12,14 +24,14 @@ const Intro = () => {
   const introText = useBreakpointValue({
     base: (
       <Text
-        width={{ base: "250px", xl: "700px", "2xl": "633px" }}
-        height={{ base: "285px", xl: "255px", "2xl": "360px" }}
-        fontWeight={{ base: 400, xl: 700 }}
-        color="white"
-        bgColor="transparent"
-        lineHeight={{ base: "25px", xl: "40px" }}
-        textAlign="center"
-        fontSize="14px"
+        width= "250px"
+        height= "285px"
+        fontWeight= {400}
+        color= "white"
+        bgColor= "transparent"
+        lineHeight= "25px"
+        textAlign= "center"
+        fontSize= "14px"
       >
         في الأكاديمية العربية للبرمجة، نسعى
         <br />
@@ -46,14 +58,14 @@ const Intro = () => {
     ),
     lg: (
       <Text
-        width={{ base: "250px", lg: "700px", "2xl": "633px" }}
-        height={{ base: "285px", lg: "255px", "2xl": "360px" }}
-        fontWeight={{ base: 400, lg: 700 }}
-        color="white"
-        bgColor="transparent"
-        lineHeight={{ base: "25px", lg: "40px" }}
-        textAlign="center"
-        fontSize="25px"
+        width= "700px"
+        height= "255px"
+        fontWeight= {700}
+        color= "white"
+        bgColor= "transparent"
+        lineHeight= "40px"
+        textAlign= "center"
+        fontSize= "25px"
       >
         في الأكاديمية العربية للبرمجة، نسعى دائمًا إلى تقديم محتوى
         <br />
@@ -72,14 +84,14 @@ const Intro = () => {
     ),
     "2xl": (
       <Text
-        width={{ base: "250px", xl: "700px", "2xl": "633px" }}
-        height={{ base: "285px", xl: "255px", "2xl": "360px" }}
-        fontWeight={{ base: 400, xl: 700 }}
-        color="white"
-        bgColor="transparent"
-        lineHeight="40px"
-        textAlign="right"
-        fontSize="27px"
+        width= "633px"
+        height= "360px"
+        fontWeight= {700}
+        color= "white"
+        bgColor= "transparent"
+        lineHeight= "40px"
+        textAlign= "right"
+        fontSize= "27px"
       >
         في الأكاديمية العربية للبرمجة، نسعى دائمًا إلى تقديم
         <br />
@@ -99,6 +111,7 @@ const Intro = () => {
       </Text>
     ),
   });
+  
   return (
     <Flex
       width="100%"
@@ -113,7 +126,6 @@ const Intro = () => {
       zIndex={"1"}
     >
       <Flex
-        // mt={{ base: "28px" }}
         width={{ base: "222px", lg: "700px", "2xl": "633px" }}
         height={{ base: "140px", lg: "281px", "2xl": "325px" }}
         bgColor="transparnet"
@@ -126,6 +138,7 @@ const Intro = () => {
           alt="letter"
           width={letterImageStyle.width}
           height={letterImageStyle.height}
+          loading= "lazy"
         />
         <Text
           textAlign="center"
