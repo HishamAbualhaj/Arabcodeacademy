@@ -166,6 +166,7 @@ const Intro = () => {
           text="لغه الضاد"
           ButtonColor="orange"
           sizeType="secondary"
+          icon= "/icons/detail.svg"
         ></CustomButton>
       </Flex>
     </Flex>
