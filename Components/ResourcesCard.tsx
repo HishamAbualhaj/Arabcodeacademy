@@ -14,10 +14,11 @@ const ResourcesCard: React.FC<Props> = ({ img, courseName }) => {
   return (
     <>
       <Stack
+      marginTop="10px"
         gap="7"
         direction="column"
         wrap="wrap"
-        height={{ base: "297px", '2xl': "450px", xl: "433px", sm: "297px" }}
+        height={{ base: "257px", '2xl': "450px", xl: "433px", sm: "257px" }}
         width={{ base: "204px", '2xl': "300px", xl: "270px", sm: "204px" }}
         alignItems="center"
         justifyContent="center"
@@ -36,7 +37,7 @@ const ResourcesCard: React.FC<Props> = ({ img, courseName }) => {
           {img}
         </Box>
         <Box
-          width={{ base: "139px", '2xl': "226px", xl: "200px", sm: "139px" }}
+          width={{ base: "160px", '2xl': "226px", xl: "200px", sm: "160px" }}
           height={{ base: "36px", '2xl': "56px", xl: "52px", sm: "36px" }}
         >
           <Text
