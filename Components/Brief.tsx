@@ -3,7 +3,6 @@ import { Flex, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import girl from "@/public/images/girl_study.jpg";
 import CustomButton from "./CustomButton";
-import Chalkboard from "@/public/icons/Chalkboard_Teacher.svg";
 import landing from "../styles/landing.module.css";
 export default function Brief() {
     return (
@@ -57,7 +56,7 @@ export default function Brief() {
                   color="white"
                   fontSize={17}
                   fontWeight={900}
-                  icon={<Chalkboard width="30" height="24" />}
+                  icon={"/icons/Chalkboard_Teacher.svg"}
                 />
               </div>
             </Flex>
