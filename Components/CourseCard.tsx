@@ -2,8 +2,6 @@ import { Box, Flex, Text, Image, useBreakpointValue } from "@chakra-ui/react";
 import { colors } from "@/styles/global-info";
 import { Promo } from "./Promo";
 import CustomButton from "./CustomButton";
-import Cart from "@/public/icons/svgCart.svg";
-import ReadMore from "@/public/icons/readMore.svg";
 import Soon from "./soon.svg";
 interface PromoProps {
   courseName: string;
@@ -117,13 +115,13 @@ const CourseCard: React.FC<PromoProps> = ({
             text="أقرا المزيد"
             ButtonColor="green"
             sizeType="thirdly"
-            icon={<ReadMore width="25px" height="25px" />}
+            icon= "/icons/readMore.svg"
           ></CustomButton>
           <CustomButton
             text="شراء"
             ButtonColor="orange"
             sizeType="thirdly"
-            icon={<Cart width="25px" height="25px" />}
+            icon= "/icons/svgCart.svg"
           ></CustomButton>
         </Flex>
       </Flex>
