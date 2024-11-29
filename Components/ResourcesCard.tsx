@@ -14,6 +14,7 @@ const ResourcesCard: React.FC<Props> = ({ img, courseName }) => {
   return (
     <>
       <Stack
+      marginTop="10px"
         gap="7"
         direction="column"
         wrap="wrap"

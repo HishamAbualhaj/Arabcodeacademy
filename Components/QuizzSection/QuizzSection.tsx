@@ -33,7 +33,7 @@ const QuizzSection: React.FC = () => {
       
             colSpan={2}
             marginRight={{ lg: "10%" }}
-            marginLeft={{ base: "7%", md: "7%", sm: "7%" }}
+            marginLeft={{ base: "7%",lg:"7%", md: "25%", sm: "7%" }}
             display="flex"
             flexDirection="column"
             alignItems="center"
