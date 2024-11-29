@@ -1,8 +1,6 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import React, { ReactNode } from "react";
 import CustomButton from "../CustomButton";
-import Exams from "@/public/icons/exams.png";
-import Image from "next/image";
 interface Props {
   title: string;
   icon?: ReactNode;
@@ -16,7 +14,6 @@ const QuizzType: React.FC<Props> = ({
   displayButton,
   icon,
 }) => {
-
   return (
     <Box
       color="white"
@@ -33,13 +30,12 @@ const QuizzType: React.FC<Props> = ({
         gap="10px"
         color="white"
         p={4}
-      
       >
         {icon}
 
         <Text
           fontSize={{ base: "md", lg: "lg", md: "lg", sm: "md" }}
-          fontWeight="700" 
+          fontWeight="700"
         >
           {title}
         </Text>
@@ -54,9 +50,9 @@ const QuizzType: React.FC<Props> = ({
       </Text>
       {displayButton && (
         <CustomButton
-        sizeType="secondary"
+          sizeType="secondary"
           text="  قسم الامتحانات "
-          icon={<Image width={25} height={25} src={Exams} alt="icon" />}
+          icon= "/icons/exams.svg"
           ButtonColor="orange"
           marginRight="6%"
           marginTop="6%"

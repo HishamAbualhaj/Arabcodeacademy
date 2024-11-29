@@ -88,13 +88,9 @@ const QuizzSection: React.FC = () => {
               icon={<Image width={25} height={25} src={code} alt="icon" />}
               displayButton={false}
             />
-            {/* {Couldn't import this section icon from figma } */}
             <QuizzType
               title="اعرف ترتيبك"
               paragraph="قم برفع تقييمك لترتيب قدراتك بين الطلاب المتقدمين للاختبارات، مما سيمكنك من معرفة درجة التميز والرتب بين أقرانك."
-              // icon={
-              //   <Image width={25} height={25} src={certificate} alt="icon" />
-              // }
               displayButton={true}
             />
           </GridItem>
