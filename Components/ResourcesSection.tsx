@@ -27,11 +27,12 @@ const ResourcesSection: React.FC = () => {
         alignItems="center"
       >
         <Container
-          width={{ base: "204px", '2xl': "900px", xl: "520px", sm: "204px" }}
-          height={{ base: "297px", '2xl': "450px", xl: "433px", sm: "297px" }}
+          width={{ base: "234px", '2xl': "900px", xl: "520px", sm: "234px" }}
+          height={{ base: "257px", '2xl': "450px", xl: "433px", sm: "257px" }}
           shadow="0px 1px 20px 3px rgba(0, 0, 0, 0.2)"
           borderRadius="10px"
           bgColor="white"
+          zIndex={3}
         >
           <SwiperCustom
             swiperClass="swiper-section-3"
