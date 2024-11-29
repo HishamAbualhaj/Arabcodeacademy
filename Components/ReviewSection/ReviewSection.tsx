@@ -6,11 +6,11 @@ import { SwiperSlide } from "swiper/react";
 import ReviewCard from "./ReviewCard";
 import Arrow_slider from "@/public/icons/swiper-arrow-2.svg";
 import { Flex } from "antd";
-import swiper from "@/styles/swiper.module.css";
 const ReviewSection = ({}) => {
   return (
     <Flex justify="center">
       <Box
+      position="relative"
         maxW="1400px"
         height={{ base: "438px", xl: "639px", "2xl": "622px" }}
         py={{ base: "90px", xl: "151px", "2xl": "111px" }}
@@ -22,7 +22,7 @@ const ReviewSection = ({}) => {
             prevBtn="swiper-prev-4"
             isPagination={false}
             breakpoint={{
-              0: { slidesPerView: 1 },
+              250: { slidesPerView: 1 },
               1280: {
                 slidesPerView: 2,
                 spaceBetween: 0,
