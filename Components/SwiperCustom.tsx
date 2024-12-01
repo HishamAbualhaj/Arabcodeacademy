@@ -32,7 +32,7 @@ function SwiperCustom({
   ...rest
 }: SwiperData) {
   return (
-    <Box px="40px" position="relative" className={swiperClass}>
+    <Box position="relative" className={swiperClass}>
       <div className={`swiper-button-next custom-next ${nextBtn}`}>
         {arrow}
       </div>
@@ -49,7 +49,7 @@ function SwiperCustom({
         breakpoints={breakpoint}
         spaceBetween={0}
         slidesPerView={sliderNumber}
-        className="swiper-slide"
+        className="swiper"
         {...rest}
       >
         {swiperslide}

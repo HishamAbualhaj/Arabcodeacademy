@@ -1,12 +1,6 @@
 .swiper-wrapper {
   padding-bottom: 20px;
 }
-.custom-next {
-  right: -100px !important;
-}
-.custom-prev {
-  left: -100px !important;
-}
 .swiper-button-next::after,
 .swiper-button-prev::after {
   content: "" !important;

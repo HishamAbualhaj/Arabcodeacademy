@@ -61,7 +61,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   const { backgroundColor } = background[ButtonColor];
   return (
     <Button
-      _hover={{bg : ButtonColor === 'green'? '#04B08E' : '#FA4E27'}}
+      _hover={{ bg: ButtonColor === "green" ? "#04B08E" : "#FA4E27" }}
       width={{
         base: width.widthMobile,
         xl: width.widthTablet,
