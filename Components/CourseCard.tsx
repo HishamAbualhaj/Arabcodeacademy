@@ -31,8 +31,6 @@ const CourseCard: React.FC<PromoProps> = ({
   });
   return (
     <Promo
-      width={{ base: "260px", xl: "372px", "2xl": "350px" }}
-      height={{ base: "378px", xl: "526px", "2xl": "509px" }}
       fontFamily={"Tajawal"}
       position={"relative"}
     >

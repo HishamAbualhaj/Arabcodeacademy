@@ -33,16 +33,20 @@ export const CourseSection = () => {
         </Flex>
         <Box position="relative" marginTop="40px">
           <SwiperCustom
+            px={{ base: "60px" }}
             maxW="1550px"
             swiperClass="swiper-section-1"
             nextBtn="swiper-next-1"
             prevBtn="swiper-prev-1"
             isPagination={false}
             breakpoint={{
-              0: { slidesPerView: 1 },
-
-              1280: {
+              0: { slidesPerView: 1, spaceBetween: 40 },
+              768: {
                 slidesPerView: 2,
+                spaceBetween: 40,
+              },
+              1280: {
+                slidesPerView: 3,
                 spaceBetween: 40,
               },
               1536: {
@@ -90,13 +94,18 @@ export const CourseSection = () => {
         </Flex>
         <Box position="relative" marginTop="40px">
           <SwiperCustom
+            px={{ base: "60px" }}
             maxW="1550px"
             swiperClass="swiper-section-2"
             nextBtn="swiper-next-2"
             prevBtn="swiper-prev-2"
             isPagination={false}
             breakpoint={{
-              0: { slidesPerView: 1 },
+              0: { slidesPerView: 1, spaceBetween: 40 },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 40,
+              },
 
               1280: {
                 slidesPerView: 2,

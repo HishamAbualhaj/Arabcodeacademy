@@ -19,58 +19,32 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   const width = {
     widthDesktop:
       sizeType == "primary"
-        ? "310px"
+        ? "30px"
         : sizeType == "secondary"
-        ? "200px"
-        : "140px",
+        ? "30px"
+        : "25px",
     widthTablet:
       sizeType == "primary"
-        ? "330px"
+        ? "30px"
         : sizeType == "secondary"
-        ? "234px"
-        : "160px",
+        ? "25px"
+        : "25px",
     widthMobile:
       sizeType == "primary"
-        ? "200px"
+        ? "20px"
         : sizeType == "secondary"
-        ? "150px"
-        : "100px",
-  };
-
-  const height = {
-    heightDesktop:
-      sizeType == "primary"
-        ? "80px"
-        : sizeType == "secondary"
-        ? "60px"
-        : "44px",
-    heightTablet:
-      sizeType == "primary"
-        ? "85px"
-        : sizeType == "secondary"
-        ? "70px"
-        : "50px",
-    heightMobile:
-      sizeType == "primary"
-        ? "60px"
-        : sizeType == "secondary"
-        ? "50px"
-        : "40px",
+        ? "15px"
+        : "10px",
   };
 
   const { backgroundColor } = background[ButtonColor];
   return (
     <Button
       _hover={{ bg: ButtonColor === "green" ? "#04B08E" : "#FA4E27" }}
-      width={{
+      px={{
         base: width.widthMobile,
         xl: width.widthTablet,
         "2xl": width.widthDesktop,
-      }}
-      height={{
-        base: height.heightMobile,
-        xl: height.heightTablet,
-        "2xl": height.heightDesktop,
       }}
       backgroundColor={backgroundColor}
       color="white"

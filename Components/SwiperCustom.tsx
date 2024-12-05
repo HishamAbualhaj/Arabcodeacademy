@@ -17,6 +17,7 @@ interface SwiperData {
   nextBtn: string;
   prevBtn: string;
   breakpoint: any;
+  px: any;
   arrow: ReactNode;
   maxW: string;
 }
@@ -30,11 +31,17 @@ function SwiperCustom({
   prevBtn,
   breakpoint,
   arrow,
+  px,
   maxW = "1550px",
   ...rest
 }: SwiperData) {
   return (
-    <Box maxW={maxW} marginX="auto" className={swiperClass}>
+    <Box
+      px={px}
+      maxW={maxW}
+      marginX="auto"
+      className={swiperClass}
+    >
       <div className={`swiper-button-next custom-next ${nextBtn}`}>{arrow}</div>
       <div className={`swiper-button-prev custom-prev ${prevBtn}`}>{arrow}</div>
       <Swiper

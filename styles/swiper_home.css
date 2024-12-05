@@ -29,7 +29,7 @@
   height: 15px !important;
   background-color: white !important;
 }
-@media (min-width: 1200px) {
+@media (min-width: 1560px) {
   .custom-next svg,
   .custom-prev svg {
     width: 70px !important;
