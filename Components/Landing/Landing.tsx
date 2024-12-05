@@ -1,6 +1,6 @@
 import React from "react";
 import SwiperCustom from "../SwiperCustom";
-import { Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import { hero } from "@/styles/global-info";
 import landing from "@/styles/landing.module.css";
 import CustomButton from "../CustomButton";
@@ -9,24 +9,28 @@ import Arrow from "@/public/icons/swiper-arrow.svg";
 import { SwiperSlide } from "swiper/react";
 function Landing() {
   return (
-    <SwiperCustom
-      swiperslide={[
-        <SwiperSlide>
-          <Slide />
-        </SwiperSlide>,
-        <SwiperSlide>
-          <Slide />
-        </SwiperSlide>,
-      ]}
-      isPagination={true}
-      sliderNumber={1}
-      swiperClass={""}
-      nextBtn={"swiper-next-4"}
-      prevBtn={"swiper-prev-4"}
-      breakpoint={undefined}
-      arrow={<Arrow />}
-      maxW="100%"
-    />
+    <Box position="relative">
+      <SwiperCustom
+        swiperslide={[
+          <SwiperSlide>
+            <Slide />
+          </SwiperSlide>,
+          <SwiperSlide>
+            <Slide />
+          </SwiperSlide>,
+        ]}
+        isPagination={true}
+        sliderNumber={1}
+        swiperClass={""}
+        nextBtn={"swiper-next-4"}
+        prevBtn={"swiper-prev-4"}
+        breakpoint={undefined}
+        arrow={<Arrow />}
+        maxW="100%"
+        px={undefined}
+        py="10px"
+      />
+    </Box>
   );
 }
 function Slide() {
@@ -34,11 +38,13 @@ function Slide() {
     <>
       <Flex
         width="100%"
+        py={{base:"15px", md: "0px"}}
+        pb={{base:"40px", md: "0px"}}
         className={[landing.bg_image, landing.full_screen_h].join(" ")}
         justifyContent={"center"}
         alignItems={"center"}
       >
-        <div className={``}>
+        <div>
           <Flex
             alignItems={{ base: "center", md: "start" }}
             direction={{ base: "column-reverse", xl: "row-reverse" }}
@@ -72,13 +78,11 @@ function Slide() {
                 </Text>
               </div>
               <Flex
-                justifyContent={{ base: "center", md: "start" }}
+                justifyContent={{ base: "center", "2xl": "start" }}
                 width="100%"
               >
                 <CustomButton
                   text="المسارات التعليمية"
-                  px={"51px"}
-                  py={"20px"}
                   bgColor="rgba(0, 190, 152, 1)"
                   rounded={10}
                   color="white"
@@ -86,7 +90,7 @@ function Slide() {
                   fontWeight={900}
                   icon={<Chalkboard width="30" height="24" />}
                   ButtonColor={"green"}
-                  sizeType={"secondary"}
+                  sizeType={"primary"}
                 />
               </Flex>
             </Flex>
@@ -94,9 +98,9 @@ function Slide() {
             <Text
               textAlign={{ base: "center", xl: "right" }}
               fontSize={{ base: "40px", lg: "50px", xl: "40px" }}
-              lineHeight={{ base: "45px", lg: "60px", xl: "48px" }}
+              lineHeight={{ base: "48px", lg: "60px", xl: "48px" }}
               fontWeight={900}
-              maxW={{ base: "220px", md: "562px", xl: "640px" }}
+              maxW={{ base: "285px", md: "562px", xl: "640px" }}
             >
               {hero[0].primary_text}
             </Text>
