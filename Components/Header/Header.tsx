@@ -180,6 +180,7 @@ const Header: React.FC = () => {
                         <Box
                           gap={2}
                           display="flex"
+                          
                           _focus={{ outline: "none" }}
                         >
                           {item.icon && <item.icon />}

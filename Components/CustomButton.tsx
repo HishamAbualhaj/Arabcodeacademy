@@ -1,22 +1,24 @@
 import React, { ReactNode } from "react";
 import { Button, ButtonProps } from "@chakra-ui/react";
-import { background } from "@/styles/global-info";
-
+import { colors } from "@/styles/global-info";
 interface CustomButtonProps extends ButtonProps {
   text: string;
-  icon?: ReactNode;
-  ButtonColor: "green" | "orange";
+  icon: ReactNode;
+  ButtonColor: string;
   sizeType: "primary" | "secondary" | "thirdly";
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({
   text,
-  icon: icon,
+  icon,
   ButtonColor,
   sizeType,
   ...rest
 }) => {
-  const { backgroundColor } = background[ButtonColor];
+  
+  const key: string = ButtonColor;
+  const backgroundColor = colors[key as keyof typeof colors];
+
   return sizeType == "primary" ? (
     <Button
       _hover={{ bg: ButtonColor === "green" ? "#04B08E" : "#FA4E27" }}

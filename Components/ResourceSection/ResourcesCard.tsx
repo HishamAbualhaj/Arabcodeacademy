@@ -22,8 +22,8 @@ const ResourcesCard: React.FC<Props> = ({ img, courseName }) => {
         bgColor="#fff"
       >
         <Box
-          width={{ base: "120px", lg: "130px", md: "173px", sm: "120px" }}
-          height={{ base: "111px", lg: "130px", md: "173px", sm: "111px" }}
+          width={{ base: "120px", '2xl': "130px", xl: "173px", sm: "120px" }}
+          height={{ base: "111px", '2xl': "130px", xl: "173px", sm: "111px" }}
           bgColor={mainColor}
           borderRadius="50%"
           display="flex"

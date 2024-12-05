@@ -16,7 +16,7 @@ const dataCard = [
 
 const ResourcesSection: React.FC = () => {
   return (
-    <Box zIndex="10" marginY="-30px" px={{ base: "80px"}} width="100%" position="relative" mx="auto">
+    <Box zIndex="10" marginY="-40px" px={{ base: "80px"}} width="100%" position="relative" mx="auto">
       <Box
         shadow="0px 1px 20px 3px rgba(0, 0, 0, 0.2)"
         borderRadius="10px"

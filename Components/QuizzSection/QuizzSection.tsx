@@ -5,7 +5,7 @@ import React from "react";
 import QuizzType from "./QuizzType";
 import test_skill from "@/public/icons/test_skills.png";
 import code from "@/public/icons/code.png";
-// import certificate from "@/public/icons/certificate.png";
+import exams from "@/public/icons/exams.png";
 const QuizzSection: React.FC = () => {
   return (
     <>
@@ -30,48 +30,50 @@ const QuizzSection: React.FC = () => {
           marginBlock={{ base: "5%", sm: "5%", md: "5%" }}
         >
           <GridItem
+      
             colSpan={2}
             marginRight={{ lg: "10%" }}
-            marginLeft={{ base: "7%", md: "7%", sm: "7%" }}
+            marginLeft={{ base: "7%",lg:"7%", md: "25%", sm: "7%" }}
             display="flex"
             flexDirection="column"
             alignItems="center"
             justifyContent="center"
           >
             <ImageChakara
-              src="images/people.png"
-              alt="Quiz Section Image1"
-              width="50%"
+              src="images/people_2.jpg"
+              alt="Quiz Section Image2"
+               width="60%"
               maxWidth={{
                 base: "150px",
-                lg: "250px",
-                md: "250px",
+                lg: "350px",
+                md: "400px",
                 sm: "150px",
               }}
             />
 
             <ImageChakara
-              src="images/people_2.png"
-              alt="Quiz Section Image2"
-              width="50%"
-              maxWidth={{ base: "150px", lg: "250", md: "250px", sm: "150px" }}
+              src="images/people.jpg"
+              alt="Quiz Section Image1"
+               width="60%"
+              maxWidth={{ base: "150px", lg: "350px", md: "400px", sm: "150px" }}
               marginTop={{
                 base: "-50px",
-                lg: "-85px",
-                md: "-85px",
+                lg: "-95px",
+                md: "-130px",
                 sm: "-50px",
               }}
               marginRight={{
                 base: "208px",
-                lg: "340px",
-                md: "350px",
+                lg: "395px",
+                md: "540px",
                 sm: "208px",
               }}
             />
           </GridItem>
           <GridItem
+        
             colSpan={3}
-            marginRight={{ lg: "5%" }}
+            marginRight={{ lg: "12%" }}
             marginLeft={{ base: "7%", md: "7%", sm: "7%" }}
           >
             <QuizzType
@@ -88,13 +90,12 @@ const QuizzSection: React.FC = () => {
               icon={<Image width={25} height={25} src={code} alt="icon" />}
               displayButton={false}
             />
-            {/* {Couldn't import this section icon from figma } */}
             <QuizzType
               title="اعرف ترتيبك"
               paragraph="قم برفع تقييمك لترتيب قدراتك بين الطلاب المتقدمين للاختبارات، مما سيمكنك من معرفة درجة التميز والرتب بين أقرانك."
-              // icon={
-              //   <Image width={25} height={25} src={certificate} alt="icon" />
-              // }
+              icon={
+                <Image width={25} height={25} src={exams} alt="icon" />
+              }
               displayButton={true}
             />
           </GridItem>

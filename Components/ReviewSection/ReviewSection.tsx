@@ -1,5 +1,5 @@
 "use client";
-import { Box } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import SwiperCustom from "../SwiperCustom";
 import { reviewCards } from "@/styles/global-info";
 import { SwiperSlide } from "swiper/react";
@@ -39,18 +39,14 @@ const ReviewSection = ({}) => {
                   comment={reviewCard.comment}
                   rating={reviewCard.rating}
                   image={reviewCard.image}
-                  date={reviewCard.date}
-                />
+                  date={reviewCard.date} />
               </SwiperSlide>
             );
           })}
           sliderNumber={3}
-          arrow={
-            <Box width={{ base: "40px", xl: "80px", "2xl": "70px" }}>
-              <Arrow_slider />
-            </Box>
-          }
-        />
+          arrow={<Box width={{ base: "40px", xl: "80px", "2xl": "70px" }}>
+            <Arrow_slider />
+          </Box>} py={undefined}        />
       </Box>
     </Box>
   );
