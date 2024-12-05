@@ -22,7 +22,7 @@
   height: 40px !important;
 }
 .swiper-pagination {
-  bottom: 40px !important;
+  bottom: 30px !important;
 }
 .swiper-pagination-bullet {
   width: 15px !important;
@@ -40,7 +40,12 @@
     height: 20px !important;
   }
 }
-
+.custom-next {
+  right: 40px !important;
+}
+.custom-prev {
+  left: 40px !important;
+}
 @media (max-width: 1400px) {
   .custom-next {
     right: 10px !important;

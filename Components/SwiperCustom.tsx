@@ -18,6 +18,7 @@ interface SwiperData {
   prevBtn: string;
   breakpoint: any;
   px: any;
+  py: any;
   arrow: ReactNode;
   maxW: string;
 }
@@ -33,6 +34,7 @@ function SwiperCustom({
   arrow,
   px,
   maxW = "1550px",
+  py="0px",
   ...rest
 }: SwiperData) {
   return (
