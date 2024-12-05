@@ -5,7 +5,6 @@ import { reviewCards } from "@/styles/global-info";
 import { SwiperSlide } from "swiper/react";
 import ReviewCard from "./ReviewCard";
 import Arrow_slider from "@/public/icons/swiper-arrow-2.svg";
-import { Flex } from "antd";
 const ReviewSection = ({}) => {
   return (
     <Box py={{ base: "90px", xl: "151px", "2xl": "111px" }}>

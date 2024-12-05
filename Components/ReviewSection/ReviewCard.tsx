@@ -1,6 +1,5 @@
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import { Rating } from "@/Components/ui/rating";
-import "antd/dist/reset.css"; // Ensure Ant Design styles are imported
 import ReviewCardImg from "/public/icons/reviewCard.svg";
 
 import {

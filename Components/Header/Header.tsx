@@ -209,17 +209,15 @@ const Header: React.FC = () => {
           <Box display={{ lgDown: "none" }}>
             <Flex flexDirection={{ base: "column", xl: "row" }} gap="10px">
               <CustomButton
-                paddingInline={20}
                 text="إنشاء حساب"
                 ButtonColor="green"
-                sizeType="thirdly"
+                sizeType="secondary"
                 icon={<Profile width="25px" height="25px" />}
               ></CustomButton>
               <CustomButton
-                paddingInline={20}
                 text="تسجيل دخول"
                 ButtonColor="orange"
-                sizeType="thirdly"
+                sizeType="secondary"
                 icon={<Login width="25px" height="25px" />}
               ></CustomButton>
             </Flex>

@@ -1,4 +1,4 @@
-import styles from "./DiscountBanner.module.css";
+import styles from "@/styles/DiscountBanner.module.css";
 interface Props {
   announcementText: string;   
   startDate:string;
