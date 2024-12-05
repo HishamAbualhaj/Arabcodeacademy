@@ -10,12 +10,11 @@ import Arrow_slider from "@/public/icons/swiper-arrow-2.svg";
 export const CourseSection = () => {
   return (
     <>
-      <Box position="relative" marginX="auto" maxW="1550px">
+      <Box>
         <Flex
           flexDirection={{ base: "column-reverse", "2xl": "row" }}
           justifyContent={{ base: "space-between" }}
           alignItems={{ base: "center", xl: "flex-start", "2xl": "flex-end" }}
-          height={{ base: "180px", xl: "252px", "2xl": "193px" }}
           px={{ base: "45px", xl: "245px" }}
           pt={{ base: "60px", xl: "117px", "2xl": "63px" }}
           pb={{ "2xl": "10px" }}
@@ -32,8 +31,9 @@ export const CourseSection = () => {
           </Box>
           <SearchBar />
         </Flex>
-        <Box marginTop="40px">
+        <Box position="relative" marginTop="40px">
           <SwiperCustom
+            maxW="1550px"
             swiperClass="swiper-section-1"
             nextBtn="swiper-next-1"
             prevBtn="swiper-prev-1"
@@ -71,8 +71,12 @@ export const CourseSection = () => {
         </Box>
       </Box>
 
-      <Box position="relative" marginTop="40px" marginX="auto" maxW="1550px">
-        <Flex justifyContent={{base: "center",  xl: "flex-start"}} alignItems="flex-end" px={{base: 0, xl: "245px" }}>
+      <Box marginTop="40px" marginX="auto">
+        <Flex
+          justifyContent={{ base: "center", xl: "flex-start" }}
+          alignItems="flex-end"
+          px={{ base: 0, xl: "245px" }}
+        >
           <Box
             borderBottomColor={colors.mainColor}
             borderBottomWidth="2px"
@@ -84,8 +88,9 @@ export const CourseSection = () => {
             قريباً
           </Box>
         </Flex>
-        <Box marginTop="40px">
+        <Box position="relative" marginTop="40px">
           <SwiperCustom
+            maxW="1550px"
             swiperClass="swiper-section-2"
             nextBtn="swiper-next-2"
             prevBtn="swiper-prev-2"

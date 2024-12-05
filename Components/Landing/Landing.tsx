@@ -25,6 +25,7 @@ function Landing() {
       prevBtn={"swiper-prev-4"}
       breakpoint={undefined}
       arrow={<Arrow />}
+      maxW="100%"
     />
   );
 }

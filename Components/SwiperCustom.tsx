@@ -1,6 +1,6 @@
 "use client";
 import "../styles/swiper_home.css";
-import "../styles/swiper-course-section.css";
+
 import React, { ReactNode } from "react";
 import { Swiper } from "swiper/react";
 import "swiper/css";
@@ -18,6 +18,7 @@ interface SwiperData {
   prevBtn: string;
   breakpoint: any;
   arrow: ReactNode;
+  maxW: string;
 }
 
 function SwiperCustom({
@@ -29,16 +30,13 @@ function SwiperCustom({
   prevBtn,
   breakpoint,
   arrow,
+  maxW = "1550px",
   ...rest
 }: SwiperData) {
   return (
-    <Box position="relative" className={swiperClass}>
-      <div className={`swiper-button-next custom-next ${nextBtn}`}>
-        {arrow}
-      </div>
-      <div className={`swiper-button-prev custom-prev ${prevBtn}`}>
-        {arrow}
-      </div>
+    <Box maxW={maxW} marginX="auto" className={swiperClass}>
+      <div className={`swiper-button-next custom-next ${nextBtn}`}>{arrow}</div>
+      <div className={`swiper-button-prev custom-prev ${prevBtn}`}>{arrow}</div>
       <Swiper
         pagination={isPagination}
         modules={[Navigation, Pagination]}

@@ -21,7 +21,6 @@
   width: 40px !important;
   height: 40px !important;
 }
-
 .swiper-pagination {
   bottom: 40px !important;
 }
@@ -44,9 +43,9 @@
 
 @media (max-width: 1400px) {
   .custom-next {
-    right: 0px !important;
+    right: 10px !important;
   }
   .custom-prev {
-    left: 0px !important;
+    left: 10px !important;
   }
 }

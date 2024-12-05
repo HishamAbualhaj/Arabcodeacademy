@@ -14,3 +14,9 @@
 .full_screen_h {
     height: calc(100vh - 91px) !important;
 }
+
+@media (max-width: 768px) {
+    .full_screen_h {
+        height: 100% !important;
+    }
+}
