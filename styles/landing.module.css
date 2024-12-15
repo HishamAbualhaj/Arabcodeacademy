@@ -1,0 +1,22 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.max_container {
+    max-width: 1700px;
+    margin: 0 auto;
+}
+.bg_image {
+    background-image: url(../public/images/hero_image.jpeg);
+    background-size: cover;
+    background-position: center;
+}
+.full_screen_h {
+    height: calc(100vh - 91px) !important;
+}
+
+@media (max-width: 768px) {
+    .full_screen_h {
+        height: 100% !important;
+    }
+}
