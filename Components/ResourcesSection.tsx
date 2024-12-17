@@ -28,7 +28,7 @@ const ResourcesSection: React.FC = () => {
       >
         <Container
           width={{ base: "234px", '2xl': "900px", xl: "520px",md:"490px", sm: "234px" }}
-          height={{ base: "257px", '2xl': "450px", xl: "433px",md:"280px", sm: "257px" }}
+          height={{ base: "250px", '2xl': "450px", xl: "433px",md:"280px", sm: "250px" }}
           shadow="0px 1px 20px 3px rgba(0, 0, 0, 0.2)"
           borderRadius="10px"
           bgColor="white"

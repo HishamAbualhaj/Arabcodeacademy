@@ -2,8 +2,7 @@ import { Stack, Box, Text } from "@chakra-ui/react";
 import React, { ReactNode } from "react";
 import { colors } from "@/styles/global-info";
 import CustomButton from "./CustomButton";
-import Image from "next/image";
-import more from "@/public/icons/more.png";
+
 
 interface Props {
   img: ReactNode;
@@ -18,7 +17,7 @@ const ResourcesCard: React.FC<Props> = ({ img, courseName }) => {
         gap="7"
         direction="column"
         wrap="wrap"
-        height={{ base: "257px", '2xl': "450px", xl: "433px", sm: "257px" }}
+        height={{ base: "245px", '2xl': "450px", xl: "433px", sm: "245px" }}
         width={{ base: "204px", '2xl': "300px", xl: "270px", sm: "204px" }}
         alignItems="center"
         justifyContent="center"
@@ -38,7 +37,7 @@ const ResourcesCard: React.FC<Props> = ({ img, courseName }) => {
         </Box>
         <Box
           width={{ base: "160px", '2xl': "226px", xl: "200px", sm: "160px" }}
-          height={{ base: "36px", '2xl': "56px", xl: "52px", sm: "36px" }}
+          height={{ base: "28px", '2xl': "50px", xl: "50px", sm: "28px" }}
         >
           <Text
             color={mainColor}
@@ -54,7 +53,7 @@ const ResourcesCard: React.FC<Props> = ({ img, courseName }) => {
         <CustomButton
           sizeType="secondary"
           text="  المزيد...  "
-          icon={<Image width={25} height={25} src={more} alt="icon" />}
+          icon="/icons/more.png"
           ButtonColor="green"
         />
       </Stack>

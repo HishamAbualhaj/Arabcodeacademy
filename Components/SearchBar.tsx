@@ -32,6 +32,7 @@ function SearchBar() {
           borderColor={colors.mainColor}
           borderWidth={'2px'}
           color={colors.mainColor}
+          paddingRight="25px"
           _placeholder={{ color: colors.mainColor }}
         />
       </Flex>
