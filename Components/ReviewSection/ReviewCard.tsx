@@ -48,6 +48,7 @@ const ReviewCard: React.FC<ReviewProps> = ({
         justifyContent="center"
         alignItems="center"
         pt={{ base: "24px", xl: "36px", "2xl": "38px" }}
+        px={{ base: "24px", xl: "36px", "2xl": "38px" }}
       >
         <Image
           src={image}
@@ -79,7 +80,7 @@ const ReviewCard: React.FC<ReviewProps> = ({
         <Flex
           pt={{ base: "8px", xl: "28px", "2xl": "58px" }}
           alignItems="center"
-          justifyContent="center"
+          justifyContent="space-between"
           width="100%"
         >
           <Rating

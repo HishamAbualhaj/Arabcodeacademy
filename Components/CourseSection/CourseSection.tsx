@@ -1,13 +1,77 @@
 import { SwiperSlide } from "swiper/react";
 import SwiperCustom from "@/Components/SwiperCustom";
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Flex,VStack } from "@chakra-ui/react";
 import SearchBar from "../SearchBar";
 import { colors } from "@/styles/global-info";
-import { courses } from "@/styles/global-info";
 import CourseCard from "./CourseCard";
 import Arrow_slider from "@/public/icons/swiper-arrow-2.svg";
+import Loader from "@/Components/Loader";
+import NotFound from "@/Components/NotFound";
+import { useEffect, useState } from "react";
 
+interface Course {
+  id: number;
+  title: string;
+  price: number;
+  trainers: { first_name: string; last_name: string }[];
+  total_duration: number;
+  total_videos: number;
+  imageURL: string;
+  status: string;
+}
 export const CourseSection = () => {
+  const [courses, setCourses] = useState<Course[]>([]);
+  const [loader, setLoader] = useState<boolean>(true);
+
+  const getCourses = async () => {
+    setLoader(true);
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_ENDPOINT}/courses`
+      );
+  
+      if (!response.ok) {
+        throw new Error(`Error fetching courses: ${response.status}`);
+      }
+  
+      const data = await response.json();
+      console.log("Fetched Data:", data.courses); 
+    
+      if (Array.isArray(data.courses)) {
+        setCourses(data.courses);
+      } else {
+        console.error("Expected an array, but received:", typeof data, data);
+        setCourses([]); 
+        
+      }
+      setLoader(false);
+    } catch (error) {
+      console.error("Failed to fetch courses:", error);
+      setCourses([]);
+      setLoader(false)
+    }
+  };
+  
+
+  useEffect(() => {
+    getCourses();
+  }, []);
+if(loader){
+  return(
+  <VStack gap="20" marginTop="8%">
+  <SearchBar/>
+  <Loader/>
+  </VStack>
+)
+}
+if(courses.length===0){
+  return(
+    <VStack gap="20" marginTop="8%">
+    <SearchBar />
+  <NotFound/>
+  </VStack>
+)
+} 
   return (
     <>
       <Box>
@@ -55,23 +119,24 @@ export const CourseSection = () => {
                 spaceBetween: 40,
               },
             }}
-            swiperslide={courses.map((course) => {
-              return (
-                <Box>
+            swiperslide={Array.isArray(courses)?(
+              courses
+                .filter((course) => course.status === "available")
+                .map((course) => (
                   <SwiperSlide key={course.id}>
                     <CourseCard
-                      courseName={course.name}
+                      courseName={course.title}
                       price={course.price}
-                      trainer={course.trainer}
-                      numberOfHours={course.time.hours}
-                      numberOfMinutes={course.time.minutes}
-                      numberOfVedios={course.time.minutes}
-                      icon={course.image}
+                      trainer={`${course.trainers[0]?.first_name || ""} ${
+                        course.trainers[0]?.last_name || ""
+                      }`}
+                      numberOfHours={course.total_duration}
+                      numberOfVedios={course.total_videos}
+                     // icon={course.imageURL?course.imageURL:"@/public/images/html.jpg"}
+                     icon="/images/java.jpg"
                     />
                   </SwiperSlide>
-                </Box>
-              );
-            })}
+                ))):[]}
             sliderNumber={4}
             arrow={<Arrow_slider />}
             py={undefined}
@@ -120,22 +185,24 @@ export const CourseSection = () => {
                 spaceBetween: 40,
               },
             }}
-            swiperslide={courses.map((course) => {
-              return (
-                <SwiperSlide key={course.id}>
-                  <CourseCard
-                    courseName={course.name}
-                    price={course.price}
-                    trainer={course.trainer}
-                    numberOfHours={course.time.hours}
-                    numberOfMinutes={course.time.minutes}
-                    numberOfVedios={course.time.minutes}
-                    icon={course.image}
-                    soon
-                  />
-                </SwiperSlide>
-              );
-            })}
+            swiperslide={Array.isArray(courses)?(
+              courses
+                .filter((course) => course.status === "coming_soon" )
+                .map((course) => (
+                  <SwiperSlide key={course.id}>
+                    <CourseCard
+                      courseName={course.title}
+                      price={course.price}
+                      trainer={`${course.trainers[0]?.first_name || ""} ${
+                        course.trainers[0]?.last_name || ""
+                      }`}
+                      numberOfHours={course.total_duration}
+                      numberOfVedios={course.total_videos}
+                      //icon={course.imageURL}
+                      icon="/images/java.jpg"
+                    />
+                  </SwiperSlide>
+                ))):[]}
             sliderNumber={4}
             arrow={<Arrow_slider />}
             py={undefined}

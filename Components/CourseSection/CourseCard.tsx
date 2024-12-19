@@ -11,7 +11,6 @@ interface PromoProps {
   trainer: string;
   numberOfVedios: number;
   numberOfHours: number;
-  numberOfMinutes: number;
   icon: string;
   soon?: boolean;
 }
@@ -21,7 +20,7 @@ const CourseCard: React.FC<PromoProps> = ({
   trainer,
   numberOfVedios,
   numberOfHours,
-  numberOfMinutes,
+
   icon,
   soon = false,
 }) => {
@@ -56,9 +55,9 @@ const CourseCard: React.FC<PromoProps> = ({
         flexDirection={"column"}
         justifyContent={"space-between"}
         width="100%"
-        height={{ base: "150px", xl: "245px", "2xl": "223px" }}
+        height={{ base: "170px", xl: "265px", "2xl": "250px" }}
         bg={"white"}
-        pt={{ base: "15px", xl: "37px", "2xl": "41px" }}
+        pt={{ base: "10px", xl: "30px", "2xl": "35px" }}
         pb={{ base: "9px", xl: "28px", "2xl": "26px" }}
         pl={{ base: "24px", xl: "17px", "2xl": "28.25px" }}
         pr={{ base: "28px", xl: "24px", "2xl": "28.25px" }}
@@ -104,7 +103,7 @@ const CourseCard: React.FC<PromoProps> = ({
             pr={{ base: "15px", xl: 0 }}
           >
             {numberOfVedios}فيديو.
-            {numberOfHours}ساعة و{numberOfMinutes}دقيقه
+            {numberOfHours}
           </Box>
         </Flex>
         <Flex gap="10px" justifyContent={"space-between"}>
