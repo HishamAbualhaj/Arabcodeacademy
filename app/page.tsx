@@ -10,11 +10,10 @@ import { Contact } from "@/Components/Contact/Contact";
 import Intro from "@/Components/IntroSection/Intro";
 import VideoBackground from "@/Components/VideoBackground";
 import { useBreakpointValue } from "@chakra-ui/react";
-import Header from "@/Components/Header/Header";
+
 import Landing from "@/Components/Landing/Landing";
-import DiscountBanner from "@/Components/DiscountBanner/DiscountBanner";
-import { Footer } from "@/Components/footerSection/Footer";
 import Brief from "@/Components/Brief/Brief";
+import Header from "@/Components/Header/Header";
 export default function Home() {
   const videoSrc =
     useBreakpointValue({
@@ -23,12 +22,8 @@ export default function Home() {
     }) ?? "/videos/aca-video-mobile.mp4";
   return (
     <>
-      <DiscountBanner
-        startDate=""
-        endDate=""
-        announcementText="احصل على خصم"
-      ></DiscountBanner>
-      <Header />
+    
+     <Header/>
       <Landing />
       <ResourcesSection />
       <VideoBackground videoSrc={videoSrc}>
@@ -39,7 +34,7 @@ export default function Home() {
       <Brief />
       <Contact />
       <ReviewSection />
-      <Footer />
+      
     </>
   );
 }

@@ -34,9 +34,7 @@ export const CourseSection = () => {
         throw new Error(`Error fetching courses: ${response.status}`);
       }
   
-      const data = await response.json();
-      console.log("Fetched Data:", data.courses); 
-    
+      const data = await response.json(); 
       if (Array.isArray(data.courses)) {
         setCourses(data.courses);
       } else {
@@ -59,7 +57,8 @@ export const CourseSection = () => {
 if(loader){
   return(
   <VStack gap="20" marginTop="8%">
-  <SearchBar/>
+  <SearchBar placeholder="مقدمة لمحرك الألعاب اليونيتي ....."
+  />
   <Loader/>
   </VStack>
 )
@@ -67,7 +66,7 @@ if(loader){
 if(courses.length===0){
   return(
     <VStack gap="20" marginTop="8%">
-    <SearchBar />
+    <SearchBar  placeholder="مقدمة لمحرك الألعاب اليونيتي ....." />
   <NotFound/>
   </VStack>
 )
@@ -94,7 +93,7 @@ if(courses.length===0){
           >
             الدورات التدريبه
           </Box>
-          <SearchBar />
+          <SearchBar  placeholder="مقدمة لمحرك الألعاب اليونيتي ....." />
         </Flex>
         <Box pb="10px" position="relative" marginTop="40px">
           <SwiperCustom

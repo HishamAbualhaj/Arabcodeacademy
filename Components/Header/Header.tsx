@@ -202,9 +202,9 @@ const Header: React.FC = () => {
               <Box>
                 <a href="">التواصل</a>
               </Box>
-              <Box>
-                <a href="">المسارات التعليمية</a>
-              </Box>
+              <Link href="/aiTools">
+              المسارات التعليمية
+               </Link>
             </Flex>
           </Box>
           <Box display={{ lgDown: "none" }}>

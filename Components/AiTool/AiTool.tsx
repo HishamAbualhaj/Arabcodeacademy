@@ -1,0 +1,127 @@
+"use client";
+import React, { useState,useEffect } from "react";
+import { Flex, Button, Text, Icon } from "@chakra-ui/react";
+import { CiHeart } from "react-icons/ci";
+import { HiHeart } from "react-icons/hi";
+import SearchBar from "@/Components/SearchBar";
+import { colors } from "@/styles/global-info.js";
+import Loader from "@/Components/Loader";
+import NotFound from "@/Components/NotFound";
+
+interface Tool {
+    tool_id: number;
+    title: string;
+    description:string;
+    isFav:boolean
+    imageURL: string;
+  }
+export default function AiTool() {
+  const [searchValue, setSearchValue] = useState("");
+  const [toggle, setToggle] = useState(false);
+  const [tools, setTools] = useState<Tool[]>([]);
+  const [loader, setLoader] = useState<boolean>(true);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    getAiTool(searchValue, toggle ? "true" : "false");
+  };
+
+  const getAiTool = async (searchValue: string, isFav: string) => {
+    setLoader(true);
+    try {
+      const baseUrl = `${process.env.NEXT_PUBLIC_API_ENDPOINT}/aitools?page=1&page_size=8&search=${searchValue || ""}`;
+      
+      const url = isFav === "true" ? `${baseUrl}&isFav=true` : baseUrl;
+
+      const response = await fetch(url);
+
+      if (!response.ok) throw new Error(`Error: ${response.status}`);
+   
+      const data = await response.json();
+
+      console.log("Fetched Data:", data);
+      if (Array.isArray(data.data)) {
+        setTools(data.data);
+        
+      } else {
+        console.error("Expected an array, but received:", typeof data, data);
+        setTools([]); 
+        
+      }
+      setLoader(false);
+    } catch (error) {
+      console.error("Failed to fetch AI tools:", error);
+      setLoader(false);
+    }
+  };
+
+  const handleClick = () => {
+    setToggle((prevToggle) => {
+      const newToggle = !prevToggle;
+      getAiTool(searchValue, newToggle ? "true" : "");
+      return newToggle;
+    });
+  };
+
+
+ useEffect(() => {
+    getAiTool(searchValue,"false");
+  }, []);
+
+  if(loader){
+   return(<Loader/>) 
+  }
+  if(tools.length===0){
+ 
+   return( <NotFound/>)
+  }   
+
+  return (
+    <>
+      <Flex justifyContent={{base:"center",lg:"space-between","xl":"space-between"}} alignItems="center" flexDirection={{base:"column-reverse",lg:"row","xl":"row"}} gap={8}		
+>
+     
+        <Button
+          aria-label="Toggle Favorites"
+          width={{ base: "", lg: "140px", md: "160px", sm: "100px" }}
+          height={{ base: "", lg: "44px", md: "50px", sm: "40px" }}
+          onClick={handleClick}
+          bg="white"
+          borderRadius="10px"
+          boxShadow="0px 1px 10px 1px rgba(0, 0, 0, 0.25)"
+          cursor="pointer"
+          _hover={{
+            boxShadow: "md",
+            transform: "scale(1.05)",
+          }}
+        >
+          <Text color={colors.mainColor}  fontWeight="bold">المفضلة</Text>
+          {toggle ? (
+            <Icon fontSize="2xl" color={colors.mainColor} fontWeight="bold">
+              <HiHeart />
+            </Icon>
+          ) : (
+            <Icon fontSize="2xl" color={colors.mainColor} fontWeight="bold">
+              <CiHeart />
+            </Icon>
+          )}
+        </Button>
+        <form onSubmit={handleSubmit}>
+          <SearchBar
+            placeholder="...Chatgpt"
+            onChange={(e) => setSearchValue(e.target.value)}
+          />
+        </form>
+      </Flex>
+      { (
+  tools.map((s, index) => (
+    <React.Fragment key={index}>
+      <p>{s.title}</p>
+      <p>{s.description}</p>
+    </React.Fragment>
+  ))
+) }
+           
+    </>
+  );
+}

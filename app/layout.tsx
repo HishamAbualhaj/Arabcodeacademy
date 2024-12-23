@@ -1,6 +1,9 @@
+
 import { Provider } from "@/Components/ui/provider";
 import type { Metadata } from "next";
 import "../styles/globals.css";
+import DiscountBanner from "@/Components/DiscountBanner/DiscountBanner";
+import { Footer } from "@/Components/footerSection/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +19,15 @@ export default function RootLayout({
     <html lang="ar" suppressHydrationWarning>
       <body dir="rtl">
         <Provider>
+        <DiscountBanner
+        startDate="12-22-2024"
+        endDate="12-24-2024"
+        announcementText="احصل على خصم بمقدار 20%"
+      ></DiscountBanner>
+     
+       {/* <Header/> */}
           <main>{children}</main>
+          <Footer />
         </Provider>
       </body>
     </html>

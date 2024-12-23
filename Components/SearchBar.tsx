@@ -1,6 +1,12 @@
-import { Input, InputElement, Image, Flex, Box } from "@chakra-ui/react";
+import { Input, InputElement, Image, Flex, Box,Button} from "@chakra-ui/react";
 import { colors } from "@/styles/global-info";
-function SearchBar() {
+interface Props{
+  placeholder:string,
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+const SearchBar: React.FC <Props> = ({
+  placeholder, onChange 
+}) =>  {
   const heightDesktop = "65px";
   const heightTablet = "75px";
   const heightMobile = "50px";
@@ -14,26 +20,30 @@ function SearchBar() {
       borderColor={colors.mainColor}
       borderWidth={"2px"}
       paddingLeft="20px"
+
     >
       <Input
+      onChange={onChange}
         _focus={{ outline: "none" }}
         border="none"
         paddingRight="20px"
         fontSize={{base:"17px", md:"20px"}}
         height={{ base: heightMobile, xl: heightTablet, "2xl": heightDesktop }}
-        placeholder="مقدمة لمحرك الألعاب اليونيتي ....."
+        placeholder={placeholder}
         color={colors.mainColor}
         _placeholder={{ color: colors.mainColor }}
       />
-      <Box
+      <Button
+      type="submit"
         paddingRight="15px"
         display="flex"
+         bg="transparent"
         alignItems="center"
         height={{ base: heightMobile, xl: heightTablet, "2xl": heightDesktop }}
         borderRight={`2px solid ${colors.mainColor}`}
       >
         <Image src="/icons/search.svg" alt="Search Icon" boxSize="25px" />
-      </Box>
+      </Button>
     </Flex>
   );
 }
