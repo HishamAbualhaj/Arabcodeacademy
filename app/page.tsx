@@ -14,6 +14,7 @@ import { useBreakpointValue } from "@chakra-ui/react";
 import Landing from "@/Components/Landing/Landing";
 import Brief from "@/Components/Brief/Brief";
 import Header from "@/Components/Header/Header";
+import AiTool from "@/Components/AiTool/AiTool";
 export default function Home() {
   const videoSrc =
     useBreakpointValue({
@@ -24,7 +25,8 @@ export default function Home() {
     <>
     
      <Header/>
-      <Landing />
+     <AiTool />
+      {/* <Landing />
       <ResourcesSection />
       <VideoBackground videoSrc={videoSrc}>
         <Intro />
@@ -33,7 +35,7 @@ export default function Home() {
       <QuizzSection />
       <Brief />
       <Contact />
-      <ReviewSection />
+      <ReviewSection /> */}
       
     </>
   );

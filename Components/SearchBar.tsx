@@ -1,12 +1,17 @@
-import { Input, InputElement, Image, Flex, Box,Button} from "@chakra-ui/react";
+import {
+  Input,
+  InputElement,
+  Image,
+  Flex,
+  Box,
+  Button,
+} from "@chakra-ui/react";
 import { colors } from "@/styles/global-info";
-interface Props{
-  placeholder:string,
+interface Props {
+  placeholder: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
-const SearchBar: React.FC <Props> = ({
-  placeholder, onChange 
-}) =>  {
+const SearchBar: React.FC<Props> = ({ placeholder, onChange }) => {
   const heightDesktop = "65px";
   const heightTablet = "75px";
   const heightMobile = "50px";
@@ -20,24 +25,23 @@ const SearchBar: React.FC <Props> = ({
       borderColor={colors.mainColor}
       borderWidth={"2px"}
       paddingLeft="20px"
-
     >
       <Input
-      onChange={onChange}
+        onChange={onChange}
         _focus={{ outline: "none" }}
         border="none"
         paddingRight="20px"
-        fontSize={{base:"17px", md:"20px"}}
+        fontSize={{ base: "17px", md: "20px" }}
         height={{ base: heightMobile, xl: heightTablet, "2xl": heightDesktop }}
         placeholder={placeholder}
         color={colors.mainColor}
         _placeholder={{ color: colors.mainColor }}
       />
       <Button
-      type="submit"
+        type="submit"
         paddingRight="15px"
         display="flex"
-         bg="transparent"
+        bg="transparent"
         alignItems="center"
         height={{ base: heightMobile, xl: heightTablet, "2xl": heightDesktop }}
         borderRight={`2px solid ${colors.mainColor}`}
@@ -46,6 +50,6 @@ const SearchBar: React.FC <Props> = ({
       </Button>
     </Flex>
   );
-}
+};
 
 export default SearchBar;
