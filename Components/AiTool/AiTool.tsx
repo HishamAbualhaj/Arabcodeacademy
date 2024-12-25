@@ -1,52 +1,59 @@
 "use client";
-import React, { useState,useEffect } from "react";
-import { Flex, Button, Text, Icon } from "@chakra-ui/react";
+import React, { useState, useEffect } from "react";
+import { Flex, Button, Text, Icon, Box, SimpleGrid } from "@chakra-ui/react";
 import { CiHeart } from "react-icons/ci";
 import { HiHeart } from "react-icons/hi";
 import SearchBar from "@/Components/SearchBar";
 import { colors } from "@/styles/global-info.js";
 import Loader from "@/Components/Loader";
 import NotFound from "@/Components/NotFound";
-
+import AiToolCard from "../AiToolCard";
+import Pagination from "../Pagination/Pagination";
 interface Tool {
-    tool_id: number;
-    title: string;
-    description:string;
-    isFav:boolean
-    imageURL: string;
-  }
+  tool_id: number;
+  title: string;
+  description: string;
+  isFav: boolean;
+  imageURL: string;
+  tags: string;
+}
 export default function AiTool() {
   const [searchValue, setSearchValue] = useState("");
   const [toggle, setToggle] = useState(false);
   const [tools, setTools] = useState<Tool[]>([]);
   const [loader, setLoader] = useState<boolean>(true);
+  const [currentPageNum, setCurrentPageNum] = useState<number>(1);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    getAiTool(searchValue, toggle ? "true" : "false");
+    getAiTool(searchValue, toggle ? "true" : "false", 1);
   };
 
-  const getAiTool = async (searchValue: string, isFav: string) => {
+  const getAiTool = async (
+    searchValue: string,
+    isFav: string,
+    currentPageNum: number
+  ) => {
     setLoader(true);
     try {
-      const baseUrl = `${process.env.NEXT_PUBLIC_API_ENDPOINT}/aitools?page=1&page_size=8&search=${searchValue || ""}`;
-      
+      const baseUrl = `${
+        process.env.NEXT_PUBLIC_API_ENDPOINT
+      }/aitools?page=${currentPageNum}&page_size=8&search=${searchValue || ""}`;
+
       const url = isFav === "true" ? `${baseUrl}&isFav=true` : baseUrl;
 
       const response = await fetch(url);
 
       if (!response.ok) throw new Error(`Error: ${response.status}`);
-   
+
       const data = await response.json();
 
       console.log("Fetched Data:", data);
       if (Array.isArray(data.data)) {
         setTools(data.data);
-        
       } else {
         console.error("Expected an array, but received:", typeof data, data);
-        setTools([]); 
-        
+        setTools([]);
       }
       setLoader(false);
     } catch (error) {
@@ -58,70 +65,98 @@ export default function AiTool() {
   const handleClick = () => {
     setToggle((prevToggle) => {
       const newToggle = !prevToggle;
-      getAiTool(searchValue, newToggle ? "true" : "");
+      getAiTool(searchValue, newToggle ? "true" : "", 1);
       return newToggle;
     });
   };
 
+  useEffect(() => {
+    getAiTool(searchValue, "false", currentPageNum);
+  }, [currentPageNum]);
 
- useEffect(() => {
-    getAiTool(searchValue,"false");
-  }, []);
-
-  if(loader){
-   return(<Loader/>) 
+  if (loader) {
+    return <Loader />;
   }
-  if(tools.length===0){
- 
-   return( <NotFound/>)
-  }   
+  // if (tools.length === 0) {
+  //   return <NotFound />;
+  // }
 
   return (
     <>
-      <Flex justifyContent={{base:"center",lg:"space-between","xl":"space-between"}} alignItems="center" flexDirection={{base:"column-reverse",lg:"row","xl":"row"}} gap={8}		
->
-     
-        <Button
-          aria-label="Toggle Favorites"
-          width={{ base: "", lg: "140px", md: "160px", sm: "100px" }}
-          height={{ base: "", lg: "44px", md: "50px", sm: "40px" }}
-          onClick={handleClick}
-          bg="white"
-          borderRadius="10px"
-          boxShadow="0px 1px 10px 1px rgba(0, 0, 0, 0.25)"
-          cursor="pointer"
-          _hover={{
-            boxShadow: "md",
-            transform: "scale(1.05)",
+      {}
+      <Box
+        marginTop="50px"
+        marginInline="auto"
+        maxW="1650px"
+        paddingInline="20px"
+      >
+        <Flex
+          justifyContent={{
+            base: "center",
+            lg: "space-between",
+            xl: "space-between",
           }}
+          alignItems="center"
+          flexDirection={{ base: "column-reverse", lg: "row", xl: "row" }}
+          gap={8}
         >
-          <Text color={colors.mainColor}  fontWeight="bold">المفضلة</Text>
-          {toggle ? (
-            <Icon fontSize="2xl" color={colors.mainColor} fontWeight="bold">
-              <HiHeart />
-            </Icon>
-          ) : (
-            <Icon fontSize="2xl" color={colors.mainColor} fontWeight="bold">
-              <CiHeart />
-            </Icon>
-          )}
-        </Button>
-        <form onSubmit={handleSubmit}>
-          <SearchBar
-            placeholder="...Chatgpt"
-            onChange={(e) => setSearchValue(e.target.value)}
-          />
-        </form>
-      </Flex>
-      { (
-  tools.map((s, index) => (
-    <React.Fragment key={index}>
-      <p>{s.title}</p>
-      <p>{s.description}</p>
-    </React.Fragment>
-  ))
-) }
-           
+          <Button
+            aria-label="Toggle Favorites"
+            width={{ base: "", lg: "140px", md: "160px", sm: "100px" }}
+            height={{ base: "", lg: "44px", md: "50px", sm: "40px" }}
+            onClick={handleClick}
+            bg="white"
+            borderRadius="10px"
+            boxShadow="0px 1px 10px 1px rgba(0, 0, 0, 0.25)"
+            cursor="pointer"
+            _hover={{
+              boxShadow: "md",
+              transform: "scale(1.05)",
+            }}
+          >
+            <Text color={colors.mainColor} fontWeight="bold">
+              المفضلة
+            </Text>
+            {toggle ? (
+              <Icon fontSize="2xl" color={colors.mainColor} fontWeight="bold">
+                <HiHeart />
+              </Icon>
+            ) : (
+              <Icon fontSize="2xl" color={colors.mainColor} fontWeight="bold">
+                <CiHeart />
+              </Icon>
+            )}
+          </Button>
+
+          <form onSubmit={handleSubmit}>
+            <SearchBar
+              placeholder="...Chatgpt"
+              onChange={(e) => setSearchValue(e.target.value)}
+            />
+          </form>
+        </Flex>
+        <SimpleGrid
+          py="40px"
+          columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
+          gap="20px"
+        >
+          {tools.map((s, index) => (
+            <AiToolCard
+              key={index}
+              aiName={s.title}
+              description={s.description}
+              functionality={s.description}
+              aiImage={undefined}
+              tag={s.tags[0]}
+            />
+          ))}
+        </SimpleGrid>
+
+        <Pagination
+          setCurrentPageNum={setCurrentPageNum}
+          currentPageNum={currentPageNum}
+        />
+      </Box>
     </>
   );
 }
