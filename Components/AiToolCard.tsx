@@ -7,11 +7,14 @@ import ReadMore from "@/public/icons/readMore.svg";
 import Added from "@/public/favouriteIcons/added.svg";
 import NotAdded from "@/public/favouriteIcons/notAdded.svg";
 import CustomButton from "./CustomButton";
+
+
 interface AiToolCard {
   aiImage?: string;
   aiName: string;
   functionality: string;
   description: string;
+  tag: string;
 }
 
 const AiToolCard: React.FC<AiToolCard> = ({
@@ -19,6 +22,7 @@ const AiToolCard: React.FC<AiToolCard> = ({
   aiName,
   functionality,
   description,
+  tag,
 }) => {
   const cardStyles = {
     width: useBreakpointValue({ base: 280, xl: 400 }),
@@ -27,23 +31,15 @@ const AiToolCard: React.FC<AiToolCard> = ({
   };
   const [isFavourite, setIsFavourite] = useState(false);
   return (
-    <Box
-      width={cardStyles.width}
-      height={cardStyles.height}
-      shadow="0px 1px 20px 2px rgba(0, 0, 0, 0.25)"
-      position="relative"
-    >
+    <Box shadow="0px 1px 20px 2px rgba(0, 0, 0, 0.25)" position="relative">
       <Image
         src={aiImage ?? "/ai-tool-card-images/upward.jpg"}
         alt="Ai Image Tool"
         width={cardStyles.width}
         height={cardStyles.imageHeight}
       />
-      <Box width="100%" height={{ base: "252px", xl: "285px" }}>
+      <Box padding="12px">
         <Flex
-          width="100%"
-          height={{ base: "63px", xl: "98px" }}
-          px={{ base: "28px", xl: "21px" }}
           py={{ base: "12px", xl: "19px" }}
           flexDirection="column"
           justifyContent="space-between"
@@ -57,21 +53,30 @@ const AiToolCard: React.FC<AiToolCard> = ({
           >
             {aiName}
           </Text>
-
           <Text
+            direction="ltr"
+            color={colors.mainColor}
+            fontSize={{ base: "16px", xl: "20px" }}
+            fontWeight={700}
+            lineHeight={{ base: "19px", xl: "28px" }}
+          >
+            {tag}
+          </Text>
+          <Text
+            lineClamp="2"
+            minH="50px"
+            alignSelf="start"
+            marginTop="10px"
             color={colors.mainColor}
             fontSize={{ base: "14px", xl: "18px" }}
             fontWeight={700}
-            lineHeight={{ base: "17px", xl: "21.6px" }}
+            lineHeight={{ base: "18px", xl: "25px" }}
           >
-            {functionality}#
+            {functionality}
           </Text>
         </Flex>
         <Text
-          width="100%"
-          height={{ base: "120px", xl: "115px" }}
-          px={{ base: "53px", xl: "42px" }}
-          mt={{ base: "7px", xl: "20px" }}
+          minH="40px"
           color={colors.mainColor}
           fontSize={{ base: "14px", xl: "17px" }}
           fontWeight={500}
@@ -80,7 +85,7 @@ const AiToolCard: React.FC<AiToolCard> = ({
         >
           {description}
         </Text>
-        <Flex width="100%">
+        <Flex>
           <CustomButton
             text="المزيد"
             sizeType="thirdly"
@@ -103,7 +108,7 @@ const AiToolCard: React.FC<AiToolCard> = ({
         cursor="pointer"
         onClick={() => setIsFavourite((preState) => !preState)}
       >
-        {isFavourite ? <Added></Added> : <NotAdded />}
+        {isFavourite ? <Added /> : <NotAdded />}
       </Flex>
     </Box>
   );
