@@ -1,3 +1,4 @@
+"use client"
 import { Box, Flex } from "@chakra-ui/react";
 import React, { useState } from "react";
 import CustomButton from "../CustomButton";

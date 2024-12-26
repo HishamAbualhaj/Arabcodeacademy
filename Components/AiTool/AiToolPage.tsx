@@ -19,6 +19,8 @@ interface Tool {
 }
 export default function AiTool() {
   const [searchValue, setSearchValue] = useState("");
+  const[totalItems,setTotalItems]=useState(1);
+  const[numOnOnePage,setNumOnOnePage]=useState(0);
   const [toggle, setToggle] = useState(false);
   const [tools, setTools] = useState<Tool[]>([]);
   const [loader, setLoader] = useState<boolean>(true);
@@ -54,6 +56,9 @@ export default function AiTool() {
 
       console.log("Fetched Data:", data);
       if (Array.isArray(data.data)) {
+        setNumOnOnePage(data.page_size) 
+
+        setTotalItems(data.total_items); 
         setTools(data.data);
       } else {
         console.error("Expected an array, but received:", typeof data, data);
@@ -64,6 +69,7 @@ export default function AiTool() {
       console.error("Failed to fetch AI tools:", error);
       setLoader(false);
     }
+    
   };
 
   const handleClick = () => {
@@ -75,7 +81,7 @@ export default function AiTool() {
   };
 
   useEffect(() => {
-    getAiTool(searchValue, "false", currentPageNum);
+    getAiTool(searchValue, toggle ? "true" : "false", currentPageNum);
   }, [currentPageNum]);
 
   if (loader) {
@@ -134,6 +140,7 @@ export default function AiTool() {
 
           <form onSubmit={handleSubmit}>
             <SearchBar
+            value={searchValue}
               placeholder="...Chatgpt"
               onChange={(e) => setSearchValue(e.target.value)}
             />
@@ -158,6 +165,8 @@ export default function AiTool() {
         </SimpleGrid>
 
         <Pagination
+        totalItems={totalItems}
+        itemsPerPage={numOnOnePage}
           setCurrentPageNum={setCurrentPageNum}
           currentPageNum={currentPageNum}
         />

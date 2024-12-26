@@ -1,7 +1,6 @@
 "use client";
-import AiTool from '@/app/AiTool/AiTool';
+import AiTool from '@/Components/AiTool/AiToolPage';
 import React from 'react'
-
 export default function AiToolPage() {
   
   return (
@@ -10,4 +9,3 @@ export default function AiToolPage() {
   </>
   )
 }
-
