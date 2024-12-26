@@ -5,8 +5,8 @@ import SearchBar from "../SearchBar";
 import { colors } from "@/styles/global-info";
 import CourseCard from "./CourseCard";
 import Arrow_slider from "@/public/icons/swiper-arrow-2.svg";
-import Loader from "@/Components/Loader";
-import NotFound from "@/Components/NotFound";
+import Loader from "@/Components/Loader/Loader";
+import NotFound from "@/Components/NotFound/NotFound";
 import { useEffect, useState } from "react";
 
 interface Course {
