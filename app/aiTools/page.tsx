@@ -1,6 +1,7 @@
 "use client";
-import AiTool from '@/Components/AiTool/AiTool';
 import React from 'react'
+import AiTool from '@/Components/AiTool/AiTool';
+
 export default function AiToolPage() {
   
   return (
