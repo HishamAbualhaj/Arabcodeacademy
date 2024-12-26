@@ -89,6 +89,7 @@ const Header: React.FC = () => {
                 <Bars width="25px" height="25px" />
               </Box>
               <Box
+             
                 display={translate ? "block" : "none"}
                 position="absolute"
                 zIndex="10"
@@ -162,6 +163,7 @@ const Header: React.FC = () => {
                       </Box>
                     )
                   ) : (
+                    <>
                     <Box paddingInline="20px">
                       <Box
                         key={item.key}
@@ -189,6 +191,7 @@ const Header: React.FC = () => {
                         </Box>
                       </Box>
                     </Box>
+                    </>
                   )
                 )}
               </Box>

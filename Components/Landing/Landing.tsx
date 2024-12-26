@@ -12,10 +12,10 @@ function Landing() {
     <Box position="relative">
       <SwiperCustom
         swiperslide={[
-          <SwiperSlide>
+          <SwiperSlide key={1}>
             <Slide />
           </SwiperSlide>,
-          <SwiperSlide>
+          <SwiperSlide key={2}>
             <Slide />
           </SwiperSlide>,
         ]}
