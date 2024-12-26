@@ -5,9 +5,9 @@ import { CiHeart } from "react-icons/ci";
 import { HiHeart } from "react-icons/hi";
 import SearchBar from "@/Components/SearchBar";
 import { colors } from "@/styles/global-info.js";
-import Loader from "@/Components/Loader";
-import NotFound from "@/Components/NotFound";
-import AiToolCard from "../AiToolCard";
+import Loader from "@/Components/Loader/Loader";
+import NotFound from "@/Components/NotFound/NotFound";
+import AiToolCard from "./AiToolCard";
 import Pagination from "../Pagination/Pagination";
 interface Tool {
   tool_id: number;
@@ -34,6 +34,10 @@ export default function AiTool() {
     isFav: string,
     currentPageNum: number
   ) => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
     setLoader(true);
     try {
       const baseUrl = `${
@@ -77,9 +81,9 @@ export default function AiTool() {
   if (loader) {
     return <Loader />;
   }
-  // if (tools.length === 0) {
-  //   return <NotFound />;
-  // }
+  if (tools.length === 0) {
+    return <NotFound />;
+  }
 
   return (
     <>
@@ -148,6 +152,7 @@ export default function AiTool() {
               functionality={s.description}
               aiImage={undefined}
               tag={s.tags[0]}
+              isFav={s.isFav}
             />
           ))}
         </SimpleGrid>
