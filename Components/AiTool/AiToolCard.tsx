@@ -1,4 +1,4 @@
-"use-client";
+"use client";
 import { Box, Flex, useBreakpointValue, Text } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
@@ -33,7 +33,7 @@ const AiToolCard: React.FC<AiToolCard> = ({
   const [isFavourite, setIsFavourite] = useState(false);
   useEffect(() => {
     setIsFavourite(isFav);
-  }, []);
+  }, [isFav]);
   return (
     <Box shadow="0px 1px 20px 2px rgba(0, 0, 0, 0.25)" position="relative">
       <Image

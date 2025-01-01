@@ -78,7 +78,7 @@ const CourseCard: React.FC<PromoProps> = ({
           >
             <Text
               as="span"
-              fontSize={{ base: "16px", xl: "25px", "2xl": "23px" }}
+              fontSize={{ base: "13px", xl: "22px", "2xl": "20px" }}
               pr={{ base: "56px", xl: 0 }}
             >
               {courseName}

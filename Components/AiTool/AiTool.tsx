@@ -1,176 +1,56 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import { Flex, Button, Text, Icon, Box, SimpleGrid } from "@chakra-ui/react";
-import { CiHeart } from "react-icons/ci";
-import { HiHeart } from "react-icons/hi";
-import SearchBar from "@/Components/SearchBar";
-import { colors } from "@/styles/global-info.js";
-import Loader from "@/Components/Loader/Loader";
-import NotFound from "@/Components/NotFound/NotFound";
+import { SimpleGrid, Box } from "@chakra-ui/react";
 import AiToolCard from "./AiToolCard";
 import Pagination from "../Pagination/Pagination";
-interface Tool {
-  tool_id: number;
-  title: string;
-  description: string;
-  isFav: boolean;
-  imageURL: string;
-  tags: string;
+import NotFound from "../NotFound/NotFound";
+
+async function fetchAiTools(search: string, isFav: boolean, page: number) {
+  const baseUrl = `${process.env.NEXT_PUBLIC_API_ENDPOINT}/aitools`;
+  const url = `${baseUrl}?page=${page}&page_size=8&search=${search || ""}${
+    isFav ? "&isFav=true" : ""
+  }`;
+
+  const response = await fetch(url, { cache: "no-store" });
+
+  if (!response.ok) throw new Error(`Failed to fetch AI tools`);
+
+  const data = await response.json();
+  return data;
 }
-export default function AiTool() {
-  const [searchValue, setSearchValue] = useState("");
-  const[totalItems,setTotalItems]=useState(1);
-  const[numOnOnePage,setNumOnOnePage]=useState(0);
-  const [toggle, setToggle] = useState(false);
-  const [tools, setTools] = useState<Tool[]>([]);
-  const [loader, setLoader] = useState<boolean>(true);
-  const [currentPageNum, setCurrentPageNum] = useState<number>(1);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    getAiTool(searchValue, toggle ? "true" : "false", 1);
-  };
+export default async function AiToolPage({
+  searchParams,
+}: {
+  searchParams: { search?: string; isFav?: string; page?: string };
+}) {
+  const search = searchParams.search || "";
+  const isFav = searchParams.isFav === "true";
+  const page = Number(searchParams.page || 1);
 
-  const getAiTool = async (
-    searchValue: string,
-    isFav: string,
-    currentPageNum: number
-  ) => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-    setLoader(true);
-    try {
-      const baseUrl = `${
-        process.env.NEXT_PUBLIC_API_ENDPOINT
-      }/aitools?page=${currentPageNum}&page_size=8&search=${searchValue || ""}`;
-
-      const url = isFav === "true" ? `${baseUrl}&isFav=true` : baseUrl;
-
-      const response = await fetch(url);
-
-      if (!response.ok) throw new Error(`Error: ${response.status}`);
-
-      const data = await response.json();
-
-      console.log("Fetched Data:", data);
-      if (Array.isArray(data.data)) {
-        setNumOnOnePage(data.page_size) 
-
-        setTotalItems(data.total_items); 
-        setTools(data.data);
-      } else {
-        console.error("Expected an array, but received:", typeof data, data);
-        setTools([]);
-      }
-      setLoader(false);
-    } catch (error) {
-      console.error("Failed to fetch AI tools:", error);
-      setLoader(false);
-    }
-    
-  };
-
-  const handleClick = () => {
-    setToggle((prevToggle) => {
-      const newToggle = !prevToggle;
-      getAiTool(searchValue, newToggle ? "true" : "", 1);
-      return newToggle;
-    });
-  };
-
-  useEffect(() => {
-    getAiTool(searchValue, toggle ? "true" : "false", currentPageNum);
-  }, [currentPageNum]);
-
-  if (loader) {
-    return <Loader />;
-  }
-  if (tools.length === 0) {
-    return <NotFound />;
-  }
-
+  const data = await fetchAiTools(search, isFav, page);
+  if (!data || data.data.length === 0){
+    return(<NotFound/>)
+  } 
   return (
-    <>
-      {}
-      <Box
-        marginTop="50px"
-        marginInline="auto"
-        maxW="1650px"
-        paddingInline="20px"
-      >
-        <Flex
-          justifyContent={{
-            base: "center",
-            lg: "space-between",
-            xl: "space-between",
-          }}
-          alignItems="center"
-          flexDirection={{ base: "column-reverse", lg: "row", xl: "row" }}
-          gap={8}
-        >
-          <Button
-            aria-label="Toggle Favorites"
-            width={{ base: "", lg: "140px", md: "160px", sm: "100px" }}
-            height={{ base: "", lg: "44px", md: "50px", sm: "40px" }}
-            onClick={handleClick}
-            bg="white"
-            borderRadius="10px"
-            boxShadow="0px 1px 10px 1px rgba(0, 0, 0, 0.25)"
-            cursor="pointer"
-            _hover={{
-              boxShadow: "md",
-              transform: "scale(1.05)",
-            }}
-          >
-            <Text color={colors.mainColor} fontWeight="bold">
-              المفضلة
-            </Text>
-            {toggle ? (
-              <Icon fontSize="2xl" color={colors.mainColor} fontWeight="bold">
-                <HiHeart />
-              </Icon>
-            ) : (
-              <Icon fontSize="2xl" color={colors.mainColor} fontWeight="bold">
-                <CiHeart />
-              </Icon>
-            )}
-          </Button>
+    <Box marginTop="50px" marginInline="auto" maxW="1650px" paddingInline="20px">
+      <SimpleGrid py="40px" columns={{ base: 1, sm: 2, md: 3, lg: 4 }} gap="20px">
+        {data.data.map((tool: any, index: number) => (
+          <AiToolCard
+            key={index}
+            aiName={tool.title}
+            description={tool.description}
+            functionality={tool.description}
+            aiImage={undefined}
+            tag={tool.tags[0]}
+            isFav={tool.isFav}
+          />
+        ))}
+      </SimpleGrid>
 
-          <form onSubmit={handleSubmit}>
-            <SearchBar
-            value={searchValue}
-              placeholder="...Chatgpt"
-              onChange={(e) => setSearchValue(e.target.value)}
-            />
-          </form>
-        </Flex>
-        <SimpleGrid
-          py="40px"
-          columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
-          gap="20px"
-        >
-          {tools.map((s, index) => (
-            <AiToolCard
-              key={index}
-              aiName={s.title}
-              description={s.description}
-              functionality={s.description}
-              aiImage={undefined}
-              tag={s.tags[0]}
-              isFav={s.isFav}
-            />
-          ))}
-        </SimpleGrid>
-
-        <Pagination
-        totalItems={totalItems}
-        itemsPerPage={numOnOnePage}
-          setCurrentPageNum={setCurrentPageNum}
-          currentPageNum={currentPageNum}
-        />
-      </Box>
-    </>
+      <Pagination
+        totalItems={data.total_items}
+        itemsPerPage={data.page_size}
+        currentPageNum={page}
+      />
+    </Box>
   );
 }

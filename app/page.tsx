@@ -9,10 +9,11 @@ import QuizzSection from "@/Components/QuizzSection/QuizzSection";
 import { Contact } from "@/Components/Contact/Contact";
 import Intro from "@/Components/IntroSection/Intro";
 import VideoBackground from "@/Components/VideoBackground";
-import { useBreakpointValue } from "@chakra-ui/react";
-
+import { Box, useBreakpointValue } from "@chakra-ui/react";
+import { Suspense } from "react";
 import Landing from "@/Components/Landing/Landing";
 import Brief from "@/Components/Brief/Brief";
+import Loader from "@/Components/Loader/Loader";
 
 
 export default function Home() {
@@ -30,12 +31,27 @@ export default function Home() {
       <VideoBackground videoSrc={videoSrc}>
         <Intro />
       </VideoBackground>
+      <Suspense
+      fallback={
+        <Box display="flex" justifyContent="center" alignItems="center" py="50px">
+         <Loader/>
+        </Box>
+      }
+    >
       <CourseSection />
+      </Suspense>
       <QuizzSection />
       <Brief />
       <Contact />
+      <Suspense
+      fallback={
+        <Box display="flex" justifyContent="center" alignItems="center" py="50px">
+         <Loader/>
+        </Box>
+      }
+    >
       <ReviewSection /> 
-      
+      </Suspense>
     </>
   );
 }

@@ -1,12 +1,11 @@
-"use client";
-import { Box,VStack } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import SwiperCustom from "../SwiperCustom";
 import { SwiperSlide } from "swiper/react";
 import ReviewCard from "./ReviewCard";
 import Arrow_slider from "@/public/icons/swiper-arrow-2.svg";
-import Loader from "@/Components/Loader/Loader";
-import NotFound from "@/Components/NotFound/NotFound";
-import { useEffect, useState } from "react";
+import NotFound from "../NotFound/NotFound";
+
+
 interface Review {
   reviewText: string;
   price: number;
@@ -16,57 +15,22 @@ interface Review {
   imageURL: string;
   date: Date;
 }
-const ReviewSection = ({}) => {
-  const [reviews, setReviews] = useState<Review[]>([]);
-  const [loader, setLoader] = useState<boolean>(true);
+const ReviewSection = async ({}) => {
+  
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/reviews`
+  );
 
-  const getReviews = async () => {
-    setLoader(true);
-    try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_ENDPOINT}/reviews`
-      );
-  
-      if (!response.ok) {
-        throw new Error(`Error fetching courses: ${response.status}`);
-      }
-  
-      const data = await response.json();
-      console.log("Fetched Data reve:", data.reviews); 
-    
-      if (Array.isArray(data.reviews)) {
-        setReviews(data.reviews);
-      } else {
-        console.error("Expected an array, but received:", typeof data, data);
-        setReviews([]); 
-        
-      }
-      setLoader(false);
-    } catch (error) {
-      console.error("Failed to fetch courses:", error);
-      setReviews([]);
-      setLoader(false)
+  let reviews: Review[] = [];
+  if (response.ok) {
+    const data = await response.json();
+    if (Array.isArray(data.reviews)) {
+      reviews = data.reviews;
     }
-  };
-  
-
-  useEffect(() => {
-    getReviews();
-  }, []);
-if(loader){
-  return(
-  <VStack marginBlock="8%">
-  <Loader/>
-  </VStack>
-)
-}
-if(reviews.length===0){
-  return(
-    <VStack  marginBlock="8%">
-  <NotFound/>
-  </VStack>
-)
-}
+  } 
+  if (!reviews || reviews.length === 0){
+    return(<NotFound/>)
+  } 
   return (
     <Box py={{ base: "90px", xl: "151px", "2xl": "111px" }}>
       <Box position="relative">
