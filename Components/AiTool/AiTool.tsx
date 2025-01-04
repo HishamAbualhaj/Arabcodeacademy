@@ -56,7 +56,7 @@ export default async function AiToolPage({
               aiName={tool.title}
               description={tool.description}
               functionality={tool.description}
-              aiImage={tool.imageURL || "/default-image.png"} 
+              aiImage={undefined} 
               tag={tool.tags?.[0] || "No Tag"}
               isFav={tool.isFav}
             />
