@@ -1,5 +1,5 @@
 "use client"
-import AiToolPage from "../../Components/AiTool/AiTool";
+import AiToolPage from "./AiTool";
 import AiToolClient from "../../Components/AiTool/AiToolClient";
 import Loader from "@/Components/Loader/Loader";
 import { Suspense } from "react";
