@@ -1,13 +1,13 @@
 "use client";
 import Page from '@/app/aiTools/page';
 import React from 'react'
-
-export default function AiToolPage() {
-  const SearchParams {
+  interface SearchParams {
   search?: string;
   isFav?: string;
   page?: string;
 }
+export default function AiToolPage() {
+
   return (
   <>
   <Page searchParams={searchParams}/>
