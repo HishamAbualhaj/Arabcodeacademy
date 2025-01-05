@@ -7,7 +7,11 @@ import React from 'react'
   page?: string;
 }
 export default function AiToolPage() {
-
+const searchParams: SearchParams = {
+    search: "",
+    isFav: "false",
+    page: "1",
+  };
   return (
   <>
   <Page searchParams={searchParams}/>
