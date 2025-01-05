@@ -1,6 +1,6 @@
 "use client"
-import AiToolPage from "../../Components/AiTool/AiToolPage";
-import AiToolClient from "../../Components/AiTool/AiToolClient";
+import AiToolPage from "@/Components/AiTool/AiToolPage";
+import AiToolClient from "@/Components/AiTool/AiToolClient";
 import Loader from "@/Components/Loader/Loader";
 import { Suspense } from "react";
 import { Box } from "@chakra-ui/react";
