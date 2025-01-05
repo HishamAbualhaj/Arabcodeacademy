@@ -1,5 +1,5 @@
 "use client";
-import Page from '@/app/AiTool/page';
+import Page from '@/app/aiTools/page';
 import React from 'react'
 export default function AiToolPage() {
   
