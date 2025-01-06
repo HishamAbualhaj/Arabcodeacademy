@@ -12,11 +12,11 @@ interface SearchParams {
   page?: string;
 }
 const AiToolPage = dynamic(() => import("../../Components/AiTool/AiToolPage"), {
-  ssr: false, // Disable SSR to ensure it runs only on the client-side
+  ssr: true, 
 });
 
 const AiToolClient = dynamic(() => import("../../Components/AiTool/AiToolClient"), {
-  ssr: false, // Disable SSR
+  ssr: true,
 });
 export default function Page({ searchParams }: { searchParams: SearchParams }) {
   return (
