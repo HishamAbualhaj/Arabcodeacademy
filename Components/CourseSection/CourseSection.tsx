@@ -94,7 +94,7 @@ export const CourseSection = async () => {
                   }`}
                   numberOfHours={course.total_duration}
                   numberOfVedios={course.total_videos}
-                  icon="/images/java.jpg"
+                  icon="/images/java.png"
                 />
               </SwiperSlide>
             ))}
@@ -156,7 +156,7 @@ export const CourseSection = async () => {
                   }`}
                   numberOfHours={course.total_duration}
                   numberOfVedios={course.total_videos}
-                  icon="/images/java.jpg"
+                  icon="/images/java.png"
                 />
               </SwiperSlide>
             ))}

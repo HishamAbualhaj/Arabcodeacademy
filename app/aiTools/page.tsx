@@ -1,9 +1,9 @@
 "use client"
-import AiToolPage from "@/Components/AiTool/AiToolPage";
-import AiToolClient from "@/Components/AiTool/AiToolClient";
+
 import Loader from "@/Components/Loader/Loader";
 import { Suspense } from "react";
 import { Box } from "@chakra-ui/react";
+import dynamic from "next/dynamic";
 
 
 interface SearchParams {
@@ -11,7 +11,13 @@ interface SearchParams {
   isFav?: string;
   page?: string;
 }
+const AiToolPage = dynamic(() => import("../../Components/AiTool/AiToolPage"), {
+  ssr: true, 
+});
 
+const AiToolClient = dynamic(() => import("../../Components/AiTool/AiToolClient"), {
+  ssr: true, 
+});
 export default function Page({ searchParams }: { searchParams: SearchParams }) {
   return (
     <>

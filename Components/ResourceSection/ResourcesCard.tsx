@@ -1,4 +1,4 @@
-import { Stack, Box, Text, Flex } from "@chakra-ui/react";
+import { Box, Text, Flex } from "@chakra-ui/react";
 import React, { ReactNode } from "react";
 import { colors } from "@/styles/global-info";
 import CustomButton from "@/Components/CustomButton";

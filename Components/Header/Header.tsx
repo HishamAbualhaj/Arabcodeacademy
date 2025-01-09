@@ -24,7 +24,7 @@ const Header: React.FC = () => {
     {
       key: 0,
       value: "تسجيل الدخول",
-      link: "/",
+      link: "/login",
       icon: LoginMoblie,
       dropDown: false,
     },
@@ -206,25 +206,26 @@ const Header: React.FC = () => {
               <Box>
                 <a href="">التواصل</a>
               </Box>
-              <Link href="/aiTools">
+              <Link href="">
               المسارات التعليمية
                </Link>
             </Flex>
           </Box>
           <Box display={{ lgDown: "none" }}>
             <Flex flexDirection={{ base: "column", xl: "row" }} gap="10px">
-              <CustomButton
+             <CustomButton
                 text="إنشاء حساب"
                 ButtonColor="green"
                 sizeType="secondary"
                 icon={<Profile width="25px" height="25px" />}
               ></CustomButton>
+              <Link href="/login" > 
               <CustomButton
                 text="تسجيل دخول"
                 ButtonColor="orange"
                 sizeType="secondary"
                 icon={<Login width="25px" height="25px" />}
-              ></CustomButton>
+              ></CustomButton></Link>
             </Flex>
           </Box>
         </Flex>
@@ -260,7 +261,7 @@ function ResourcesDropDown({ isMobile }: porps) {
     {
       key: 4,
       value: "دليل أدوات الذكاء الاصطناعي",
-      link: "/ai-tools-guide",
+      link: "/aiTools",
     },
     {
       key: 5,
