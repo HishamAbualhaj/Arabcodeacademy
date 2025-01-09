@@ -16,7 +16,7 @@ const AiToolPage = dynamic(() => import("../../Components/AiTool/AiToolPage"), {
 });
 
 const AiToolClient = dynamic(() => import("../../Components/AiTool/AiToolClient"), {
-  ssr: true, 
+  ssr: true,
 });
 export default function Page({ searchParams }: { searchParams: SearchParams }) {
   return (
