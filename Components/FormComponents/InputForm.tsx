@@ -7,6 +7,7 @@ import { HiMail } from "react-icons/hi";
 import { InputProps } from "@chakra-ui/react";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import DropList from "./DropList";
+import { FieldError, FieldErrorsImpl, FieldValues, Merge, UseFormRegister } from "react-hook-form";
 
 interface UseBreakpointValueOptions<T> {
   base?: T;
@@ -35,7 +36,8 @@ interface FormProps extends InputProps {
   textPositionTablet?: "left" | "right" | "center";
   data?: Array<string>;
   title?: string;
-  errorMsg?: string;
+  errorMsg?: string | FieldError | Merge<FieldError, FieldErrorsImpl> | undefined;
+  register?: ReturnType<UseFormRegister<FieldValues>>;
 }
 
 const InputForm: React.FC<FormProps> = ({
@@ -50,6 +52,7 @@ const InputForm: React.FC<FormProps> = ({
   data,
   title,
   errorMsg = "",
+  register,
   ...rest
 }) => {
   let inputStructure = {
@@ -165,6 +168,7 @@ const InputForm: React.FC<FormProps> = ({
           color={colors.mainColor}
           height={height}
           px={{ base: "6px", xl: "23px", "2xl": "24px" }}
+          {...register}
           {...rest}
         />
       ) : (
@@ -186,7 +190,7 @@ const InputForm: React.FC<FormProps> = ({
           textAlign={{ base: "center", xl: 'right' }}
           mt={{base: '7px', xl: '12px'}}
         >
-          {errorMsg}
+          {errorMsg.toString()}
         </Text>
       )}
     </Box>

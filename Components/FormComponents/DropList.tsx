@@ -55,9 +55,9 @@ const DropList: React.FC<DropList> = ({ data, title, width, height }) => {
           {select}
         </Flex>
         <MenuTrigger
-          display={"flex"}
-          justifyContent={"center"}
-          alignItems={"center"}
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
           height="100%"
           width="59px"
           borderRightColor={colors.mainColor}
@@ -66,10 +66,11 @@ const DropList: React.FC<DropList> = ({ data, title, width, height }) => {
           <FaChevronDown color={colors.mainColor} />
         </MenuTrigger>
       </Flex>
-      <MenuContent position="absolute">
-        {data.map((item) => (
-          <MenuItem
-            key={item}
+      <MenuContent position="absolute" height={{base: '150px', xl: '195px'}} overflowY= 'scroll'>
+        {data.map((item) => {
+          let counter: number = 0;
+          return <MenuItem
+            key={item + counter++}
             borderColor={colors.mainColor}
             fontSize="sm"
             _placeholder={{ color: "purple.300" }}
@@ -86,7 +87,7 @@ const DropList: React.FC<DropList> = ({ data, title, width, height }) => {
           >
             {item}
           </MenuItem>
-        ))}
+        })}
       </MenuContent>
     </MenuRoot>
   );
