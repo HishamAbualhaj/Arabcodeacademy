@@ -2,12 +2,15 @@ import { Checkbox, CheckboxProps } from "@/Components/ui/checkbox";
 import { colors } from "@/styles/global-info";
 import { Text, Flex } from "@chakra-ui/react";
 import React from "react";
+import { FieldError, FieldErrorsImpl, Merge } from "react-hook-form";
 
 interface CheckBoxProps extends CheckboxProps {
   text: string;
+  register: any;
+  errorMsg?: string | FieldError | Merge<FieldError, FieldErrorsImpl> | undefined;
 }
 
-const CheckBox: React.FC<CheckBoxProps> = ({ text, ...rest }) => {
+const CheckBox: React.FC<CheckBoxProps> = ({ text, register, errorMsg, ...rest }) => {
   return (
     <Flex
       flexDirection="row-reverse"
@@ -36,8 +39,22 @@ const CheckBox: React.FC<CheckBoxProps> = ({ text, ...rest }) => {
           base: "0px 1px 4px 0px rgba(0, 0, 0, 0.25)",
           xl: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
         }}
+        {...register}
         {...rest}
       />
+        {errorMsg && (
+        <Text
+          height={{ base: "34px" }}
+          color="rgba(219, 74, 57, 1)"
+          fontWeight={400}
+          fontSize={{ base: "14px" }}
+          lineHeight={{ base: "16.8px" }}
+          textAlign={{ base: "center", xl: 'right' }}
+          mt={{base: '7px', xl: '12px'}}
+        >
+          {errorMsg.toString()}
+        </Text>
+      )}
     </Flex>
   );
 };

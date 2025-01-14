@@ -13,6 +13,7 @@ interface SignUpPageTwoProps {
     userName: ReturnType<UseFormRegister<FieldValues>>;
     firstName: ReturnType<UseFormRegister<FieldValues>>;
     lastName: ReturnType<UseFormRegister<FieldValues>>;
+    termsAccepted: ReturnType<UseFormRegister<FieldValues>>;
   };
   errors: FieldErrors;
   isSubmitting: boolean;
@@ -218,7 +219,7 @@ const SignUpPageTwo: React.FC<SignUpPageTwoProps> = ({
           setValue={setValue}
         />
         <Flex width={inputWidth} justifyContent="center">
-          <CheckBox text="يرجى تأكيد موافقتك على سياسة الخصوصية الخاصة بنا" />
+          <CheckBox register={registers.termsAccepted} errorMsg={errors?.termAccepted?.message} text="يرجى تأكيد موافقتك على سياسة الخصوصية الخاصة بنا" />
         </Flex>
         <Flex
           flexDirection={{ base: "column", xl: "row" }}

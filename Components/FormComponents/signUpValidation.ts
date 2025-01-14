@@ -30,19 +30,25 @@ export const signUpSchemaPageOne = z
 
 export type SignUpTypePageOne = z.infer<typeof signUpSchemaPageOne>;
 
-export const signUpSchemaPageTwo = z.object({
-  userName: z
-    .string()
-    .min(1, { message: "اسم المستخدم هذا مأخوذ بالفعل. الرجاء اختيار آخر" }),
-  firstName: z.string().min(1, { message: "الرجاء إدخال اسمك الأول" }),
-  lastName: z
-    .string()
-    .min(1, { message: "لا يمكن أن يحتوي اسم العائلة على أرقام أو أحرف خاصة" }),
-  country: z
-  .string()   
-}).refine(data => data.country !== "اختر بلدك", {
-  message: "الرجاء اختيار بلدك",
-  path: ["country"]
-} );
+export const signUpSchemaPageTwo = z
+  .object({
+    userName: z
+      .string()
+      .min(1, { message: "اسم المستخدم هذا مأخوذ بالفعل. الرجاء اختيار آخر" }),
+    firstName: z.string().min(1, { message: "الرجاء إدخال اسمك الأول" }),
+    lastName: z.string().min(1, {
+      message: "لا يمكن أن يحتوي اسم العائلة على أرقام أو أحرف خاصة",
+    }),
+    country: z.string(),
+    termsAccepted: z.string(),
+  })
+  .refine((data) => data.termsAccepted === "on", {
+    message: "الرجاء قبول الشروط",
+    path: ["termsAccepted"],
+  })
+  .refine((data) => data.country !== "اختر بلدك", {
+    message: "الرجاء اختيار بلدك",
+    path: ["country"],
+  });
 
 export type SignUpTypePageTwo = z.infer<typeof signUpSchemaPageTwo>;

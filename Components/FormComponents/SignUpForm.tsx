@@ -15,6 +15,7 @@ import SignUpPageOne from "./SignUpPages/SignUpPageOne";
 import { zodResolver } from "@hookform/resolvers/zod";
 import SignUpPageTwo from "./SignUpPages/SignUpPageTwo";
 import { UserContextProvider } from "@/Components/ContextData/UserInformation";
+type CurrentPageSchemaType = SignUpTypePageOne | SignUpTypePageTwo;
 const SignUpForm = () => {
   const userInfoContext = useContext(UserContextProvider);
 
@@ -23,7 +24,6 @@ const SignUpForm = () => {
   }
 
   const [page, setPage] = useState(1);
-  type CurrentPageSchemaType = SignUpTypePageOne | SignUpTypePageTwo;
   const currentPageSchema =
     page === 1 ? signUpSchemaPageOne : signUpSchemaPageTwo;
 
@@ -97,6 +97,7 @@ const SignUpForm = () => {
                 userName: register("userName"),
                 firstName: register("firstName"),
                 lastName: register("lastName"),
+                termsAccepted: register("termsAccepted"),
               }}
               backButton={setPage}
               setValue={setValue}

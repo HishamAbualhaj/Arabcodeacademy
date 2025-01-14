@@ -23,6 +23,7 @@ const UserInformation: React.FC<{ children: ReactNode }> = ({ children }) => {
     email: "",
     password: "",
     country: "",
+    termsAccepted: "",
   });
 
   const value = {
