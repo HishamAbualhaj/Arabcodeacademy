@@ -1,11 +1,11 @@
 "use-client";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   signUpSchemaPageOne,
   signUpSchemaPageTwo,
   SignUpTypePageOne,
   SignUpTypePageTwo,
-} from "./signUpValidationPageOne";
+} from "./signUpValidation";
 import SignWithButton from "./SignWithButton";
 import LinkComponent from "./LinkComponent";
 import { Flex, Text } from "@chakra-ui/react";
@@ -30,11 +30,19 @@ const SignUpForm = () => {
   const {
     handleSubmit,
     register,
+    setValue,
+    watch,
     formState: { errors, isSubmitting },
   } = useForm<CurrentPageSchemaType>({
     mode: "onChange",
     resolver: zodResolver(currentPageSchema),
   });
+  const country = watch('country');
+
+  useEffect(() => {
+    register('country');
+  }, [register]);
+  useEffect(() => setValue('country', 'اختر بلدك'),[]);
   console.log(errors);
   const onSubmit: SubmitHandler<CurrentPageSchemaType> = (data) => {
     if (page === 1) submitPageOneHandler(data);
@@ -47,7 +55,7 @@ const SignUpForm = () => {
     console.log(data);
   };
   const submitPageTwoHandler = (data: CurrentPageSchemaType) => {
-    userInfoContext?.setUserInformation(data);
+    userInfoContext?.setUserInformation({...data, country});
     console.log(data);
     console.log("context", userInfoContext);
   };
@@ -91,6 +99,7 @@ const SignUpForm = () => {
                 lastName: register("lastName"),
               }}
               backButton={setPage}
+              setValue={setValue}
             />
           )}
         </form>

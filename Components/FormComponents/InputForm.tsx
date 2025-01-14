@@ -7,7 +7,8 @@ import { HiMail } from "react-icons/hi";
 import { InputProps } from "@chakra-ui/react";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import DropList from "./DropList";
-import { FieldError, FieldErrorsImpl, FieldValues, Merge, UseFormRegister } from "react-hook-form";
+import { FieldError, FieldErrorsImpl, FieldValues, Merge, UseFormRegister, UseFormSetValue } from "react-hook-form";
+import { SignUpTypePageOne, SignUpTypePageTwo } from "./signUpValidation";
 
 interface UseBreakpointValueOptions<T> {
   base?: T;
@@ -38,6 +39,7 @@ interface FormProps extends InputProps {
   title?: string;
   errorMsg?: string | FieldError | Merge<FieldError, FieldErrorsImpl> | undefined;
   register?: ReturnType<UseFormRegister<FieldValues>>;
+  setValue ?: UseFormSetValue<SignUpTypePageOne|SignUpTypePageTwo >;
 }
 
 const InputForm: React.FC<FormProps> = ({
@@ -53,31 +55,13 @@ const InputForm: React.FC<FormProps> = ({
   title,
   errorMsg = "",
   register,
+  setValue,
   ...rest
 }) => {
   let inputStructure = {
     type: "text",
     icon: <FaUser color="purple.400" />, // Simple user icon
   };
-  //   const inputWidthHeight = {
-  //     width: {
-  //       firstLastNameWidth: useBreakpointValue({
-  //         base: "250px",
-  //         xl: "361px",
-  //         "2xl": "346px",
-  //       }),
-  //       others: useBreakpointValue({
-  //         base: "250px",
-  //         xl: "744px",
-  //         "2xl": "712px",
-  //       }),
-  //     },
-  //     height: useBreakpointValue({
-  //       base: "50px",
-  //       xl: "65px",
-  //       "2xl": "60px",
-  //     }),
-  //   };
 
   switch (type) {
     case "firstName":
@@ -177,6 +161,7 @@ const InputForm: React.FC<FormProps> = ({
           title={title || ""}
           width={width}
           height={height}
+          setValue={setValue}
         />
       )}{" "}
       {errorMsg && (

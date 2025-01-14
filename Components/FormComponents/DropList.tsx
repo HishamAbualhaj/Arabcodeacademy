@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Flex } from "@chakra-ui/react";
 import {
   MenuContent,
@@ -8,6 +8,8 @@ import {
 } from "@/Components/ui/menu";
 import { FaChevronDown } from "react-icons/fa";
 import { colors } from "@/styles/global-info";
+import { UseFormSetValue } from "react-hook-form";
+import { SignUpTypePageOne, SignUpTypePageTwo } from "./signUpValidation";
 
 interface UseBreakpointValueOptions<T> {
   base?: T;
@@ -23,12 +25,22 @@ interface DropList {
   title: string;
   width: UseBreakpointValueOptions<string | number>;
   height: UseBreakpointValueOptions<string | number>;
+  setValue: UseFormSetValue<SignUpTypePageOne|SignUpTypePageTwo > | undefined;
 }
 
-const DropList: React.FC<DropList> = ({ data, title, width, height }) => {
+const DropList: React.FC<DropList> = ({
+  data,
+  title,
+  width,
+  height,
+  setValue,
+}) => {
   const [select, setSelect] = useState(title);
-
-  const handleSelect = (event: React.SyntheticEvent<HTMLDivElement>) => {
+  useEffect(() => {
+    if(setValue)
+      setValue("country", select, { shouldValidate: true });
+  }, [select, setValue]);
+    const handleSelect = (event: React.SyntheticEvent<HTMLDivElement>) => {
     const target = event.currentTarget; // Use currentTarget
     setSelect(target.textContent || ""); // Safely access textContent
   };
@@ -66,27 +78,33 @@ const DropList: React.FC<DropList> = ({ data, title, width, height }) => {
           <FaChevronDown color={colors.mainColor} />
         </MenuTrigger>
       </Flex>
-      <MenuContent position="absolute" height={{base: '150px', xl: '195px'}} overflowY= 'scroll'>
+      <MenuContent
+        position="absolute"
+        height={{ base: "150px", xl: "195px" }}
+        overflowY="scroll"
+      >
         {data.map((item) => {
           let counter: number = 0;
-          return <MenuItem
-            key={item + counter++}
-            borderColor={colors.mainColor}
-            fontSize="sm"
-            _placeholder={{ color: "purple.300" }}
-            color={colors.mainColor}
-            width={width}
-            height={height}
-            borderRadius="10px"
-            pr={"19px"}
-            value="new-txt"
-            display="flex"
-            justifyContent="flex-end"
-            _hover={{ backgroundColor: "gray.200" }}
-            onClick={handleSelect}
-          >
-            {item}
-          </MenuItem>
+          return (
+            <MenuItem
+              key={item + counter++}
+              borderColor={colors.mainColor}
+              fontSize="sm"
+              _placeholder={{ color: "purple.300" }}
+              color={colors.mainColor}
+              width={width}
+              height={height}
+              borderRadius="10px"
+              pr={"19px"}
+              value="new-txt"
+              display="flex"
+              justifyContent="flex-end"
+              _hover={{ backgroundColor: "gray.200" }}
+              onClick={handleSelect}
+            >
+              {item}
+            </MenuItem>
+          );
         })}
       </MenuContent>
     </MenuRoot>

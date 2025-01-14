@@ -38,6 +38,11 @@ export const signUpSchemaPageTwo = z.object({
   lastName: z
     .string()
     .min(1, { message: "لا يمكن أن يحتوي اسم العائلة على أرقام أو أحرف خاصة" }),
-});
+  country: z
+  .string()   
+}).refine(data => data.country !== "اختر بلدك", {
+  message: "الرجاء اختيار بلدك",
+  path: ["country"]
+} );
 
 export type SignUpTypePageTwo = z.infer<typeof signUpSchemaPageTwo>;

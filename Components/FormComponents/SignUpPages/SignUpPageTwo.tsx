@@ -5,7 +5,8 @@ import InputForm from "../InputForm";
 import CustomButton from "@/Components/CustomButton";
 import { FaArrowRight, FaUserCircle } from "react-icons/fa";
 import CheckBox from "../CheckBox";
-import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
+import { FieldErrors, FieldValues, UseFormRegister, UseFormSetValue } from "react-hook-form";
+import { SignUpTypePageOne, SignUpTypePageTwo } from "../signUpValidation";
 
 interface SignUpPageTwoProps {
   registers: {
@@ -16,12 +17,14 @@ interface SignUpPageTwoProps {
   errors: FieldErrors;
   isSubmitting: boolean;
   backButton: any;
+  setValue: UseFormSetValue<SignUpTypePageOne|SignUpTypePageTwo >;
 }
 const SignUpPageTwo: React.FC<SignUpPageTwoProps> = ({
   registers,
   errors,
   isSubmitting,
   backButton,
+  setValue,
 }) => {
   const inputWidth = { base: "250px", xl: "744px", "2xl": "712px" };
   const inputHeight = { base: "50px", xl: "60px", "2xl": "65px" };
@@ -211,7 +214,8 @@ const SignUpPageTwo: React.FC<SignUpPageTwoProps> = ({
           label="بلد الإقامة"
           title="اختر بلدك"
           data={data}
-          errorMsg="اسم المستخدم هذا مأخوذ بالفعل. الرجاء اختيار آخر"
+          errorMsg={errors?.country?.message}
+          setValue={setValue}
         />
         <Flex width={inputWidth} justifyContent="center">
           <CheckBox text="يرجى تأكيد موافقتك على سياسة الخصوصية الخاصة بنا" />
