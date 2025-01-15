@@ -1,6 +1,6 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import React, { ReactNode } from "react";
-import CustomButton from "../CustomButton";
+import CustomButton from "../CustomButton/CustomButton";
 import Exams from "@/public/icons/exams.svg";
 interface Props {
   title: string;

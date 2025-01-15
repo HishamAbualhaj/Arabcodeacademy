@@ -1,6 +1,6 @@
 import { Text, Flex } from "@chakra-ui/react";
 import React from "react";
-import CustomButton from "../CustomButton";
+import CustomButton from "../CustomButton/CustomButton";
 import Image from "next/image";
 import letter from "./letter_transparent.png";
 import Details from '@/public/icons/detail.svg'

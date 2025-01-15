@@ -1,7 +1,7 @@
 import { Box, Flex, Text, Image, useBreakpointValue } from "@chakra-ui/react";
 import { colors } from "@/styles/global-info";
 import { Promo } from "@/Components/Promo/Promo";
-import CustomButton from "@/Components/CustomButton";
+import CustomButton from "@/Components/CustomButton/CustomButton";
 import Cart from "@/public/icons/svgCart.svg";
 import ReadMore from "@/public/icons/readMore.svg";
 import Soon from "@/Components/soon.svg";

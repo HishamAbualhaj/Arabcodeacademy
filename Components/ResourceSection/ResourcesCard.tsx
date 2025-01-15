@@ -1,7 +1,7 @@
 import { Box, Text, Flex } from "@chakra-ui/react";
 import React, { ReactNode } from "react";
 import { colors } from "@/styles/global-info";
-import CustomButton from "@/Components/CustomButton";
+import CustomButton from "@/Components/CustomButton/CustomButton";
 import Image from "next/image";
 import more from "@/public/icons/more.png";
 

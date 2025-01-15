@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Flex, Button, Text, Icon,Box  } from "@chakra-ui/react";
 import { CiHeart } from "react-icons/ci";
 import { HiHeart } from "react-icons/hi";
-import SearchBar from "@/Components/SearchBar";
+import SearchBar from "@/Components/SearchBar/SearchBar";
 import { colors } from "@/styles/global-info.js";
 
 export default function AiToolClient() {

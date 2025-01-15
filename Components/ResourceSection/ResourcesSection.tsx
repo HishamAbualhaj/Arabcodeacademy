@@ -2,7 +2,7 @@ import React from "react";
 import CoursesCard from "@/Components/ResourceSection/ResourcesCard";
 import Image from "next/image";
 import { Box } from "@chakra-ui/react";
-import SwiperCustom from "../SwiperCustom";
+import SwiperCustom from "../SwiperCustom/SwiperCustom";
 import { SwiperSlide } from "swiper/react";
 import Arrow_slider from "@/public/icons/swiper-arrow-2.svg";
 const dataCard = [

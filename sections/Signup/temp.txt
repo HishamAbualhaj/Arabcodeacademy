@@ -1,0 +1,120 @@
+/(?=.*[!@#$%^&*])/  for special characters 
+
+/(?=.*[A-Z])/ for capital letters 
+
+/(?=.*\d)/ for one number digit 
+
+"* Password should be 8 character"
+"* Password should contain special characters"
+"* Password should have at least one capital letter"
+"* Password should have at least one number"
+
+
+"rgb(255, 0, 0)"
+"rgb(255, 165, 0)"
+"rgb(255, 223, 0)"
+"rgb(0, 128, 0)"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const [progress, setProgress] = useState<number>(0);
+  const [barColor, setBarColor] = useState<string>("");
+  const [currentRules, setCurrentRules] = useState([]);
+  const [data, setData] = useState([
+    {
+      rule: "* Password should be 8 character",
+      value: false,
+      condition: (password: string) => password.length > 8,
+    },
+    {
+      rule: "* Password should contain special characters",
+      value: false,
+      condition: (password: string) => /(?=.*[!@#$%^&*])/.test(password),
+    },
+    {
+      rule: "* Password should have at least one capital letter",
+      value: false,
+      condition: (password: string) => /(?=.*[A-Z])/.test(password),
+    },
+    {
+      rule: "* Password should have at least one number",
+      value: false,
+      condition: (password: string) => /(?=.*\d)/.test(password),
+    },
+  ]);
+  useEffect(() => {
+    if (progress === 25) {
+      setBarColor("rgb(255, 0, 0)");
+    } else if (progress === 50) {
+      setBarColor("rgb(255, 165, 0)");
+    } else if (progress === 75) {
+      setBarColor("rgb(255, 223, 0)");
+    } else if (progress === 100) {
+      setBarColor("rgb(0, 128, 0)");
+    }
+  }, [progress]);
+  useEffect(() => {
+    let barValue: number = 0;
+    setCurrentRules([]);
+    data.map((obj) =>
+      obj.value
+        ? setProgress((barValue += 25))
+        : setCurrentRules((prev) => [...prev, obj.rule])
+    );
+    setProgress(barValue);
+
+    console.log(data)
+  }, [data]);
+  const handlePasswordInput = (e) => {
+    data.map((obj) => {
+      if (obj.condition(e.target.value)) {
+        obj.value = true;
+      } else {
+        obj.value = false;
+      }
+      setData((prev) => [...prev]);
+    });
+  };

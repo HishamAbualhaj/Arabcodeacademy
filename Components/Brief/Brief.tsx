@@ -2,7 +2,7 @@ import { Promo } from "@/Components/Promo/Promo";
 import { Flex, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import girl from "@/public/images/girl_study.jpg";
-import CustomButton from "@/Components/CustomButton";
+import CustomButton from "@/Components/CustomButton/CustomButton";
 import landing from "@/styles/landing.module.css";
 import Chalkboard from "@/public/icons/Chalkboard_Teacher.svg";
 export default function Brief() {

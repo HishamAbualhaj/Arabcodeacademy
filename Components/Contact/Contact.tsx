@@ -1,5 +1,5 @@
 import { Promo } from "../Promo/Promo";
-import CustomButton from "../CustomButton";
+import CustomButton from "../CustomButton/CustomButton";
 import { Flex, Text, useBreakpointValue } from "@chakra-ui/react";
 import Call from "@/public/icons/call.svg";
 export const Contact = () => {

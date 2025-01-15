@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react";
-import SwiperCustom from "../SwiperCustom";
+import SwiperCustom from "../SwiperCustom/SwiperCustom";
 import { SwiperSlide } from "swiper/react";
 import ReviewCard from "./ReviewCard";
 import Arrow_slider from "@/public/icons/swiper-arrow-2.svg";

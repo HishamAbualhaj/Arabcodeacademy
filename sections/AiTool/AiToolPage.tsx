@@ -1,7 +1,7 @@
 import { SimpleGrid, Box } from "@chakra-ui/react";
 import AiToolCard from "./AiToolCard";
-import Pagination from "../Pagination/Pagination";
-import NotFound from "../NotFound/NotFound";
+import Pagination from "../../Components/Pagination/Pagination";
+import NotFound from "../../Components/NotFound/NotFound";
 interface Tool {
   imageURL?: string;
   title: string;

@@ -1,7 +1,9 @@
-import Login from "@/Components/Login/Login";
+import Login from "@/sections/Login/Login";
 
 export default function Page() {
-    return (
-      <>
-      <Login/>
-      </>);}
+  return (
+    <>
+      <Login />
+    </>
+  );
+}

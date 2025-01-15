@@ -1,9 +1,9 @@
 import React from "react";
-import SwiperCustom from "../SwiperCustom";
+import SwiperCustom from "../SwiperCustom/SwiperCustom";
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { hero } from "@/styles/global-info";
 import landing from "@/styles/landing.module.css";
-import CustomButton from "../CustomButton";
+import CustomButton from "../CustomButton/CustomButton";
 import Chalkboard from "@/public/icons/Chalkboard_Teacher.svg";
 import Arrow from "@/public/icons/swiper-arrow.svg";
 import { SwiperSlide } from "swiper/react";

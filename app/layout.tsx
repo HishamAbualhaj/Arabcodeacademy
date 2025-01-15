@@ -2,7 +2,7 @@ import { Provider } from "@/Components/ui/provider";
 import type { Metadata } from "next";
 import "../styles/globals.css";
 import DiscountBanner from "@/Components/DiscountBanner/DiscountBanner";
-import { Footer } from "@/Components/footerSection/Footer";
+import { Footer } from "@/Components/Footer/Footer";
 import Header from "@/Components/Header/Header";
 export const metadata: Metadata = {
   title: "Create Next App",

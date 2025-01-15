@@ -1,7 +1,7 @@
 import { SwiperSlide } from "swiper/react";
-import SwiperCustom from "@/Components/SwiperCustom";
+import SwiperCustom from "@/Components/SwiperCustom/SwiperCustom";
 import { Box, Flex } from "@chakra-ui/react";
-import SearchBar from "../SearchBar";
+import SearchBar from "../SearchBar/SearchBar";
 import { colors } from "@/styles/global-info";
 import CourseCard from "./CourseCard";
 import Arrow_slider from "@/public/icons/swiper-arrow-2.svg";

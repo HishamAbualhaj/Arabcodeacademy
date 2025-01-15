@@ -11,11 +11,11 @@ interface SearchParams {
   isFav?: string;
   page?: string;
 }
-const AiToolPage = dynamic(() => import("../../Components/AiTool/AiToolPage"), {
+const AiToolPage = dynamic(() => import("../../sections/AiTool/AiToolPage"), {
   ssr: true, 
 });
 
-const AiToolClient = dynamic(() => import("../../Components/AiTool/AiToolClient"), {
+const AiToolClient = dynamic(() => import("../../sections/AiTool/AiToolClient"), {
   ssr: true,
 });
 export default function Page({ searchParams }: { searchParams: SearchParams }) {
