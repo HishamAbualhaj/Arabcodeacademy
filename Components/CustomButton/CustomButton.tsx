@@ -6,6 +6,7 @@ interface CustomButtonProps extends ButtonProps {
   icon: ReactNode;
   ButtonColor: string;
   sizeType: "primary" | "secondary" | "thirdly";
+  iconPosition?: string;
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({
@@ -13,14 +14,16 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   icon,
   ButtonColor,
   sizeType,
+  iconPosition = "right",
   ...rest
 }) => {
-  
   const key: string = ButtonColor;
   const backgroundColor = colors[key as keyof typeof colors];
 
   return sizeType == "primary" ? (
     <Button
+      width={{ base: "200px", xl: "330px", "2xl": "310px" }}
+      height={{ base: "60px", xl: "85px", "2xl": "80px" }}
       _hover={{ bg: ButtonColor === "green" ? "#04B08E" : "#FA4E27" }}
       px={{
         base: "20px",
@@ -38,11 +41,14 @@ const CustomButton: React.FC<CustomButtonProps> = ({
       boxShadow="0px 1px 10px 0px rgba(0, 0, 0, 0.1)"
       {...rest}
     >
-      {icon}
+      {iconPosition === "right" && icon}
       {text}
+      {iconPosition === "left" && icon}
     </Button>
   ) : sizeType == "secondary" ? (
     <Button
+      width={{ base: "150px", xl: "234px", "2xl": "200px" }}
+      height={{ base: "50px", xl: "70px", "2xl": "60px" }}
       _hover={{ bg: ButtonColor === "green" ? "#04B08E" : "#FA4E27" }}
       px={{
         base: "10px",
@@ -58,11 +64,14 @@ const CustomButton: React.FC<CustomButtonProps> = ({
       boxShadow="0px 1px 10px 0px rgba(0, 0, 0, 0.1)"
       {...rest}
     >
-      {icon}
+      {iconPosition === "right" && icon}
       {text}
+      {iconPosition === "left" && icon}
     </Button>
   ) : (
     <Button
+      width={{ base: "100px", xl: "160px", "2xl": "140px" }}
+      height={{ base: "40px", xl: "50px", "2xl": "44px" }}
       _hover={{ bg: ButtonColor === "green" ? "#04B08E" : "#FA4E27" }}
       px="10px"
       backgroundColor={backgroundColor}
@@ -72,8 +81,9 @@ const CustomButton: React.FC<CustomButtonProps> = ({
       boxShadow="0px 1px 10px 0px rgba(0, 0, 0, 0.1)"
       {...rest}
     >
-      {icon}
+      {iconPosition === "right" && icon}
       {text}
+      {iconPosition === "left" && icon}
     </Button>
   );
 };
