@@ -1,9 +1,9 @@
 import {
   Input,
-  InputElement,
+
   Image,
   Flex,
-  Box,
+  
   Button,
 } from "@chakra-ui/react";
 import { colors } from "@/styles/global-info";

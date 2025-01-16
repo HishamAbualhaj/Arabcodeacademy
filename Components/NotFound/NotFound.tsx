@@ -1,5 +1,4 @@
 import React from "react";
-// import { Image, Text ,VStack} from "@chakra-ui/react"
 import { colors } from "@/styles/global-info";
 import { Text, VStack } from "@chakra-ui/react";
 import OpsImg from "@/public/icons/OpsImg.png";
