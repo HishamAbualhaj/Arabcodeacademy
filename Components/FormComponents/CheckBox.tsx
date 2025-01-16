@@ -2,11 +2,11 @@ import { Checkbox, CheckboxProps } from "@/Components/ui/checkbox";
 import { colors } from "@/styles/global-info";
 import { Text, Flex } from "@chakra-ui/react";
 import React from "react";
-import { FieldError, FieldErrorsImpl, Merge } from "react-hook-form";
+import { FieldError, FieldErrorsImpl, FieldValues, Merge, UseFormRegister } from "react-hook-form";
 
 interface CheckBoxProps extends CheckboxProps {
   text: string;
-  register: any;
+  register: ReturnType<UseFormRegister<FieldValues>>;
   errorMsg?: string | FieldError | Merge<FieldError, FieldErrorsImpl> | undefined;
 }
 

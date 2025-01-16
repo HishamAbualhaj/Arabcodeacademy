@@ -42,7 +42,7 @@ const SignUpForm = () => {
   useEffect(() => {
     register('country');
   }, [register]);
-  useEffect(() => setValue('country', 'اختر بلدك'),[]);
+  useEffect(() => setValue('country', 'اختر بلدك'),[setValue]);
   console.log(errors);
   const onSubmit: SubmitHandler<CurrentPageSchemaType> = (data) => {
     if (page === 1) submitPageOneHandler(data);

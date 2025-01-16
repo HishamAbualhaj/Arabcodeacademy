@@ -42,13 +42,13 @@ export const signUpSchemaPageTwo = z
     country: z.string(),
     termsAccepted: z.string(),
   })
-  .refine((data) => data.termsAccepted === "on", {
-    message: "الرجاء قبول الشروط",
-    path: ["termsAccepted"],
-  })
   .refine((data) => data.country !== "اختر بلدك", {
     message: "الرجاء اختيار بلدك",
     path: ["country"],
+  })
+  .refine((data) => data.termsAccepted === "on", {
+    message: "الرجاء قبول الشروط",
+    path: ["termsAccepted"],
   });
 
 export type SignUpTypePageTwo = z.infer<typeof signUpSchemaPageTwo>;
