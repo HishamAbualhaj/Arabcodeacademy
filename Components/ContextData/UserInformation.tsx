@@ -5,17 +5,15 @@ import {
   SignUpTypePageTwo,
 } from "../FormComponents/signUpValidation";
 
-interface UserContextType extends SignUpTypePageOne, SignUpTypePageTwo {
-  setUserInformation: (userInfo: SignUpTypePageOne | SignUpTypePageTwo) => void;
-}
+type UserContextType = (SignUpTypePageOne | SignUpTypePageTwo) & {setUserInformation: (userInfo:SignUpTypePageOne | SignUpTypePageTwo) => void}  ; 
 
-export const UserContextProvider = createContext<UserContextType | undefined>(
+export const UserContextProvider = createContext<UserContextType| undefined>(
   undefined
 );
 
 const UserInformation: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [userInformation, setUserInformation] = useState<
-    SignUpTypePageOne | SignUpTypePageTwo
+  SignUpTypePageOne | SignUpTypePageTwo
   >({
     userName: "",
     firstName: "",
@@ -26,9 +24,9 @@ const UserInformation: React.FC<{ children: ReactNode }> = ({ children }) => {
     termsAccepted: "",
   });
 
-  const value = {
+  const value  = {
     ...userInformation,
-    setUserInformation: (userInfo: SignUpTypePageOne | SignUpTypePageTwo) => {
+    setUserInformation : (userInfo:SignUpTypePageOne | SignUpTypePageTwo) => {
       setUserInformation((preValue) => ({ ...preValue, ...userInfo }));
     },
   };
