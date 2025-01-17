@@ -7,7 +7,9 @@ import ReadMore from "@/public/icons/readMore.svg";
 import Added from "@/public/favouriteIcons/added.svg";
 import NotAdded from "@/public/favouriteIcons/notAdded.svg";
 import CustomButton from "../CustomButton";
-
+import useAuth from "@/app/hooks/useAuth";
+import { useRouter } from "next/navigation";
+import { toast } from 'react-toastify';
 interface AiToolCard {
   aiImage?: string;
   aiName: string;
@@ -30,7 +32,28 @@ const AiToolCard: React.FC<AiToolCard> = ({
     height: useBreakpointValue({ base: 411, xl: 478 }),
     imageHeight: useBreakpointValue({ base: 130, xl: 193 }),
   };
+
   const [isFavourite, setIsFavourite] = useState(false);
+  const { isLoggedIn} = useAuth();
+ const router = useRouter()
+  const setFavourite=()=>{
+if(isLoggedIn){
+  toast.success('تم عملية الإضافة بنجاح', {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light"
+      });
+      setIsFavourite(true);
+ 
+}else{
+  router.push('/login')
+}
+  }
   useEffect(() => {
     setIsFavourite(isFav);
   }, [isFav]);
@@ -110,9 +133,9 @@ const AiToolCard: React.FC<AiToolCard> = ({
         justifyContent="center"
         alignItems="center"
         cursor="pointer"
-        onClick={() => setIsFavourite((preState) => !preState)}
+        onClick={ setFavourite}
       >
-        {isFavourite ? <Added /> : <NotAdded />}
+        {isLoggedIn?(isFavourite ? <Added /> : <NotAdded />):<NotAdded />}
       </Flex>
     </Box>
   );

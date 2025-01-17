@@ -1,7 +1,7 @@
 import { Flex, Image, Input,Box } from "@chakra-ui/react";
 import { Field } from "@/Components/ui/field"
 import{colors} from "@/styles/global-info"
-
+import { PasswordInput } from "@/Components/ui/password-input"
 
 const LoginForm: React.FC = () => {
    
@@ -10,11 +10,11 @@ const LoginForm: React.FC = () => {
     <>
     <Box marginStart={{base:"15px",lg:"106px",md:"76px"}} marginEnd={"48px"}>
      <Field   
-    
+   
      marginBottom="50px"
       label={
           <span style={{ color: colors.mainColor  ,fontWeight:"bold"}}>
-            <Flex gap={2}>
+            <Flex gap={2} alignItems="center">
             <Image src="icons/emailIcon.svg" alt="email icon"/>
             <Box>
               اسم المستخدم أو البريداللإلكتروني
@@ -24,7 +24,8 @@ const LoginForm: React.FC = () => {
         } errorText="اسم المستخدم غير صحيح">
       <Input   borderColor={colors.mainColor}  color={colors.mainColor}  focusRingColor={colors.mainColor}   _focus={{boxShadow:" 0px 1px 10px 0px rgba(0, 0, 0, 0.1)"}} />
     </Field>
-    <Field  
+    <Field 
+      
       label={
           <span style={{ color: colors.mainColor  ,fontWeight:"bold"}}>
             <Flex gap={2}>
@@ -35,7 +36,7 @@ const LoginForm: React.FC = () => {
               </Flex>
           </span>
         } errorText="كلمة المرور غير صحيحة">
-      <Input  borderColor={colors.mainColor}  color={colors.mainColor}  focusRingColor={colors.mainColor}   _focus={{boxShadow:" 0px 1px 10px 0px rgba(0, 0, 0, 0.1)"}} />
+      <PasswordInput    borderColor={colors.mainColor}  color={colors.mainColor}  focusRingColor={colors.mainColor}   _focus={{boxShadow:" 0px 1px 10px 0px rgba(0, 0, 0, 0.1)"}} />
     </Field>
     </Box>
     </>)} ;
