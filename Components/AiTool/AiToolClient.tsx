@@ -10,7 +10,7 @@ import { colors } from "@/styles/global-info.js";
 
 export default function AiToolClient() {
   const router = useRouter();
-  const searchParams = useSearchParams();
+  const searchParams = useSearchParams("");
 
   const [searchValue, setSearchValue] = useState(searchParams.get("search") || "");
   const [toggle, setToggle] = useState(searchParams.get("isFav") === "true");

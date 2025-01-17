@@ -29,6 +29,7 @@
 "use client"
 import { Box, Flex } from "@chakra-ui/react";
 import React, { useState } from "react";
+import { Avatar } from "@/Components/ui/avatar"
 import CustomButton from "../CustomButton";
 import Login from "@/public/icons/login.svg";
 import LoginMoblie from "@/public/icons/loginMobile.svg";
@@ -40,14 +41,36 @@ import logo from "@/public/images/logo.png";
 import Image from "next/image";
 import { colors } from "@/styles/global-info";
 import Link from "next/link";
+import { Spinner } from "@chakra-ui/react"
 import {
   MenuContent,
   MenuItem,
   MenuRoot,
   MenuTrigger,
 } from "@/Components/ui/menu";
-
+import useAuth from "@/app/hooks/useAuth";
+import { useRouter } from "next/navigation";
+import { toast } from 'react-toastify';
 const Header: React.FC = () => {
+  const { isLoggedIn,user ,isLoading} = useAuth();
+  const router = useRouter()
+  const handleLogout=() =>{
+ 
+    fetch("/api/auth/logout", {
+      method: "POST",
+    })
+    toast.success('تم عملية تسجيل الخروج بنجاح', {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light"
+      });
+    router.push('/login')
+  }
   const barsDropDown = [
     {
       key: 0,
@@ -94,7 +117,9 @@ const Header: React.FC = () => {
 
   const [translate, setTranslate] = useState(false);
   return (
+    
     <Box backgroundColor={colors.mainColor} position="relative">
+
       <Box
         marginInline="auto"
         maxW="1650px"
@@ -241,7 +266,18 @@ const Header: React.FC = () => {
           </Box>
           <Box display={{ lgDown: "none" }}>
             <Flex flexDirection={{ base: "column", xl: "row" }} gap="10px">
-             <CustomButton
+            {isLoading?   <Spinner
+            size="lg"
+            color="white.600"
+          />:(isLoggedIn  ? (<>
+              <Avatar
+        name={user?.email.charAt(0)}
+     
+        colorPalette="pink"
+      />
+            <Image src="/icons/logout.svg" alt="logout"  onClick={handleLogout} width={33} height={33}/> 
+            
+            </>): <> <CustomButton
                 text="إنشاء حساب"
                 ButtonColor="green"
                 sizeType="secondary"
@@ -253,7 +289,7 @@ const Header: React.FC = () => {
                 ButtonColor="orange"
                 sizeType="secondary"
                 icon={<Login width="25px" height="25px" />}
-              ></CustomButton></Link>
+              ></CustomButton></Link></>)}
             </Flex>
           </Box>
         </Flex>
