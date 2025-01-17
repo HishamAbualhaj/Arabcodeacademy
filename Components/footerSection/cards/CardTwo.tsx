@@ -1,3 +1,23 @@
+/**
+ * CardTwo Component
+ *
+ * This component, part of a footer card series, is specifically designed for displaying contact
+ * information. It includes icons and text for a physical address, a telephone number, and an email
+ * address, followed by a button encouraging direct communication. Styled with Chakra UI, this
+ * component ensures clear visibility and ease of access to the academy's contact details.
+ *
+ * @component
+ * 
+ * @example
+ * <CardTwo />
+ *
+ * @returns {React.ReactElement}
+ * Renders a FooterCard with detailed contact information arranged in a flex layout. Each contact
+ * detail is accompanied by an icon for visual reference, enhancing the user's ability to quickly
+ * identify communication channels. The card includes a call-to-action button that could be linked
+ * to initiating direct communication, such as a phone call or email.
+ */
+
 import { Box, Button, Text } from "@chakra-ui/react";
 import { FooterCard } from "../FooterCard";
 import Image from "next/image";

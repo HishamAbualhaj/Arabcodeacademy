@@ -1,3 +1,23 @@
+/**
+ * FooterBottom Component
+ *
+ * This component forms the lower part of a webpage's footer. It prominently features the organization's logo
+ * and displays a copyright notice. The layout adjusts responsively based on the viewport size to ensure
+ * optimal visual presentation across various devices. The component utilizes Chakra UI for styling and layout
+ * management, offering a clean and modern look.
+ *
+ * @component
+ *
+ * @example
+ * <FooterBottom />
+ *
+ * @returns {React.ReactElement}
+ * Renders a flex container with a logo image and a text element. The logo is centered on smaller screens
+ * and aligned to the left on larger screens, with the text aligned oppositely to balance the design.
+ * This component effectively communicates copyright information while reinforcing brand identity at the
+ * bottom of the site.
+ */
+
 import { Flex, Text, Box } from "@chakra-ui/react";
 import ArabAcademyLogo from "@/public/icons/ArabAcademyLogo.png";
 import Image from "next/image";

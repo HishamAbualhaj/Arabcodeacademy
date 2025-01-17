@@ -1,3 +1,33 @@
+/**
+ * Intro Component
+ *
+ * This component serves as an introduction or hero section for the Arabic Academy of Programming,
+ * featuring dynamic text and image content that adapts based on the viewport size. It includes a 
+ * visual representation through an image and stylized text that provides a brief introduction to 
+ * the academy's mission and offerings. Additionally, it contains a custom button that may lead 
+ * to more detailed content.
+ *
+ * @component
+ *
+ * @returns {React.ReactElement}
+ * Renders a responsive introduction section with an image and descriptive text that adjusts based
+ * on breakpoint values. The layout changes from a column orientation on smaller screens to a row 
+ * orientation on larger screens, ensuring optimal readability and visual balance across devices.
+ *
+ * Features:
+ * - Responsive design that changes layout and content sizing based on the viewport size using 
+ *   Chakra UI's `useBreakpointValue`.
+ * - An image that visually complements the introduction text, enhancing the aesthetic appeal and 
+ *   engagement of the section.
+ * - Custom button that potentially leads to further detailed content, encouraging user interaction.
+ * - Text content that dynamically adjusts for clarity and emphasis depending on the device, 
+ *   ensuring the message is effectively communicated.
+ *
+ * Usage:
+ * This component is typically used at the top of a homepage or a significant landing page to provide
+ * visitors with a clear and attractive overview of the academy's goals and how it serves its audience.
+ */
+
 import { Text, Flex } from "@chakra-ui/react";
 import React from "react";
 import CustomButton from "../CustomButton";

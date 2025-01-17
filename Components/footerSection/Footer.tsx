@@ -1,3 +1,27 @@
+/**
+ * Footer Component
+ *
+ * This component serves as the footer for a website, integrating several sub-components to display
+ * a variety of information and links. It utilizes a flexible box layout to arrange its child
+ * components into a responsive grid that adapts to different screen sizes. The Footer includes
+ * three main card components (CardOne, CardTwo, CardThree), a resources section, and a basic footer
+ * bottom component, which together provide a comprehensive display of contact details, social media
+ * links, and additional resources.
+ *
+ * @component
+ * 
+ * @example
+ * <Footer />
+ *
+ * @returns {React.ReactElement}
+ * Renders a full-featured footer that organizes various pieces of information in a visually appealing
+ * and accessible layout. The footer's background color and padding are set to provide visual
+ * separation from the main content. Each card component within the footer can be individually
+ * tailored to display specific types of content, such as contact information, social media links,
+ * or additional navigation options. The flexibility of the layout ensures that it remains
+ * functional and stylish across all device sizes.
+ */
+
 import React from 'react';
 import { Box, Flex } from '@chakra-ui/react';
 import { RecorsesSection } from './RecorsesSection';

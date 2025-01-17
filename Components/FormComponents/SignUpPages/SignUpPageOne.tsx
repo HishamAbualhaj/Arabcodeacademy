@@ -1,3 +1,37 @@
+/**
+ * SignUpPageOne Component
+ *
+ * This component forms the first part of a multi-step signup process for a user account creation interface.
+ * It collects the user's email, password, and password confirmation. It utilizes Chakra UI for responsive
+ * styling and integrates react-hook-form for form handling, validation, and submission. The component also
+ * includes visual feedback for input errors and a button to proceed to the next step of the signup process.
+ *
+ * @component
+ * 
+ * @param {Object} props - The properties passed to the SignUpPageOne component.
+ * @param {Object} props.registers - Contains registration methods for each input field provided by react-hook-form.
+ * @param {ReturnType<UseFormRegister<FieldValues>>} props.registers.email - Registration method for the email input field.
+ * @param {ReturnType<UseFormRegister<FieldValues>>} props.registers.password - Registration method for the password input field.
+ * @param {ReturnType<UseFormRegister<FieldValues>>} props.registers.confirmPassword - Registration method for the confirm password input field.
+ * @param {FieldErrors} props.errors - Object containing any errors to display in the form as returned by react-hook-form.
+ * @param {boolean} props.isSubmitting - Indicates whether the form is currently being submitted.
+ *
+ * @example
+ * <SignUpPageOne
+ *   registers={{
+ *     email: register('email'),
+ *     password: register('password'),
+ *     confirmPassword: register('confirmPassword')
+ *   }}
+ *   errors={formState.errors}
+ *   isSubmitting={formState.isSubmitting}
+ * />
+ *
+ * @returns {React.ReactElement}
+ * Renders a sign-up form with fields for email, password, and password confirmation, along with a submit button.
+ * It provides responsive layout adjustments and error feedback for user inputs.
+ */
+
 import { colors } from "@/styles/global-info";
 import { Box, Flex, Text } from "@chakra-ui/react";
 import React from "react";

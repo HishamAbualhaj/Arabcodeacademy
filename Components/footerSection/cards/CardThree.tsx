@@ -1,3 +1,22 @@
+/**
+ * CardThree Component
+ *
+ * This component, built as a footer card, showcases social media icons linking to the respective platforms
+ * associated with the academy. It's designed to encourage user engagement by connecting them to various
+ * social media channels. The component uses a grid layout to display icons and includes a motivational
+ * text to join the programming community.
+ *
+ * @component
+ * 
+ * @example
+ * <CardThree />
+ *
+ * @returns {React.ReactElement}
+ * Renders a FooterCard containing a grid of social media icons and a call-to-action text. Each icon is
+ * spaced consistently and responsively adjusts to screen size changes. The text encourages users to join
+ * the programming community, enhancing user interaction and engagement.
+ */
+
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { FooterCard } from "../FooterCard";
 import Image from "next/image";

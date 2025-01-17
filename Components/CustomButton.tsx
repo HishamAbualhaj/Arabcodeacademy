@@ -1,3 +1,47 @@
+/**
+ * CustomButton Component
+ *
+ * A reusable button component that adapts to different styles, sizes, and color themes. It supports displaying an icon
+ * on either side of the button's text, based on the `iconPosition` property.
+ *
+ * @component
+ * @param {Object} props - The properties required to render the CustomButton component.
+ * @param {string} props.text - The text to be displayed inside the button.
+ * @param {ReactNode} props.icon - An optional icon to be displayed alongside the button text.
+ * @param {string} props.ButtonColor - The key from the global colors object determining the button's background color.
+ * @param {"primary" | "secondary" | "thirdly"} props.sizeType - The size variant of the button. Determines the button's
+ * width, height, and padding:
+ *  - `primary`: Large button with extra padding.
+ *  - `secondary`: Medium button with moderate padding.
+ *  - `thirdly`: Small button with compact padding.
+ * @param {string} [props.iconPosition="right"] - The position of the icon relative to the text. Defaults to `right`.
+ * @param {ButtonProps} props.rest - Additional properties inherited from Chakra UI's `Button` component.
+ *
+ * Features:
+ * - Supports three size types (`primary`, `secondary`, `thirdly`) for flexible usage.
+ * - Accepts customizable colors from the global `colors` object.
+ * - Optionally displays an icon to the left or right of the button text.
+ * - Implements hover effects for visual feedback.
+ * - Fully responsive design, adapting dimensions to screen sizes using Chakra UI breakpoints.
+ *
+ * @returns {React.ReactElement}
+ * Renders a button element with customizable styles, text, and optional icon.
+ *
+ * Usage Example:
+ * ```jsx
+ * <CustomButton
+ *   text="Submit"
+ *   icon={<SubmitIcon />}
+ *   ButtonColor="green"
+ *   sizeType="primary"
+ *   iconPosition="left"
+ *   onClick={() => console.log('Button clicked')}
+ * />
+ * ```
+ *
+ * This component is suitable for use across the application for consistent button styling and behavior.
+ */
+
 import React, { ReactNode } from "react";
 import { Button, ButtonProps } from "@chakra-ui/react";
 import { colors } from "@/styles/global-info";

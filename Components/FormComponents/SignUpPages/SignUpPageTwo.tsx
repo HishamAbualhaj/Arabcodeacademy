@@ -1,3 +1,45 @@
+/**
+ * SignUpPageTwo Component
+ *
+ * This component represents the second page of a multi-step sign-up process for an online platform.
+ * It collects additional user information, including first name, last name, username, and country of residence,
+ * and also includes terms acceptance. It leverages react-hook-form for form handling and validation,
+ * ensuring a smooth user experience with responsive feedback. The component is styled with Chakra UI
+ * for a consistent and responsive layout across devices.
+ *
+ * @component
+ *
+ * @param {Object} props - The properties passed to the SignUpPageTwo component.
+ * @param {Object} props.registers - Contains registration methods for each input field provided by react-hook-form.
+ * @param {ReturnType<UseFormRegister<FieldValues>>} props.registers.userName - Registration method for the username input.
+ * @param {ReturnType<UseFormRegister<FieldValues>>} props.registers.firstName - Registration method for the first name input.
+ * @param {ReturnType<UseFormRegister<FieldValues>>} props.registers.lastName - Registration method for the last name input.
+ * @param {ReturnType<UseFormRegister<FieldValues>>} props.registers.termsAccepted - Registration method for the terms acceptance checkbox.
+ * @param {FieldErrors} props.errors - Object containing any errors to display in the form as returned by react-hook-form.
+ * @param {boolean} props.isSubmitting - Indicates whether the form is currently being submitted.
+ * @param {(number) => void} props.backButton - Function to navigate back to the previous step of the sign-up process.
+ * @param {UseFormSetValue<SignUpTypePageOne|SignUpTypePageTwo>} props.setValue - Function from react-hook-form used to manually set form values, used here for dropdown list handling.
+ *
+ * @example
+ * <SignUpPageTwo
+ *   registers={{
+ *     userName: register('userName'),
+ *     firstName: register('firstName'),
+ *     lastName: register('lastName'),
+ *     termsAccepted: register('termsAccepted')
+ *   }}
+ *   errors={formState.errors}
+ *   isSubmitting={formState.isSubmitting}
+ *   backButton={handleBack}
+ *   setValue={formMethods.setValue}
+ * />
+ *
+ * @returns {React.ReactElement}
+ * Renders a form that includes inputs for username, first name, last name, and country, with validations.
+ * It also includes navigation buttons to either proceed with the registration or return to the previous step.
+ */
+
+
 import { colors } from "@/styles/global-info";
 import { Box, Flex, Text } from "@chakra-ui/react";
 import React from "react";

@@ -1,3 +1,23 @@
+/**
+ * CardOne Component
+ *
+ * This component renders a custom card styled with Chakra UI, designed to display informational 
+ * links and a navigational button. The card includes two sections: one for general academy information 
+ * and another for policy details, each followed by a button linking to educational paths.
+ * It uses responsive design properties to adapt to various screen sizes.
+ *
+ * @component
+ * 
+ * @example
+ * <CardOne />
+ *
+ * @returns {React.ReactElement}
+ * Returns a stylized box containing structured data lists and a button. The lists are organized into
+ * two columns: one for general information about the academy and another for policy information. At
+ * the bottom of the card, a visually prominent button features an icon and text, guiding users to
+ * educational paths.
+ */
+
 import learningRoad from "@/public/icons/learningRoad.png";
 import {
   Box,

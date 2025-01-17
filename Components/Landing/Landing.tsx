@@ -1,3 +1,53 @@
+/**
+ * Landing Component
+ *
+ * This component is the main landing section of the website, prominently featuring a swiper slider
+ * that displays multiple slides. Each slide contains dynamic content including text and a custom
+ * button that guides users to major educational tracks. It's designed to capture user interest and
+ * direct them towards key areas of the site.
+ *
+ * @component
+ *
+ * @returns {React.ReactElement}
+ * Renders a swiper slider that cycles through multiple `Slide` components, each providing a snapshot
+ * of what the platform offers. The component is responsive, ensuring that the slider and its contents
+ * adapt to different screen sizes for optimal viewing experience.
+ *
+ * Features:
+ * - Uses `SwiperCustom` for a robust and flexible slider experience with pagination.
+ * - Dynamically generates swiper slides using an array of `SwiperSlide` components.
+ * - Includes navigation buttons customized with icons for moving through slides.
+ *
+ * Usage:
+ * This component should be placed at the top of a homepage or a significant landing page to provide
+ * a visually engaging introduction to the site's offerings.
+ */
+
+/**
+ * Slide Component
+ *
+ * A component used within the `Landing` component's swiper slider. It displays a set of stylized text
+ * elements and a custom button, providing a concise and engaging introduction to a specific aspect of
+ * the website, such as educational tracks. The design and layout are tailored to create visual appeal
+ * and enhance readability.
+ *
+ * @returns {React.ReactElement}
+ * Renders a slide for use in the `Landing` component's swiper slider. Each slide contains a headline,
+ * supplementary text, and a custom button that links to further details about the platform's offerings.
+ * The layout adjusts based on screen size to maintain aesthetic quality and user engagement.
+ *
+ * Features:
+ * - Responsive text sizing and layout changes to accommodate various device sizes.
+ * - Custom button that links to detailed sections, enhancing site navigation and user engagement.
+ * - Utilizes Chakra UI for styling and layout, providing a consistent and modern user interface.
+ *
+ * Example Slide Content:
+ * - Primary headline with bold styling and strategic alignment based on screen size.
+ * - Secondary text blocks that further describe the headline's topic.
+ * - A custom button that promotes user interaction and exploration of site content.
+ */
+
+
 import React from "react";
 import SwiperCustom from "../SwiperCustom";
 import { Box, Flex, Text } from "@chakra-ui/react";

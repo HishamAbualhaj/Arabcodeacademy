@@ -1,3 +1,31 @@
+/**
+ * Header Component
+ *
+ * This component serves as the main navigation bar for the application, providing links to various sections of the website.
+ * It adapts to different screen sizes using responsive design techniques from Chakra UI. The header includes a logo,
+ * navigation links, and authentication buttons. It also features a dropdown menu for mobile and desktop views, dynamically
+ * displaying options based on user interaction.
+ *
+ * @component
+ *
+ * @returns {React.ReactElement}
+ * Renders the top header of the application, including a logo, navigation links for various resources, sign-in and sign-up
+ * buttons, and a dynamic dropdown menu for additional resources. It uses Flex boxes for layout and manages responsive
+ * visibility of elements based on the screen size.
+ *
+ * Features:
+ * - Responsive design that adapts to different screen sizes, hiding certain elements on smaller screens.
+ * - Dynamic dropdown menu that toggles visibility based on user interactions.
+ * - Links to various parts of the site such as educational tracks, resources, and user authentication pages.
+ * - Uses SVG icons for a visually appealing design.
+ * - Includes a logo image that is displayed across all views.
+ *
+ * Usage:
+ * The Header is used at the top of each page and provides key navigation links, ensuring users can easily access
+ * important sections of the website. It supports both mobile and desktop views, adjusting content and layout
+ * appropriately.
+ */
+
 "use client"
 import { Box, Flex } from "@chakra-ui/react";
 import React, { useState } from "react";
