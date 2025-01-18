@@ -1,5 +1,5 @@
 "use client";
-import "../styles/swiper_home.css";
+import "@/styles/swiper_home.css";
 
 import React, { ReactNode } from "react";
 import { Swiper } from "swiper/react";
@@ -21,6 +21,7 @@ interface SwiperData {
   py: any;
   arrow: ReactNode;
   maxW: string;
+  customClass?: string;
 }
 
 function SwiperCustom({
@@ -34,16 +35,12 @@ function SwiperCustom({
   arrow,
   px,
   maxW = "1550px",
-  py="0px",
+  py = "0px",
+  customClass = "",
   ...rest
 }: SwiperData) {
   return (
-    <Box
-      px={px}
-      maxW={maxW}
-      marginX="auto"
-      className={swiperClass}
-    >
+    <Box px={px} maxW={maxW} marginX="auto" className={swiperClass}>
       <div className={`swiper-button-next custom-next ${nextBtn}`}>{arrow}</div>
       <div className={`swiper-button-prev custom-prev ${prevBtn}`}>{arrow}</div>
       <Swiper
@@ -56,7 +53,7 @@ function SwiperCustom({
         breakpoints={breakpoint}
         spaceBetween={0}
         slidesPerView={sliderNumber}
-        className="swiper"
+        className={`swiper ${customClass}`}
         {...rest}
       >
         {swiperslide}
