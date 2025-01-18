@@ -1,6 +1,9 @@
 .swiper-wrapper {
   padding-bottom: 20px;
 }
+.padding-inline-8 {
+  padding-inline: 8px !important;
+}
 .swiper-button-next::after,
 .swiper-button-prev::after {
   content: "" !important;
