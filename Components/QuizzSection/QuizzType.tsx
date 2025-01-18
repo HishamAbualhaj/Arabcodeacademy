@@ -1,34 +1,27 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import React, { ReactNode } from "react";
-import CustomButton from "../CustomButton/CustomButton";
-import Exams from "@/public/icons/exams.svg";
 interface Props {
   title: string;
   icon?: ReactNode;
   paragraph: string;
-  displayButton: boolean;
 }
 
-const QuizzType: React.FC<Props> = ({
-  title,
-  paragraph,
-  displayButton,
-  icon,
-}) => {
+const QuizzType: React.FC<Props> = ({ title, paragraph, icon }) => {
   return (
     <Box
       color="white"
       paddingInline={4}
       textAlign={{ base: "center", lg: "right", md: "center", sm: "center" }}
-      display={{ lg: "block", sm: "flex" }}
-      justifyContent={{ base: "center" }}
+      display="flex"
+      justifyContent="center"
       flexDirection="column"
       alignItems={{ base: "center" }}
       marginBottom={{ base: "10%", lg: "2%", md: "2%", sm: "10%" }}
     >
       <Flex
+        width="100%"
         align="center"
-        justify={{ base: "center", xl: "start" }}
+        justifyContent={{ base: "center", xl: "start" }}
         gap="10px"
         color="white"
         p={4}
@@ -45,23 +38,12 @@ const QuizzType: React.FC<Props> = ({
       <Text
         fontSize={{ base: "16px", lg: "18px", md: "19px", sm: "16px" }}
         fontWeight="500"
-        marginRight="7%"
-        width={{ base: "267px", lg: "495", md: "495px", sm: "267px" }}
-        height={{ base: "62px", lg: "66px", md: "67px", sm: "62px" }}
+        textAlign={{ base: "center", xl: "right" }}
+        marginRight={{ base: "0px", xl: "50px" }}
+        maxW={{ xlDown: "500px", xl: "480px" }}
       >
         {paragraph}
       </Text>
-      {displayButton && (
-        <CustomButton
-          sizeType="primary"
-          fontSize={{ base: "14px", lg: "19px", md: "19px", sm: "14px" }}
-          text="  قسم الامتحانات "
-          icon={<Exams />}
-          ButtonColor="orange"
-          marginRight="6%"
-          marginTop={{ base: "15%", lg: "5%", md: "6%", sm: "15%" }}
-        />
-      )}
     </Box>
   );
 };

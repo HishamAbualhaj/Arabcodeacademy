@@ -1,4 +1,4 @@
-import { Box, Grid, GridItem } from "@chakra-ui/react";
+import { Box, Flex, Grid, GridItem } from "@chakra-ui/react";
 import Image from "next/image";
 import { Image as ImageChakara } from "@chakra-ui/react";
 import React from "react";
@@ -6,100 +6,70 @@ import QuizzType from "./QuizzType";
 import test_skill from "@/public/icons/test_skills.png";
 import code from "@/public/icons/code.png";
 import exams from "@/public/icons/exams.png";
+import CustomButton from "../CustomButton/CustomButton";
+import Exams from "@/public/icons/exams.svg";
 const QuizzSection: React.FC = () => {
   return (
     <>
       <Box
-        width="100%"
-        aspectRatio={1920 / 740}
         bgGradient="to-r"
         gradientFrom="#462576"
         gradientTo="#783BA2"
         display="flex"
         justifyContent="center"
-        alignItems="center"
+        px="15px"
+        py={{ base: "40px", xl: "100px" }}
       >
-        <Grid
-          templateColumns={{
-            base: "repeat(1, 1fr)",
-            sm: "repeat(1, 1fr)",
-            md: "repeat(1, 1fr)",
-            lg: "repeat(5, 1fr)",
-          }}
-          gap={10}
-          marginBlock={{ base: "5%", sm: "5%", md: "5%" }}
+        <Box
+          flex="1"
+          flexDirection={{ base: "column", xl: "row" }}
+          justifyContent="space-between"
+          display="flex"
+          maxW={{ base: "700px", md: "900px", xl: "1250px" }}
         >
-          <GridItem
-      
-            colSpan={2}
-            marginRight={{ lg: "10%" }}
-            marginLeft={{ base: "7%",lg:"7%", md: "25%", sm: "7%" }}
-            display="flex"
-            flexDirection="column"
-            alignItems="center"
-            justifyContent="center"
-          >
-            <ImageChakara
-              src="images/people_2.jpg"
-              alt="Quiz Section Image2"
-               width="60%"
-              maxWidth={{
-                base: "150px",
-                lg: "350px",
-                md: "400px",
-                sm: "150px",
-              }}
-            />
+          <Box display="flex" justifyContent="center">
+            <ImageChakara src="images/people.png" alt="Quiz Section Image" />
+          </Box>
 
-            <ImageChakara
-              src="images/people.jpg"
-              alt="Quiz Section Image1"
-               width="60%"
-              maxWidth={{ base: "150px", lg: "350px", md: "400px", sm: "150px" }}
-              marginTop={{
-                base: "-50px",
-                lg: "-95px",
-                md: "-130px",
-                sm: "-50px",
-              }}
-              marginRight={{
-                base: "208px",
-                lg: "395px",
-                md: "540px",
-                sm: "208px",
-              }}
-            />
-          </GridItem>
-          <GridItem
-        
-            colSpan={3}
-            marginRight={{ lg: "12%" }}
-            marginLeft={{ base: "7%", md: "7%", sm: "7%" }}
-          >
+          <Flex alignItems={{base:'center' , xl:'start'}} flexDirection="column">
             <QuizzType
               title="اختبر قدراتك"
               paragraph="تمكنك الأكاديمية العربية للبرمجة من اختبار مهاراتك البرمجية عبر الإنترنت بسهولة ومرونة. من خلال خدمة الامتحان البرمجي الإلكتروني"
               icon={
                 <Image width={25} height={25} src={test_skill} alt="icon" />
               }
-              displayButton={false}
             />
             <QuizzType
               title="قم بالاختيار"
               paragraph="يمكنك اختيار اللغة البرمجية التي تود اختبار معرفتك بها سواء كانت Python, Java, JavaScript أو أي لغة أخرى من اللغات المتاحة"
               icon={<Image width={25} height={25} src={code} alt="icon" />}
-              displayButton={false}
             />
             <QuizzType
               title="اعرف ترتيبك"
               paragraph="قم برفع تقييمك لترتيب قدراتك بين الطلاب المتقدمين للاختبارات، مما سيمكنك من معرفة درجة التميز والرتب بين أقرانك."
-              icon={
-                <Image width={25} height={25} src={exams} alt="icon" />
-              }
-              displayButton={true}
+              icon={<Image width={25} height={25} src={exams} alt="icon" />}
             />
-          </GridItem>
-        </Grid>
+
+            <CustomButton
+              px={{
+                base: "20px",
+                xl: "30px",
+                "2xl": "45px",
+              }}
+              py={{
+                base: "17px",
+                "2xl": "18px",
+              }}
+              marginRight={{base:'0px' , xl:'65px'}}
+              marginTop="20px"
+              width="fit-content"
+              sizeType="primary"
+              text="قسم الامتحانات "
+              icon={<Exams width="35px" height="35px" />}
+              ButtonColor="orange"
+            />
+          </Flex>
+        </Box>
       </Box>
     </>
   );
