@@ -1,5 +1,5 @@
 import { Promo } from "@/Components/Promo/Promo";
-import { Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import girl from "@/public/images/girl_study.jpg";
 import CustomButton from "@/Components/CustomButton/CustomButton";
@@ -8,7 +8,7 @@ import Chalkboard from "@/public/icons/Chalkboard_Teacher.svg";
 export default function Brief() {
   return (
     <>
-      <div className={landing.max_container}>
+      <Box marginInline="auto" maxW="1700px">
         <Flex
           gap={{ base: "50px", xl: "80px" }}
           px={{ base: "20px", md: "40px", xl: "50px" }}
@@ -34,7 +34,7 @@ export default function Brief() {
                 lineHeight={{ base: "30px" }}
                 fontWeight={500}
                 color={"rgba(113, 52, 136, 1)"}
-                fontSize={{ base: "15px" }}
+                fontSize={{ base: "18px" }}
               >
                 الأكاديمية العربية للبرمجة تقدم تجربة تعليمية مميزة وفريدة تركز
                 على إنتاج فيديوهات تعليمية بعناصر تفاعلية وشاملة تناسب جميع
@@ -44,9 +44,25 @@ export default function Brief() {
                 ما يلهمك ويطور مهاراتك في عالم البرمجة، مع دعم مستمر وموارد غنية
                 تواكب أحدث التقنيات والأساليب التعليمية.
               </Text>
+
+              <Box display={{ base: "block", md: "none" }}>
+                <CustomButton
+                  marginTop="40px"
+                  sizeType="primary"
+                  text="المسارات التعليمية"
+                  ButtonColor="green"
+                  rounded={10}
+                  color="white"
+                  fontSize={17}
+                  fontWeight={900}
+                  icon={<Chalkboard width="30px" height="30px" />}
+                />
+              </Box>
             </Promo>
-            <div style={{ marginTop: "40px" }}>
+
+            <Box display={{ base: "none", md: "block" }}>
               <CustomButton
+                marginTop="40px"
                 sizeType="primary"
                 text="المسارات التعليمية"
                 ButtonColor="green"
@@ -54,13 +70,15 @@ export default function Brief() {
                 color="white"
                 fontSize={17}
                 fontWeight={900}
-                icon={<Chalkboard />}
+                icon={<Chalkboard width="30px" height="30px" />}
               />
-            </div>
+            </Box>
           </Flex>
-          <Image src={girl} layout="Fill" alt="girl studying" />
+          <Box>
+            <Image src={girl} layout="Fill" alt="girl studying" />
+          </Box>
         </Flex>
-      </div>
+      </Box>
     </>
   );
 }
