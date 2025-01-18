@@ -73,7 +73,7 @@ const ReviewCard: React.FC<ReviewProps> = ({
           mt={{ base: "10px", xl: "13px", "2xl": "15px" }}
           fontWeight={400}
           lineHeight={{ base: "25px", xl: "27px" }}
-          //   pb={{ base: "13px", xl: "28px", "2xl": "58px" }}
+          lineClamp="3"
         >
           {comment}
         </Text>
@@ -82,6 +82,7 @@ const ReviewCard: React.FC<ReviewProps> = ({
           alignItems="center"
           justifyContent="space-between"
           width="100%"
+          pb="15px"
         >
           <Rating
             readOnly

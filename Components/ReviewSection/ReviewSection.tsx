@@ -5,18 +5,16 @@ import ReviewCard from "./ReviewCard";
 import Arrow_slider from "@/public/icons/swiper-arrow-2.svg";
 import NotFound from "../NotFound/NotFound";
 
-
 interface Review {
   reviewText: string;
   price: number;
-  reviewerName:string;
-  reviewerLastName:string;
+  reviewerName: string;
+  reviewerLastName: string;
   rating: number;
   imageURL: string;
   date: Date;
 }
 const ReviewSection = async ({}) => {
-  
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_ENDPOINT}/reviews`
   );
@@ -27,14 +25,15 @@ const ReviewSection = async ({}) => {
     if (Array.isArray(data.reviews)) {
       reviews = data.reviews;
     }
-  } 
-  if (!reviews || reviews.length === 0){
-    return(<NotFound/>)
-  } 
+  }
+  if (!reviews || reviews.length === 0) {
+    return <NotFound />;
+  }
   return (
     <Box py={{ base: "90px", xl: "151px", "2xl": "111px" }}>
       <Box position="relative">
         <SwiperCustom
+          customClass="padding-inline-8"
           px={{ base: "60px" }}
           maxW="1550px"
           swiperClass="swiper-section-4"
@@ -56,24 +55,28 @@ const ReviewSection = async ({}) => {
               spaceBetween: 40,
             },
           }}
-          swiperslide={reviews.map((reviewCard,index) => {
+          swiperslide={reviews.map((reviewCard, index) => {
             return (
               <SwiperSlide key={index}>
                 <ReviewCard
                   name={`${reviewCard.reviewerName} ${reviewCard.reviewerLastName}`}
                   comment={reviewCard.reviewText}
                   rating={reviewCard.rating}
-                 // image={reviewCard.imageURL}
-                 image="/images/profile/sophia.png"
+                  // image={reviewCard.imageURL}
+                  image="/images/profile/sophia.png"
                   date={`${reviewCard.date}`}
                 />
               </SwiperSlide>
             );
           })}
           sliderNumber={3}
-          arrow={<Box width={{ base: "40px", xl: "80px", "2xl": "70px" }}>
-            <Arrow_slider />
-          </Box>} py={undefined}        />
+          arrow={
+            <Box width={{ base: "40px", xl: "80px", "2xl": "70px" }}>
+              <Arrow_slider />
+            </Box>
+          }
+          py={undefined}
+        />
       </Box>
     </Box>
   );
