@@ -116,6 +116,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
     </Box>
   ) : (
     <Box
+      as={'button'}
       display="flex"
       cursor="pointer"
       alignItems="center"
