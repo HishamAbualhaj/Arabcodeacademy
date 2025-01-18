@@ -30,7 +30,7 @@ const VideoBackground: React.FC<VideoBackgroundProps> = ({ children, videoSrc })
     <Box
       position="relative"
       width="100%"
-      height={{ base: "533px", lg: "801px", "2xl": "1068px" }}
+      height={{ base: "700px", lg: "900px", "2xl": "1068px" }}
       overflow="hidden"
     >
       <Box

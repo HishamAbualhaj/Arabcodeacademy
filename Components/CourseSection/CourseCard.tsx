@@ -4,7 +4,7 @@ import { Promo } from "@/Components/Promo/Promo";
 import CustomButton from "@/Components/CustomButton/CustomButton";
 import Cart from "@/public/icons/svgCart.svg";
 import ReadMore from "@/public/icons/readMore.svg";
-import Soon from "@/Components/soon.svg";
+import Soon from "@/public/icons/soon.svg";
 interface PromoProps {
   courseName: string;
   price: number;
@@ -20,7 +20,6 @@ const CourseCard: React.FC<PromoProps> = ({
   trainer,
   numberOfVedios,
   numberOfHours,
-
   icon,
   soon = false,
 }) => {
@@ -29,7 +28,14 @@ const CourseCard: React.FC<PromoProps> = ({
     xl: <Soon width="158px" height="155px" />,
   });
   return (
-    <Promo fontFamily={"Tajawal"} position={"relative"}>
+    <Promo
+      display="flex"
+      flexDirection="column"
+      justifyContent="space-between"
+      minH="550px"
+      fontFamily="Tajawal"
+      position="relative"
+    >
       {soon && (
         <Box position="absolute" top="-5px" left="-5px">
           {numCards}
@@ -52,22 +58,22 @@ const CourseCard: React.FC<PromoProps> = ({
       </Flex>
 
       <Flex
-        flexDirection={"column"}
-        justifyContent={"space-between"}
+        flex="1"
+        flexDirection="column"
+        justifyContent="space-between"
         width="100%"
-        height={{ base: "170px", xl: "265px", "2xl": "250px" }}
-        bg={"white"}
+        bg="white"
         pt={{ base: "10px", xl: "30px", "2xl": "35px" }}
         pb={{ base: "9px", xl: "28px", "2xl": "26px" }}
         pl={{ base: "24px", xl: "17px", "2xl": "28.25px" }}
         pr={{ base: "28px", xl: "24px", "2xl": "28.25px" }}
-        textAlign={"right"}
+        textAlign="right"
         color={colors.mainColor}
-        borderBottomRadius={"inherit"}
+        borderBottomRadius="inherit"
       >
         <Flex flexDirection={{ base: "column" }}>
           <Flex
-            justifyContent={"space-between"}
+            justifyContent="space-between"
             css={{
               "& span": {
                 color: colors.mainColor,
@@ -78,6 +84,7 @@ const CourseCard: React.FC<PromoProps> = ({
           >
             <Text
               as="span"
+              lineClamp="2"
               fontSize={{ base: "13px", xl: "22px", "2xl": "20px" }}
               pr={{ base: "56px", xl: 0 }}
             >
@@ -106,20 +113,22 @@ const CourseCard: React.FC<PromoProps> = ({
             {numberOfHours}
           </Box>
         </Flex>
-        <Flex gap="10px" justifyContent={"space-between"}>
+        <Flex gap="10px" justifyContent="space-between">
           <CustomButton
             flex="1"
+            py="8px"
             text="أقرا المزيد"
             ButtonColor="green"
             sizeType="thirdly"
-            icon= {<ReadMore></ReadMore>}
+            icon={<ReadMore></ReadMore>}
           ></CustomButton>
           <CustomButton
+            justifyContent="center"
             flex="1"
             text="شراء"
             ButtonColor="orange"
             sizeType="thirdly"
-            icon= {<Cart ></Cart>}
+            icon={<Cart></Cart>}
           ></CustomButton>
         </Flex>
       </Flex>

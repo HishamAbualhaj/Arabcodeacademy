@@ -7,7 +7,6 @@ import CourseCard from "./CourseCard";
 import Arrow_slider from "@/public/icons/swiper-arrow-2.svg";
 import NotFound from "../NotFound/NotFound";
 
-
 interface Course {
   id: number;
   title: string;
@@ -31,11 +30,15 @@ export const CourseSection = async () => {
       courses = data.courses;
     }
   }
-  if (!courses || courses.length === 0){
-    return(<NotFound/>)
-  } 
-  const availableCourses = courses.filter((course) => course.status === "available");
-  const comingSoonCourses = courses.filter((course) => course.status === "coming_soon");
+  if (!courses || courses.length === 0) {
+    return <NotFound />;
+  }
+  const availableCourses = courses.filter(
+    (course) => course.status === "available"
+  );
+  const comingSoonCourses = courses.filter(
+    (course) => course.status === "coming_soon"
+  );
 
   return (
     <>
@@ -63,6 +66,7 @@ export const CourseSection = async () => {
         </Flex>
         <Box pb="10px" position="relative" marginTop="40px">
           <SwiperCustom
+            customClass="padding-inline-8"
             px={{ base: "60px" }}
             maxW="1550px"
             swiperClass="swiper-section-1"
@@ -124,6 +128,7 @@ export const CourseSection = async () => {
         </Flex>
         <Box position="relative" marginTop="40px">
           <SwiperCustom
+            customClass="padding-inline-8"
             px={{ base: "60px" }}
             maxW="1550px"
             swiperClass="swiper-section-2"

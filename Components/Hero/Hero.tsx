@@ -38,13 +38,13 @@ function Slide() {
     <>
       <Flex
         width="100%"
-        py={{base:"15px", md: "0px"}}
-        pb={{base:"40px", md: "0px"}}
+        py={{ base: "15px", md: "0px" }}
+        pb={{ base: "40px", md: "0px" }}
         className={[landing.bg_image, landing.full_screen_h].join(" ")}
         justifyContent={"center"}
         alignItems={"center"}
       >
-        <div>
+        <Box>
           <Flex
             alignItems={{ base: "center", md: "start" }}
             direction={{ base: "column-reverse", xl: "row-reverse" }}
@@ -56,7 +56,7 @@ function Slide() {
               direction={{ base: "column-reverse", md: "column" }}
               align="end"
             >
-              <div className="text">
+              <Box className="text">
                 <Text
                   textAlign={{ base: "center", xl: "right" }}
                   fontSize={{ base: "20px", lg: "27px", xl: "23px" }}
@@ -76,7 +76,7 @@ function Slide() {
                 >
                   {hero[0].secondary_text_mt}
                 </Text>
-              </div>
+              </Box>
               <Flex
                 justifyContent={{ base: "center", "2xl": "start" }}
                 width="100%"
@@ -105,7 +105,7 @@ function Slide() {
               {hero[0].primary_text}
             </Text>
           </Flex>
-        </div>
+        </Box>
       </Flex>
     </>
   );

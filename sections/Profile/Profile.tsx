@@ -1,3 +1,4 @@
+"use client";
 import { AbsoluteCenter, Box, Flex } from "@chakra-ui/react";
 import React, { useState } from "react";
 import CustomButton from "@/Components/CustomButton/CustomButton";
@@ -157,12 +158,13 @@ const Profile: React.FC = () => {
               <CustomButton
                 boxShadow={"0px 4px 4px 0px rgba(0, 0, 0, 0.25)"}
                 px="20px"
+                py="10px"
                 alignSelf={{ base: "center", lg: "flex-end" }}
                 fontSize="17px"
                 text="تعديل"
                 ButtonColor="green"
-                sizeType="thirdly"
-                icon={<UserEdit></UserEdit>}
+                sizeType="secondary"
+                icon={<UserEdit width="25px" height="25px" />}
               ></CustomButton>
             </Flex>
           </Box>
@@ -275,7 +277,7 @@ const Profile: React.FC = () => {
                     <Box
                       display={{ base: "flex", sm: "block" }}
                       flexDirection={{ base: "column", sm: "row" }}
-                      gap={{base:'15px',sm:'0px'}}
+                      gap={{ base: "15px", sm: "0px" }}
                       alignItems="center"
                     >
                       <Box>{course.title}</Box>
@@ -287,6 +289,7 @@ const Profile: React.FC = () => {
                         <CustomButton
                           boxShadow={"0px 4px 4px 0px rgba(0, 0, 0, 0.25)"}
                           px="20px"
+                          py="10px"
                           alignSelf="flex-end"
                           fontSize="17px"
                           text="استئناف"
@@ -317,6 +320,7 @@ const Profile: React.FC = () => {
                       <CustomButton
                         boxShadow={"0px 4px 4px 0px rgba(0, 0, 0, 0.25)"}
                         px="20px"
+                        py="10px"
                         alignSelf="flex-end"
                         fontSize="17px"
                         text="استئناف"
@@ -336,7 +340,6 @@ const Profile: React.FC = () => {
                     </Flex>
                   </Flex>
 
-                  
                   <Box
                     marginTop="15px"
                     border={`1px solid ${colors.mainColor}`}

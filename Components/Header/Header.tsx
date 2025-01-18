@@ -307,7 +307,7 @@ function ResourcesDropDown({ isMobile }: porps) {
   ) : (
     <MenuRoot>
       <MenuTrigger asChild>
-        <Flex>
+        <Flex alignItems="center" gap="5px">
           المصادر
           <DropDown width="12px" height="12px" />
         </Flex>
