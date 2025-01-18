@@ -4,8 +4,8 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { colors } from "@/styles/global-info";
 import ReadMore from "@/public/icons/readMore.svg";
-import Added from "@/public/favouriteIcons/added.svg";
-import NotAdded from "@/public/favouriteIcons/notAdded.svg";
+import Added from "@/public/icons/added.svg";
+import NotAdded from "@/public/icons/notAdded.svg";
 import CustomButton from "../../Components/CustomButton/CustomButton";
 
 interface AiToolCard {
