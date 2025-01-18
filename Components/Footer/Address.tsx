@@ -13,7 +13,7 @@ export const Address: React.FC<Props> = ({ color, text }) => {
     <>
       <Prose
         borderBottom={`1px solid ${colors[color]}`}
-        fontSize={{ base: "13px", lg: "20px", md: "22px", sm: "13px" }}
+        fontSize={{ base: "18px", lg: "20px", md: "22px" }}
         color={colors[color]}
         paddingBottom={{ base: "16px", lg: "12px", md: "10px", sm: "16px" }}
         paddingEnd={{ base: "10px", lg: "20px", md: "20px", sm: "10px" }}

@@ -14,12 +14,9 @@ export const CardThree = () => {
     <>
       <FooterCard text="مواقع التواصل الاجتماعي" color="purple">
         <Box marginTop="30px">
-          <Flex
-            wrap="wrap"
-            width={{ base: "80%", lg: "50%", md: "70%", sm: "80%" }}
-          >
+          <Flex maxW="200px" gap="15px" wrap="wrap">
             {icons.map((icon, index) => (
-              <Box key={icon.id} width="25%" marginBottom="15px">
+              <Box key={icon.id}>
                 <Image
                   width={30}
                   height={30}
@@ -31,9 +28,8 @@ export const CardThree = () => {
           </Flex>
         </Box>
         <Text
-          width={{ base: "100%", lg: "95%", md: "", sm: "100%" }}
-          marginTop={{ base: "10px", lg: "30px", md: "20px", sm: "10px" }}
-          fontSize={{ base: "14px", lg: "17px", md: "19px", sm: "14px" }}
+          marginTop={{ base: "10px", lg: "30px", md: "20px" }}
+          fontSize={{ base: "16px", lg: "18px" }}
         >
           انضم الآن إلى مجتمع المبرمجين في الأكاديمية وابدأ رحلتك نحو احتراف
           البرمجة!

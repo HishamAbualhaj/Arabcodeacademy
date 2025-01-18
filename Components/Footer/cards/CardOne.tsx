@@ -1,19 +1,15 @@
-import learningRoad from "@/public/icons/learningRoad.png";
-import {
-  Box,
-  Button,
-  DataListItem,
-  DataListRoot,
-  Flex,
-} from "@chakra-ui/react";
-import Image from "next/image";
+import { Box, DataListItem, DataListRoot, Flex } from "@chakra-ui/react";
 import { Address } from "../Address";
+import CustomButton from "@/Components/CustomButton/CustomButton";
+import Chalkboard from "@/public/icons/Chalkboard_Teacher.svg";
 export const CardOne = () => {
   return (
     <>
-      <Box
-        height={{ base: "270px", lg: "369px", md: "340px", sm: "270px" }}
-        width={{ base: "247px", lg: "380px", md: "338px", sm: "247px" }}
+      <Flex
+        height="100%"
+        alignItems={{ xlDown: "center" }}
+        justifyContent="space-between"
+        flexDirection="column"
         borderRadius="5px"
         color="#fff"
         marginTop="3%"
@@ -22,9 +18,15 @@ export const CardOne = () => {
           <Box>
             <Address text="معلومات" color="white" />
             <DataListRoot marginTop="35px" width="max-content">
-              <DataListItem paddingBottom="10px">المساعدة والدعم</DataListItem>
-              <DataListItem paddingBottom="10px">حول الأكاديمية</DataListItem>
-              <DataListItem paddingBottom="10px">رسالة الأكاديمية</DataListItem>
+              <DataListItem fontSize="17px" paddingBottom="10px">
+                المساعدة والدعم
+              </DataListItem>
+              <DataListItem fontSize="17px" paddingBottom="10px">
+                حول الأكاديمية
+              </DataListItem>
+              <DataListItem fontSize="17px" paddingBottom="10px">
+                رسالة الأكاديمية
+              </DataListItem>
             </DataListRoot>
           </Box>
           <Box
@@ -32,28 +34,27 @@ export const CardOne = () => {
           >
             <Address text="سياسات" color="white" />
             <DataListRoot marginTop="35px" width="max-content">
-              <DataListItem paddingBottom="10px">سياسة الاستخدام</DataListItem>
-              <DataListItem paddingBottom="10px">سياسة الخصوصية </DataListItem>
-              <DataListItem paddingBottom="10px">إخلاء مسؤولية </DataListItem>
+              <DataListItem fontSize="17px" paddingBottom="10px">
+                سياسة الاستخدام
+              </DataListItem>
+              <DataListItem fontSize="17px" paddingBottom="10px">
+                سياسة الخصوصية
+              </DataListItem>
+              <DataListItem fontSize="17px" paddingBottom="10px">
+                إخلاء مسؤولية
+              </DataListItem>
             </DataListRoot>
           </Box>
         </Flex>
-        <Button
-          width={{ base: "200px", lg: "240px", md: "234px", sm: "200px" }}
-          height={{ base: "60px", lg: "65px", md: "50px", sm: "60px" }}
-          background="#00BE98"
-          marginTop={{ base: "30px", lg: "90px", md: "60px", sm: "30px" }}
-          color="white"
-        >
-          <Image
-            width={22}
-            height={22}
-            src={learningRoad}
-            alt="learning Road"
-          />
-          المسارات التعليمية
-        </Button>
-      </Box>
+        <CustomButton
+          marginTop={{ base: "25px", xl: "0px" }}
+          width="fit-content"
+          text={"المسارات التعليمية"}
+          icon={<Chalkboard width="25px" height="25px"></Chalkboard>}
+          ButtonColor={"green"}
+          sizeType={"primary"}
+        ></CustomButton>
+      </Flex>
     </>
   );
 };

@@ -21,18 +21,10 @@ export const FooterBottom = () => {
         alignItems="center"
         marginTop="14px"
       >
-        <Box
-          width={{ base: 75, lg: 190, md: 180, sm: 75 }}
-          height={{ base: 40, lg: 100, md: 100, sm: 40 }}
-        >
+        <Box width={{base:'170px', md:'300px'}}>
           <Image src={ArabAcademyLogo} alt="ArabAcademyLogo" />
         </Box>
-        <Text
-          marginTop={{ base: "15px", lg: "30px", md: "30px", sm: "15px" }}
-          marginBottom={{ base: "15px", lg: "0", md: "0", sm: "15px" }}
-          fontSize={{ base: "11px", lg: "20px", md: "16px", sm: "11px" }}
-          color="#fff"
-        >
+        <Text fontSize={{ base: "14px", lg: "18px" }} color="#fff">
           جميع الحقوق محفوظة © 2023 الأكاديمية العربية للبرمجة
         </Text>
       </Flex>

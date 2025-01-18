@@ -4,7 +4,8 @@ import Image from "next/image";
 import site from "@/public/icons/site.png";
 import phone from "@/public/icons/phone.png";
 import message from "@/public/icons/message.png";
-import whitePhone from "@/public/icons/whitePhone.png";
+import Call from "@/public/icons/call.svg";
+import CustomButton from "@/Components/CustomButton/CustomButton";
 export const CardTwo = () => {
   return (
     <>
@@ -21,7 +22,7 @@ export const CardTwo = () => {
           >
             <Image src={site} alt="site icon" />
           </Box>
-          <Text fontSize={{ base: "12px", lg: "16px", md: "16px", sm: "12px" }}>
+          <Text fontSize={{ base: "17px", md: "19px" }}>
             المقر الرئيسي : برطانيا , لندن
           </Text>
         </Box>
@@ -37,9 +38,7 @@ export const CardTwo = () => {
           >
             <Image src={phone} alt="phone icon" />
           </Box>
-          <Text fontSize={{ base: "12px", lg: "16px", md: "16px", sm: "12px" }}>
-            +447918713367
-          </Text>
+          <Text fontSize={{ base: "17px", md: "19px" }}>+447918713367</Text>
         </Box>
         <Box
           display="flex"
@@ -48,25 +47,25 @@ export const CardTwo = () => {
           marginBottom={{ base: "15px", lg: "22px", md: "25px", sm: "15px" }}
         >
           <Box
-            width={{ base: "13px", lg: "24px", md: "15px", sm: "13px" }}
-            height={{ base: "10px", lg: "17px", md: "12px", sm: "10px" }}
+            width={{ base: "17px", lg: "24px", md: "17px", sm: "17px" }}
+            height={{ base: "13.5px", lg: "22px", md: "16px", sm: "13.5px" }}
           >
             <Image src={message} alt="message icon" />
           </Box>
-          <Text fontSize={{ base: "12px", lg: "16px", md: "16px", sm: "12px" }}>
+          <Text fontSize={{ base: "17px", md: "19px" }}>
             info@arabcodeacademy.com
           </Text>
         </Box>
-        <Button
-          background="#00BE98"
-          height={{ base: "38px", lg: "42px", md: "48px", sm: "38px" }}
-          width={{ base: "90px", lg: "128px", md: "148px", sm: "88px" }}
-          fontSize={{ base: "11px", lg: "18px", md: "20px", sm: "11px" }}
-          color="white"
-        >
-          <Image width={22} height={22} src={whitePhone} alt="icon" />
-          تواصل معنا
-        </Button>
+
+        <CustomButton
+          py="5px"
+          px="10px"
+          width="fit-content"
+          text={"تواصل معنا"}
+          icon={<Call width="20px" height="20px"></Call>}
+          ButtonColor={"green"}
+          sizeType={"secondary"}
+        ></CustomButton>
       </FooterCard>
     </>
   );
