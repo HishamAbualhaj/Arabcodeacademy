@@ -1,3 +1,25 @@
+/**
+ * Contact Component
+ *
+ * A responsive promotional component designed to highlight the unique educational tools and
+ * gamification methods offered by the Arabic Academy of Programming. This component displays
+ * a block of text that adjusts in size and layout depending on the screen size, alongside a
+ * call-to-action button. The background of the component features a thematic image, enhancing
+ * the visual appeal.
+ *
+ * @component
+ *
+ * @example
+ * <Contact />
+ *
+ * @returns {React.ReactElement}
+ * Renders a visually engaging section that provides details about the academy's innovative
+ * educational tools and gamification techniques. The layout includes responsive text and a
+ * button within a promotional styled box (using the Promo component), positioned over a
+ * full-screen background image.
+ */
+
+
 import { Promo } from "../Promo/Promo";
 import CustomButton from "../CustomButton/CustomButton";
 import { Box, Flex, Text, useBreakpointValue } from "@chakra-ui/react";

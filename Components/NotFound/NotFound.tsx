@@ -1,3 +1,28 @@
+/**
+ * NotFound Component
+ *
+ * This component is used to display an error message and an associated image when a page or resource
+ * is not found or when a server error occurs. It is designed to inform users that their request could 
+ * not be completed, possibly due to a connection issue or a missing page.
+ *
+ * @component
+ *
+ * @returns {React.ReactElement}
+ * Renders a vertical stack (`VStack`) containing an image and a text message. The image is used to visually
+ * indicate an error or issue, and the text provides a clear message explaining the situation to the user.
+ *
+ * Features:
+ * - Utilizes Chakra UI's `VStack` for layout to vertically align the content centrally.
+ * - Displays an error image (`OpsImg`) to visually communicate an error state.
+ * - Includes a text message styled with the application's main color theme to maintain consistency.
+ * - Text is responsive, adjusting size based on the user's device to ensure readability across all platforms.
+ *
+ * Usage:
+ * This component can be used in scenarios where a user navigates to a non-existent page, experiences a 
+ * server error, or encounters any issue where the desired content cannot be displayed. It's commonly used 
+ * as a fallback UI in routing mechanisms or error boundaries.
+ */
+
 import React from "react";
 import { colors } from "@/styles/global-info";
 import { Text, VStack } from "@chakra-ui/react";

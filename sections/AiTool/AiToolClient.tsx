@@ -1,3 +1,36 @@
+/**
+ * AiToolClient Component
+ *
+ * A client-side component for managing the AI tool search and favorites functionality. 
+ * It provides a search bar and a toggle button to filter tools based on the "favorites" status.
+ * The component integrates seamlessly with Next.js routing and supports real-time URL query updates.
+ *
+ * @component
+ *
+ * @example
+ * <AiToolClient />
+ *
+ * @returns {React.ReactElement}
+ * Renders a user interface for:
+ * - Searching AI tools using a search bar.
+ * - Toggling a "favorites" filter with a responsive button.
+ * - Dynamically updating the URL query parameters based on user interactions.
+ *
+ * Features:
+ * - **Search Functionality**: Allows users to input a search term and submit it, updating the URL's query parameters.
+ * - **Favorites Toggle**: A button to filter AI tools by their "favorites" status, visually updating its state with icons.
+ * - **Responsive Design**: Adapts to different screen sizes, ensuring accessibility across devices.
+ * - **URL Query Integration**: Utilizes Next.js `useRouter` and `useSearchParams` for managing query parameters.
+ * - **Custom Styling**: Styled using Chakra UI and integrates with the app's global color scheme.
+ *
+ * Props & State:
+ * - **searchValue** (`string`): Holds the current search term, defaulting to the value from the URL query parameter.
+ * - **toggle** (`boolean`): Indicates whether the "favorites" filter is active, syncing with the URL query parameter.
+ *
+ * Methods:
+ * - **handleSubmit**: Handles the form submission for the search bar, updating the query parameters.
+ * - **handleToggle**: Toggles the "favorites" filter state and updates the query parameters.
+ */
 
 "use client"
 import React, { useState } from "react";
@@ -12,8 +45,8 @@ export default function AiToolClient() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const [searchValue, setSearchValue] = useState(searchParams.get("search") || "");
-  const [toggle, setToggle] = useState(searchParams.get("isFav") === "true");
+  const [searchValue, setSearchValue] = useState(searchParams?.get("search") || "");
+  const [toggle, setToggle] = useState(searchParams?.get("isFav") === "true");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

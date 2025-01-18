@@ -1,3 +1,38 @@
+/**
+ * Pagination Component
+ *
+ * A customizable pagination control for navigating through pages of items in a list or grid. 
+ * This component dynamically calculates the number of pages based on total items and items per page,
+ * and displays a range of page numbers along with navigational arrows for going to the next or previous page.
+ *
+ * @component
+ *
+ * @param {Object} props - The properties passed to the Pagination component.
+ * @param {number} props.currentPageNum - The current active page number.
+ * @param {number} props.totalItems - The total number of items to paginate through.
+ * @param {number} props.itemsPerPage - The number of items displayed on each page.
+ *
+ * @returns {React.ReactElement}
+ * Renders a flex container with navigational arrows and clickable page numbers that allow the user to 
+ * navigate through different pages. The navigation arrows are disabled on the first and last pages respectively.
+ *
+ * Features:
+ * - Calculates the total number of pages based on `totalItems` and `itemsPerPage`.
+ * - Displays a fixed number of page numbers around the current page, providing context and easy access 
+ *   to adjacent pages.
+ * - Includes navigational arrows (left and right) for moving to the next or previous pages.
+ * - Arrows and page numbers update the URL to reflect the current page state, supporting direct linking 
+ *   and bookmarking.
+ * - Employs conditional rendering and styling to indicate the current page and to disable navigation at the 
+ *   bounds of the page range.
+ *
+ * Usage:
+ * Place this component below lists or grids that require pagination. It is suitable for data tables, search 
+ * results, or any list format that extends beyond a single page worth of content. This component improves 
+ * usability by allowing users to navigate through large sets of data easily.
+ */
+
+
 "use client";
 
 import { Box, Flex } from "@chakra-ui/react";

@@ -1,3 +1,39 @@
+/**
+ * CourseCard Component
+ *
+ * This component renders a card layout for course offerings. It displays course details including
+ * the name, price, trainer, number of videos, and number of hours. Optional visual indicators can
+ * be added to signify upcoming courses. The card design includes two custom buttons for further
+ * interaction: one for more detailed information and another to purchase the course.
+ *
+ * @component
+ * 
+ * @param {Object} props - The properties defining the course's attributes.
+ * @param {string} props.courseName - The name of the course.
+ * @param {number} props.price - The price of the course.
+ * @param {string} props.trainer - The name of the trainer or instructor of the course.
+ * @param {number} props.numberOfVedios - The total number of videos available in the course.
+ * @param {number} props.numberOfHours - The total duration of the course in hours.
+ * @param {string} props.icon - URL to the course's representative icon or image.
+ * @param {boolean} [props.soon=false] - Indicator whether the course is coming soon.
+ *
+ * @example
+ * <CourseCard
+ *   courseName="Advanced Programming"
+ *   price={199}
+ *   trainer="John Doe"
+ *   numberOfVedios={10}
+ *   numberOfHours={15}
+ *   icon="/path/to/icon.jpg"
+ *   soon={true}
+ * />
+ *
+ * @returns {React.ReactElement}
+ * Renders a visually appealing card with structured information about a course, providing
+ * interactive elements for users to learn more or purchase the course. If marked as 'soon',
+ * an additional visual element indicates the upcoming availability of the course.
+ */
+
 import { Box, Flex, Text, Image, useBreakpointValue } from "@chakra-ui/react";
 import { colors } from "@/styles/global-info";
 import { Promo } from "@/Components/Promo/Promo";

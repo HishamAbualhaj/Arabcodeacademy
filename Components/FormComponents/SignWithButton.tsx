@@ -1,3 +1,34 @@
+/**
+ * SignWithButton Component
+ *
+ * A customizable button component designed for social media sign-in options. This component dynamically adjusts
+ * its display based on the specified type (e.g., Facebook, Google) and adapts the icon size and label based on
+ * the viewport size using Chakra UI's `useBreakpointValue`. It provides a visually appealing and functional
+ * button for user authentication through various social media platforms.
+ *
+ * @component
+ * 
+ * @param {Object} props - The properties passed to the SignWithButton component.
+ * @param {() => void} [props.onClick] - Optional click handler to execute custom functionality when the button is clicked.
+ * @param {string} props.type - The type of sign-in button to render. This determines the styling, icon, and text label of the button.
+ *
+ * @example
+ * <SignWithButton
+ *   onClick={() => console.log("Sign in with Facebook")}
+ *   type="facebook"
+ * />
+ *
+ * @returns {React.ReactElement}
+ * Renders a button with a responsive design that adjusts icon and text size according to the screen size. Each button is styled
+ * with colors and icons specific to the service it represents (Facebook, Google, etc.), and includes an interactive effect to
+ * handle user interactions.
+ *
+ * Styles and Behaviors:
+ * - The button adjusts its content and style based on the `type` prop, supporting various social media platforms.
+ * - The size of the icon and text adjusts responsively to screen size changes.
+ * - On click, the button executes an optional `onClick` function, allowing for integration with authentication processes.
+ */
+
 import React from "react";
 import { Text, Flex, useBreakpointValue } from "@chakra-ui/react";
 import { FaFacebookF,  FaGooglePlusG } from "react-icons/fa";

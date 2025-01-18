@@ -1,3 +1,24 @@
+/** 
+ * Brief Component
+ * 
+ * A promotional section of a web application designed to showcase the educational experience 
+ * at the Arabic Academy of Programming. This component features a textual description of the 
+ * academy's offerings and a call-to-action button, alongside a decorative image. The layout 
+ * adapts responsively to different screen sizes.
+ * 
+ * @component 
+ * 
+ * @example
+ * <Brief />
+ * 
+ * @returns {React.ReactElement}
+ * Renders a promotional block with rich textual content and a call-to-action button. It uses 
+ * a flexible box layout to organize the content and image. The image fills the assigned 
+ * container space and complements the educational theme of the text. The Promo component 
+ * encapsulates the text to emphasize its promotional nature, while the CustomButton below 
+ * the text invites user interaction with a label "المسارات التعليمية".
+ */
+
 import { Promo } from "@/Components/Promo/Promo";
 import { Box, Flex, Text } from "@chakra-ui/react";
 import Image from "next/image";

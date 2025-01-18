@@ -1,7 +1,10 @@
-import React from "react";
-import Signup from "@/sections/Signup/Signup";
-function page() {
-  return <Signup />;
+import SignUpForm from '@/sections/Signup/SignUpForm'
+import React from 'react'
+
+const page = () => {
+  return (
+    <SignUpForm />
+  )
 }
 
-export default page;
+export default page

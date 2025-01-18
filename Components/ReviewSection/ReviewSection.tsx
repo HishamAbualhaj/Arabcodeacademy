@@ -1,3 +1,52 @@
+/**
+ * ReviewSection Component
+ *
+ * A functional component that fetches and displays a list of user reviews in a swiper layout. Each review is represented
+ * as a card, showcasing details like the user's name, comment, rating, and review date. The swiper allows users to navigate
+ * through multiple reviews, and a "Not Found" message is displayed if no reviews are available.
+ *
+ * @component
+ *
+ * Features:
+ * - Fetches review data from an API endpoint dynamically.
+ * - Renders user reviews in a responsive swiper layout using `SwiperCustom` and `SwiperSlide`.
+ * - Displays individual review details via the `ReviewCard` component.
+ * - Shows a `NotFound` component when no reviews are available.
+ *
+ * @returns {React.ReactElement}
+ * The component renders a responsive section containing a swiper of user reviews or a "Not Found" message when no reviews
+ * are available.
+ *
+ * Review Data Format:
+ * - The component expects an array of review objects fetched from the API.
+ * - Each review object should have the following structure:
+ *   - `reviewText`: {string} - The text of the user's review.
+ *   - `reviewerName`: {string} - The first name of the reviewer.
+ *   - `reviewerLastName`: {string} - The last name of the reviewer.
+ *   - `rating`: {number} - The rating given by the reviewer (1 to 5).
+ *   - `imageURL`: {string} - The URL of the reviewer's profile image.
+ *   - `date`: {Date} - The date of the review.
+ *
+ * API Integration:
+ * - Endpoint: `${process.env.NEXT_PUBLIC_API_ENDPOINT}/reviews`
+ * - Method: GET
+ * - Fetches review data from the API and renders them dynamically.
+ *
+ * Styling and Responsiveness:
+ * - Utilizes Chakra UI for styling.
+ * - Adapts layout to different screen sizes using responsive breakpoints.
+ * - Includes navigation arrows for the swiper, styled for a consistent user experience.
+ *
+ * Usage Example:
+ * ```jsx
+ * <ReviewSection />
+ * ```
+ *
+ * This component is suitable for use in any application that requires showcasing user feedback, such as e-commerce platforms,
+ * educational websites, or SaaS products.
+ */
+
+
 import { Box } from "@chakra-ui/react";
 import SwiperCustom from "../SwiperCustom/SwiperCustom";
 import { SwiperSlide } from "swiper/react";

@@ -1,3 +1,31 @@
+/**
+ * ReviewCard Component
+ *
+ * A presentation component that displays a user review in a card format. It includes a profile image, user's name,
+ * rating, comment, and the date of the review. The card uses Chakra UI components to ensure consistent styling and responsiveness.
+ *
+ * @component
+ * @param {Object} props - The properties required to render the ReviewCard.
+ * @param {string} props.image - The URL of the user's profile image to display.
+ * @param {string} props.name - The name of the user who made the review.
+ * @param {number} props.rating - The rating given by the user, on a scale from 1 to 5.
+ * @param {string} props.comment - The comment text of the review.
+ * @param {string} props.date - The date when the review was posted.
+ *
+ * Features:
+ * - Renders a visually appealing card that displays essential review details.
+ * - Integrates a `Rating` component to visually represent user ratings.
+ * - Responsive design that adjusts based on the device's screen size.
+ *
+ * @returns {React.ReactElement}
+ * Renders a card containing a profile image, name, rating, comment, and the date of the review, styled according to the design
+ * specifications provided in the global styles.
+ *
+ * Usage:
+ * This component is ideal for displaying user reviews in a list or grid layout, especially in e-commerce platforms,
+ * educational sites, or any application where user feedback is showcased.
+ */
+
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import { Rating } from "@/Components/ui/rating";
 import ReviewCardImg from "/public/icons/reviewCard.svg";

@@ -1,3 +1,42 @@
+/**
+ * AiToolCard Component
+ *
+ * A reusable card component designed to display details about AI tools in a visually engaging and functional way. 
+ * The component supports responsive design, user interaction for marking favorites, and conditional rendering 
+ * based on authentication status.
+ *
+ * @component
+ *
+ * @example
+ * <AiToolCard
+ *   aiImage="https://example.com/tool-image.jpg"
+ *   aiName="AI Tool Name"
+ *   functionality="Generates text-based summaries"
+ *   description="This tool helps you create concise summaries from large text inputs."
+ *   tag="Text Processing"
+ *   isFav={true}
+ * />
+ *
+ * @param {string} [aiImage] - URL of the image for the AI tool. Defaults to a placeholder image.
+ * @param {string} aiName - Name of the AI tool.
+ * @param {string} functionality - Brief description of the AI tool's functionality.
+ * @param {string} description - Detailed description of the AI tool.
+ * @param {string} tag - Tag or category related to the AI tool.
+ * @param {boolean} isFav - Indicates whether the tool is marked as a favorite.
+ *
+ * @returns {React.ReactElement}
+ * Renders an AI tool card featuring:
+ * - A responsive layout with image, name, tag, functionality, and description.
+ * - A toggle button to mark the tool as a favorite, updating based on user interaction.
+ * - Conditional logic to handle authentication and redirect unauthenticated users to the login page.
+ *
+ * Features:
+ * - **Responsive Design**: Adapts seamlessly between mobile and desktop views using Chakra UI's `useBreakpointValue`.
+ * - **Favorite Functionality**: Authenticated users can mark tools as favorites with real-time UI updates and toast notifications.
+ * - **Authentication Handling**: Redirects unauthenticated users to the login page when attempting to mark favorites.
+ * - **Customizable Styling**: Integrates with the app's global theme via the `colors` object.
+ */
+
 "use client";
 import { Box, Flex, useBreakpointValue, Text } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
@@ -30,7 +69,42 @@ const AiToolCard: React.FC<AiToolCard> = ({
     height: useBreakpointValue({ base: 411, xl: 478 }),
     imageHeight: useBreakpointValue({ base: 130, xl: 193 }),
   };
+
   const [isFavourite, setIsFavourite] = useState(false);
+  const { isLoggedIn} = useAuth();
+ const router = useRouter()
+  const setFavourite=()=>{
+if(isLoggedIn){
+  if(!isFavourite){
+  toast.success('تم عملية الإضافة بنجاح', {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light"
+      });
+      setIsFavourite(true);}
+      else{
+        toast.success('تم عمليةالإزالة بنجاح', {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light"
+          });
+          setIsFavourite(false);
+      }
+ 
+}else{
+  router.push('/login')
+}
+  }
   useEffect(() => {
     setIsFavourite(isFav);
   }, [isFav]);
@@ -110,9 +184,9 @@ const AiToolCard: React.FC<AiToolCard> = ({
         justifyContent="center"
         alignItems="center"
         cursor="pointer"
-        onClick={() => setIsFavourite((preState) => !preState)}
+        onClick={ setFavourite}
       >
-        {isFavourite ? <Added /> : <NotAdded />}
+        {isLoggedIn?(isFavourite ? <Added /> : <NotAdded />):<NotAdded />}
       </Flex>
     </Box>
   );

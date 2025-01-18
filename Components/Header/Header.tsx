@@ -1,6 +1,36 @@
+/**
+ * Header Component
+ *
+ * This component serves as the main navigation bar for the application, providing links to various sections of the website.
+ * It adapts to different screen sizes using responsive design techniques from Chakra UI. The header includes a logo,
+ * navigation links, and authentication buttons. It also features a dropdown menu for mobile and desktop views, dynamically
+ * displaying options based on user interaction.
+ *
+ * @component
+ *
+ * @returns {React.ReactElement}
+ * Renders the top header of the application, including a logo, navigation links for various resources, sign-in and sign-up
+ * buttons, and a dynamic dropdown menu for additional resources. It uses Flex boxes for layout and manages responsive
+ * visibility of elements based on the screen size.
+ *
+ * Features:
+ * - Responsive design that adapts to different screen sizes, hiding certain elements on smaller screens.
+ * - Dynamic dropdown menu that toggles visibility based on user interactions.
+ * - Links to various parts of the site such as educational tracks, resources, and user authentication pages.
+ * - Uses SVG icons for a visually appealing design.
+ * - Includes a logo image that is displayed across all views.
+ *
+ * Usage:
+ * The Header is used at the top of each page and provides key navigation links, ensuring users can easily access
+ * important sections of the website. It supports both mobile and desktop views, adjusting content and layout
+ * appropriately.
+ */
+
 "use client"
 import { Box, Flex } from "@chakra-ui/react";
 import React, { useState } from "react";
+import { Avatar } from "@/Components/ui/avatar"
+import CustomButton from "../CustomButton";
 import CustomButton from "../CustomButton/CustomButton";
 import Login from "@/public/icons/login.svg";
 import LoginMoblie from "@/public/icons/loginMobile.svg";
@@ -12,14 +42,47 @@ import logo from "@/public/images/logo.png";
 import Image from "next/image";
 import { colors } from "@/styles/global-info";
 import Link from "next/link";
+import { Spinner } from "@chakra-ui/react"
 import {
   MenuContent,
   MenuItem,
   MenuRoot,
   MenuTrigger,
 } from "@/Components/ui/menu";
+import useAuth from "@/app/hooks/useAuth";
+import { useRouter } from "next/navigation";
+import { toast } from 'react-toastify';
+interface User {
+  email: string;
+}
+
+interface UseAuth {
+  isLoggedIn: boolean;
+  user: User | null;
+  isLoading: boolean;
+}
 
 const Header: React.FC = () => {
+  const { isLoggedIn,user ,isLoading} :UseAuth= useAuth();
+  const router = useRouter()
+  const firstLetter=user?user:{email:"user"};
+    const handleLogout=() =>{
+ 
+    fetch("/api/auth/logout", {
+      method: "POST",
+    })
+    toast.success('تم عملية تسجيل الخروج بنجاح', {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light"
+      });
+    router.push('/login')
+  }
   const barsDropDown = [
     {
       key: 0,
@@ -66,7 +129,9 @@ const Header: React.FC = () => {
 
   const [translate, setTranslate] = useState(false);
   return (
+    
     <Box backgroundColor={colors.mainColor} position="relative">
+
       <Box
         marginInline="auto"
         maxW="1650px"
@@ -213,7 +278,17 @@ const Header: React.FC = () => {
           </Box>
           <Box display={{ lgDown: "none" }}>
             <Flex flexDirection={{ base: "column", xl: "row" }} gap="10px">
-             <CustomButton
+            {isLoading?   <Spinner
+            size="lg"
+            color="white.600"
+          />:(isLoggedIn  ? (<>
+              
+       <Avatar name={firstLetter.email.charAt(0) ?? ''} colorPalette="pink" />
+     
+     
+            <Image src="/icons/logout.svg" alt="logout"  onClick={handleLogout} width={33} height={33}/> 
+            
+            </>): <> <CustomButton
                 text="إنشاء حساب"
                 ButtonColor="green"
                 sizeType="secondary"
@@ -225,7 +300,7 @@ const Header: React.FC = () => {
                 ButtonColor="orange"
                 sizeType="secondary"
                 icon={<Login width="25px" height="25px" />}
-              ></CustomButton></Link>
+              ></CustomButton></Link></>)}
             </Flex>
           </Box>
         </Flex>

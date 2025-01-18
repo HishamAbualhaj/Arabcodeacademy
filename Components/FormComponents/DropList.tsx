@@ -1,3 +1,36 @@
+/**
+ * DropList Component
+ *
+ * This component is a custom dropdown list designed for use in forms that require users to select
+ * an option from a predefined list of strings. It integrates with react-hook-form to update the form
+ * state when a selection is made. The component uses a menu-style interaction pattern with a
+ * visually distinct trigger and scrollable content area for item selection. The design and behavior
+ * are customized to fit the overall theme using Chakra UI components.
+ *
+ * @component
+ * 
+ * @param {Object} props - The properties passed to the DropList component.
+ * @param {Array<string>} props.data - The data array containing the list of options for the dropdown.
+ * @param {string} props.title - The initial placeholder or title to display before selection.
+ * @param {UseBreakpointValueOptions<string | number>} props.width - The width of the dropdown list, responsive across breakpoints.
+ * @param {UseBreakpointValueOptions<string | number>} props.height - The height of each item within the dropdown list, responsive across breakpoints.
+ * @param {UseFormSetValue<SignUpTypePageOne|SignUpTypePageTwo>} [props.setValue] - The setValue method from react-hook-form, used to update the form state when an option is selected.
+ *
+ * @example
+ * <DropList
+ *   data={["Option 1", "Option 2", "Option 3"]}
+ *   title="Select an Option"
+ *   width={{ base: "100px", lg: "150px" }}
+ *   height={{ base: "20px", lg: "30px" }}
+ *   setValue={formMethods.setValue}
+ * />
+ *
+ * @returns {React.ReactElement}
+ * Renders a dropdown menu with a list of options. Upon selection, it updates the display to show the
+ * selected option and informs the form state of the change. The component is styled to provide a
+ * consistent look and feel, and it allows for a customizable and responsive layout.
+ */
+
 import React, { useEffect, useState } from "react";
 import { Flex } from "@chakra-ui/react";
 import {

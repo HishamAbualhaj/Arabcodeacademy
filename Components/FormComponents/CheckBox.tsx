@@ -1,12 +1,42 @@
+/**
+ * CheckBox Component
+ *
+ * A customizable checkbox component that integrates with react-hook-form for form handling. It includes
+ * additional styling and error display capabilities. This component is designed to be used in forms
+ * where user agreements or selections are required. It displays a label alongside the checkbox and
+ * provides visual feedback on errors associated with the checkbox field.
+ *
+ * @component
+ * 
+ * @param {Object} props - The properties passed to the CheckBox component.
+ * @param {string} props.text - The text label displayed next to the checkbox.
+ * @param {ReturnType<UseFormRegister<FieldValues>>} props.register - The registration object from react-hook-form, binding the checkbox to form data.
+ * @param {string | FieldError | Merge<FieldError, FieldErrorsImpl> | undefined} props.errorMsg - Optional error message to display if the checkbox validation fails.
+ * @param {CheckboxProps} ...rest - Additional props from Chakra UI's Checkbox component to customize styling and behavior.
+ *
+ * @example
+ * <CheckBox
+ *   text="I agree to the terms and conditions"
+ *   register={register("termsAccepted")}
+ *   errorMsg={errors.termsAccepted?.message}
+ * />
+ *
+ * @returns {React.ReactElement}
+ * Renders a flex container with a checkbox and a text label. If there is an error associated with the
+ * checkbox input, it displays an error message below the checkbox. The component uses Chakra UI for
+ * styling, ensuring consistent design and responsiveness.
+ */
+
+
 import { Checkbox, CheckboxProps } from "@/Components/ui/checkbox";
 import { colors } from "@/styles/global-info";
 import { Text, Flex } from "@chakra-ui/react";
 import React from "react";
-import { FieldError, FieldErrorsImpl, Merge } from "react-hook-form";
+import { FieldError, FieldErrorsImpl, FieldValues, Merge, UseFormRegister } from "react-hook-form";
 
 interface CheckBoxProps extends CheckboxProps {
   text: string;
-  register: any;
+  register: ReturnType<UseFormRegister<FieldValues>>;
   errorMsg?: string | FieldError | Merge<FieldError, FieldErrorsImpl> | undefined;
 }
 

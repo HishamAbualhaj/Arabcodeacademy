@@ -1,13 +1,59 @@
+/**
+ * SignUpPageTwo Component
+ *
+ * This component represents the second page of a multi-step sign-up process for an online platform.
+ * It collects additional user information, including first name, last name, username, and country of residence,
+ * and also includes terms acceptance. It leverages react-hook-form for form handling and validation,
+ * ensuring a smooth user experience with responsive feedback. The component is styled with Chakra UI
+ * for a consistent and responsive layout across devices.
+ *
+ * @component
+ *
+ * @param {Object} props - The properties passed to the SignUpPageTwo component.
+ * @param {Object} props.registers - Contains registration methods for each input field provided by react-hook-form.
+ * @param {ReturnType<UseFormRegister<FieldValues>>} props.registers.userName - Registration method for the username input.
+ * @param {ReturnType<UseFormRegister<FieldValues>>} props.registers.firstName - Registration method for the first name input.
+ * @param {ReturnType<UseFormRegister<FieldValues>>} props.registers.lastName - Registration method for the last name input.
+ * @param {ReturnType<UseFormRegister<FieldValues>>} props.registers.termsAccepted - Registration method for the terms acceptance checkbox.
+ * @param {FieldErrors} props.errors - Object containing any errors to display in the form as returned by react-hook-form.
+ * @param {boolean} props.isSubmitting - Indicates whether the form is currently being submitted.
+ * @param {(number) => void} props.backButton - Function to navigate back to the previous step of the sign-up process.
+ * @param {UseFormSetValue<SignUpTypePageOne|SignUpTypePageTwo>} props.setValue - Function from react-hook-form used to manually set form values, used here for dropdown list handling.
+ *
+ * @example
+ * <SignUpPageTwo
+ *   registers={{
+ *     userName: register('userName'),
+ *     firstName: register('firstName'),
+ *     lastName: register('lastName'),
+ *     termsAccepted: register('termsAccepted')
+ *   }}
+ *   errors={formState.errors}
+ *   isSubmitting={formState.isSubmitting}
+ *   backButton={handleBack}
+ *   setValue={formMethods.setValue}
+ * />
+ *
+ * @returns {React.ReactElement}
+ * Renders a form that includes inputs for username, first name, last name, and country, with validations.
+ * It also includes navigation buttons to either proceed with the registration or return to the previous step.
+ */
+
 import { colors } from "@/styles/global-info";
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import React from "react";
 import InputForm from "../InputForm";
-import CustomButton from "@/Components/CustomButton";
+import CustomButton from "@/Components/CustomButton/CustomButton";
 import { FaArrowRight, FaUserCircle } from "react-icons/fa";
 import CheckBox from "../CheckBox";
-import { FieldErrors, FieldValues, UseFormRegister, UseFormSetValue } from "react-hook-form";
+import {
+  FieldErrors,
+  FieldValues,
+  UseFormRegister,
+  UseFormSetValue,
+} from "react-hook-form";
 import { SignUpTypePageOne, SignUpTypePageTwo } from "../signUpValidation";
-
+import { data } from "../../../countreis";
 interface SignUpPageTwoProps {
   registers: {
     userName: ReturnType<UseFormRegister<FieldValues>>;
@@ -17,8 +63,8 @@ interface SignUpPageTwoProps {
   };
   errors: FieldErrors;
   isSubmitting: boolean;
-  backButton: any;
-  setValue: UseFormSetValue<SignUpTypePageOne|SignUpTypePageTwo >;
+  backButton: (number: number) => void;
+  setValue: UseFormSetValue<SignUpTypePageOne | SignUpTypePageTwo>;
 }
 const SignUpPageTwo: React.FC<SignUpPageTwoProps> = ({
   registers,
@@ -29,126 +75,6 @@ const SignUpPageTwo: React.FC<SignUpPageTwoProps> = ({
 }) => {
   const inputWidth = { base: "250px", xl: "744px", "2xl": "712px" };
   const inputHeight = { base: "50px", xl: "60px", "2xl": "65px" };
-  const data = [
-    "أفغانستان",
-    "ألبانيا",
-    "الجزائر",
-    "أندورا",
-    "أنغولا",
-    "أنغويلا",
-    "أنتاركتيكا",
-    "أنتيغوا وباربودا",
-    "الأرجنتين",
-    "أرمينيا",
-    "أستراليا",
-    "أوزبكستان",
-    "أفريقيا الوسطى",
-    "الأرجواي",
-    "الأسكا",
-    "السنغال",
-    "إسبانيا",
-    "إستونيا",
-    "إيطاليا",
-    "إندونيسيا",
-    "إيرلندا",
-    "إيران",
-    "أيرلندا الشمالية",
-    "إيسلندا",
-    "إثيوبيا",
-    "إكوادور",
-    "الإكوادور",
-    "البرازيل",
-    "البحرين",
-    "البوسنة والهرسك",
-    "البراغواي",
-    "البنين",
-    "بوتان",
-    "بوليفيا",
-    "بولندا",
-    "بورتو ريكو",
-    "بوتسوانا",
-    "بوروندي",
-    "بيليز",
-    "بيرو",
-    "جزر القمر",
-    "جزر كوك",
-    "جزر مارشال",
-    "جزر نيكاراغوا",
-    "جزر تركس وكايكوس",
-    "جيبوتي",
-    "جيرسي",
-    "جزيرة مان",
-    "جزيرة نورفولك",
-    "جزيرة كريسماس",
-    "جزر سليمان",
-    "جمهورية الكونغو",
-    "جمهورية الكونغو الديمقراطية",
-    "جزر فارو",
-    "جمهورية سريلانكا",
-    "جمهورية كيب فيردي",
-    "جمهورية مصر العربية",
-    "جنوب أفريقيا",
-    "جنوب السودان",
-    "غينيا",
-    "غينيا الاستوائية",
-    "غينيا بيساو",
-    "غواتيمالا",
-    "غوادالوب",
-    "غويانا",
-    "غرينادا",
-    "فلسطين",
-    "فنلندا",
-    "فرنسا",
-    "الفلبين",
-    "الفاتيكان",
-    "فنزويلا",
-    "فيتنام",
-    "فيجي",
-    "قبرص",
-    "قطر",
-    "كوبا",
-    "كوت ديفوار",
-    "كازاخستان",
-    "كاليدونيا الجديدة",
-    "كاميرون",
-    "كينيا",
-    "كندا",
-    "كوريا الجنوبية",
-    "كوريا الشمالية",
-    "كولومبيا",
-    "كوموروس",
-    "كوستاريكا",
-    "كوسوفو",
-    "كيتو",
-    "لاتفيا",
-    "لاوس",
-    "ليبيريا",
-    "ليبيا",
-    "للكسمبورغ",
-    "لبنان",
-    "ليتوانيا",
-    "ليختنشتاين",
-    "ماكاو",
-    "مقدونيا",
-    "ملاوي",
-    "ماليزيا",
-    "مالديف",
-    "مالي",
-    "موزمبيق",
-    "مارتينيك",
-    "مورتانيا",
-    "موريشيوس",
-    "مملكة البحرين",
-    "موناكو",
-    "مونتينيغرو",
-    "مستقلة",
-    "مونتسيرات",
-    "مانغوليا",
-    "منتزه مليئ",
-    "ميكرونيزيا",
-    "موزامبيق",
-    "مصر",
-  ];
 
   return (
     <Box
@@ -219,7 +145,11 @@ const SignUpPageTwo: React.FC<SignUpPageTwoProps> = ({
           setValue={setValue}
         />
         <Flex width={inputWidth} justifyContent="center">
-          <CheckBox register={registers.termsAccepted} errorMsg={errors?.termAccepted?.message} text="يرجى تأكيد موافقتك على سياسة الخصوصية الخاصة بنا" />
+          <CheckBox
+            register={registers.termsAccepted}
+            errorMsg={errors?.termAccepted?.message}
+            text="يرجى تأكيد موافقتك على سياسة الخصوصية الخاصة بنا"
+          />
         </Flex>
         <Flex
           flexDirection={{ base: "column", xl: "row" }}
@@ -236,15 +166,15 @@ const SignUpPageTwo: React.FC<SignUpPageTwoProps> = ({
             ButtonColor="orange"
             onClick={() => backButton(1)}
           />
-          <CustomButton
-            text={`انشاء حساب`}
-            iconPosition="right"
-            icon={<FaUserCircle />}
-            sizeType="secondary"
-            ButtonColor="green"
-            type="submit"
-            disabled={isSubmitting}
-          />
+          <Button disabled={isSubmitting} type="submit">
+            <CustomButton
+              text={`انشاء حساب`}
+              iconPosition="right"
+              icon={<FaUserCircle />}
+              sizeType="secondary"
+              ButtonColor="green"
+            />
+          </Button>
         </Flex>
       </Flex>
     </Box>

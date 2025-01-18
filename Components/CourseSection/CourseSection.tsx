@@ -1,3 +1,26 @@
+/**
+ * CourseSection Component
+ *
+ * This component fetches and displays courses from an API endpoint, organizing them into two
+ * categories based on their availability status: "available" and "coming soon". Each category
+ * is presented in a separate swiper slider. If no courses are fetched, a NotFound component is
+ * rendered. The component integrates search functionality to filter through courses, enhancing
+ * user interaction.
+ *
+ * @component
+ * 
+ * @returns {React.ReactElement}
+ * Renders two sections, one for available courses and another for courses that are coming soon.
+ * Each section uses a SwiperCustom component to display courses in a slider format. If no courses
+ * are available, the NotFound component is displayed instead.
+ *
+ * @example
+ * <CourseSection />
+ *
+ * This will render the course section with sliders filled with courses or a message indicating
+ * no courses are available depending on the fetch results.
+ */
+
 import { SwiperSlide } from "swiper/react";
 import SwiperCustom from "@/Components/SwiperCustom/SwiperCustom";
 import { Box, Flex } from "@chakra-ui/react";

@@ -1,3 +1,43 @@
+/**
+ * InputForm Component
+ *
+ * This component serves as a versatile input field creator for forms, allowing the integration of
+ * various input types including text, email, password, and a custom drop-down list. It supports
+ * extensive customization through props to match specific design requirements. The component
+ * automatically handles visual cues for input validation and errors, and it is designed to work
+ * with react-hook-form for efficient form management.
+ *
+ * @component
+ * 
+ * @param {Object} props - The properties passed to the InputForm component.
+ * @param {'firstName' | 'secondName' | 'email' | 'password' | 'userName' | 'confirmPassword' | 'dropList'} props.type - Specifies the type of input to render.
+ * @param {UseBreakpointValueOptions<string | number>} props.width - The responsive width of the input form.
+ * @param {UseBreakpointValueOptions<string | number>} props.height - The responsive height of the input field.
+ * @param {string} [props.label] - The label for the input field.
+ * @param {boolean} [props.disableIcon=false] - If true, does not display an icon next to the input field.
+ * @param {Array<string>} [props.data] - Array of strings for the dropdown list, used when type is 'dropList'.
+ * @param {string} [props.title] - Initial placeholder text for the dropdown list, used when type is 'dropList'.
+ * @param {string | FieldError | Merge<FieldError, FieldErrorsImpl>} [props.errorMsg] - Error message to display when validation fails.
+ * @param {ReturnType<UseFormRegister<FieldValues>>} [props.register] - Registration method from react-hook-form for the input field.
+ * @param {UseFormSetValue<SignUpTypePageOne|SignUpTypePageTwo>} [props.setValue] - Set value method from react-hook-form, used with 'dropList' type.
+ * @param {InputProps} ...rest - Additional Chakra UI InputProps for further customization of the input field.
+ *
+ * @example
+ * <InputForm
+ *   type="email"
+ *   width={{ base: "100%", xl: "50%" }}
+ *   height={{ base: "45px", xl: "55px" }}
+ *   label="Email Address"
+ *   register={formRegister("email")}
+ *   errorMsg={formErrors.email?.message}
+ * />
+ *
+ * @returns {React.ReactElement}
+ * Renders a styled input field based on the type specified, optionally including an icon and a label. The component is
+ * responsive, adapting its layout and functionality based on the provided breakpoints. It also displays error messages
+ * when provided, aiding in user feedback for form validation.
+ */
+
 import { colors } from "@/styles/global-info";
 import { Box, Input, Text } from "@chakra-ui/react";
 import { FaUser } from "react-icons/fa";

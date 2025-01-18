@@ -1,4 +1,23 @@
-import { Box, SimpleGrid } from "@chakra-ui/react";
+/**
+ * RecorsesSection Component
+ *
+ * This component serves as a dedicated section within a footer to display various resource links,
+ * utilizing a flexible layout for responsiveness. It showcases multiple FooterButtons, each
+ * representing a different resource such as blogs, forums, and educational materials. The Address
+ * component is used here to label the section as 'Resources' in a visually distinct manner.
+ *
+ * @component
+ *
+ * @example
+ * <RecorsesSection />
+ *
+ * @returns {React.ReactElement}
+ * Renders a section within a footer that includes a title and a series of clickable buttons, each
+ * leading to different resources. The layout adjusts responsively based on the viewport size to
+ * ensure that the buttons are accessible and well-presented on all devices.
+ */
+
+import { Box, Flex } from "@chakra-ui/react";
 import FooterButton from "./FooterButton";
 import { Address } from "./Address";
 
