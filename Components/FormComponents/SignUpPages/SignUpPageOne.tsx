@@ -2,7 +2,7 @@ import { colors } from "@/styles/global-info";
 import { Box, Flex, Text } from "@chakra-ui/react";
 import React from "react";
 import InputForm from "../InputForm";
-import CustomButton from "@/Components/CustomButton";
+import CustomButton from "@/Components/CustomButton/CustomButton";
 import { FaArrowLeft } from "react-icons/fa";
 import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
 

@@ -5,15 +5,15 @@ import {
   signUpSchemaPageTwo,
   SignUpTypePageOne,
   SignUpTypePageTwo,
-} from "./signUpValidation";
-import SignWithButton from "./SignWithButton";
-import LinkComponent from "./LinkComponent";
+} from "../../Components/FormComponents/signUpValidation";
+import SignWithButton from "../../Components/FormComponents/SignWithButton";
+import LinkComponent from "../../Components/FormComponents/LinkComponent";
 import { Flex, Text } from "@chakra-ui/react";
 import { colors } from "@/styles/global-info";
 import { useForm, SubmitHandler } from "react-hook-form";
-import SignUpPageOne from "./SignUpPages/SignUpPageOne";
+import SignUpPageOne from "../../Components/FormComponents/SignUpPages/SignUpPageOne";
 import { zodResolver } from "@hookform/resolvers/zod";
-import SignUpPageTwo from "./SignUpPages/SignUpPageTwo";
+import SignUpPageTwo from "../../Components/FormComponents/SignUpPages/SignUpPageTwo";
 import { UserContextProvider } from "@/Components/ContextData/UserInformation";
 type CurrentPageSchemaType = SignUpTypePageOne | SignUpTypePageTwo;
 const SignUpForm = () => {
