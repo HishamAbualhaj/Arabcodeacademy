@@ -17,7 +17,7 @@
  * ensure that the buttons are accessible and well-presented on all devices.
  */
 
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, SimpleGrid } from "@chakra-ui/react";
 import FooterButton from "./FooterButton";
 import { Address } from "./Address";
 

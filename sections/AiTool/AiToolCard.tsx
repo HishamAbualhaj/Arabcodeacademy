@@ -1,8 +1,8 @@
 /**
  * AiToolCard Component
  *
- * A reusable card component designed to display details about AI tools in a visually engaging and functional way. 
- * The component supports responsive design, user interaction for marking favorites, and conditional rendering 
+ * A reusable card component designed to display details about AI tools in a visually engaging and functional way.
+ * The component supports responsive design, user interaction for marking favorites, and conditional rendering
  * based on authentication status.
  *
  * @component
@@ -46,6 +46,9 @@ import ReadMore from "@/public/icons/readMore.svg";
 import Added from "@/public/icons/added.svg";
 import NotAdded from "@/public/icons/notAdded.svg";
 import CustomButton from "../../Components/CustomButton/CustomButton";
+import useAuth from "@/app/hooks/useAuth";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 interface AiToolCard {
   aiImage?: string;
@@ -71,24 +74,12 @@ const AiToolCard: React.FC<AiToolCard> = ({
   };
 
   const [isFavourite, setIsFavourite] = useState(false);
-  const { isLoggedIn} = useAuth();
- const router = useRouter()
-  const setFavourite=()=>{
-if(isLoggedIn){
-  if(!isFavourite){
-  toast.success('تم عملية الإضافة بنجاح', {
-      position: "bottom-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light"
-      });
-      setIsFavourite(true);}
-      else{
-        toast.success('تم عمليةالإزالة بنجاح', {
+  const { isLoggedIn } = useAuth();
+  const router = useRouter();
+  const setFavourite = () => {
+    if (isLoggedIn) {
+      if (!isFavourite) {
+        toast.success("تم عملية الإضافة بنجاح", {
           position: "bottom-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -96,15 +87,26 @@ if(isLoggedIn){
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: "light"
-          });
-          setIsFavourite(false);
+          theme: "light",
+        });
+        setIsFavourite(true);
+      } else {
+        toast.success("تم عمليةالإزالة بنجاح", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        setIsFavourite(false);
       }
- 
-}else{
-  router.push('/login')
-}
-  }
+    } else {
+      router.push("/login");
+    }
+  };
   useEffect(() => {
     setIsFavourite(isFav);
   }, [isFav]);
@@ -154,6 +156,7 @@ if(isLoggedIn){
           </Text>
         </Flex>
         <Text
+          lineClamp="2"
           minH="40px"
           color={colors.mainColor}
           fontSize={{ base: "14px", xl: "17px" }}
@@ -165,6 +168,8 @@ if(isLoggedIn){
         </Text>
         <Flex>
           <CustomButton
+            py="5px"
+            px="20px"
             text="المزيد"
             sizeType="thirdly"
             icon={<ReadMore></ReadMore>}
@@ -184,9 +189,9 @@ if(isLoggedIn){
         justifyContent="center"
         alignItems="center"
         cursor="pointer"
-        onClick={ setFavourite}
+        onClick={setFavourite}
       >
-        {isLoggedIn?(isFavourite ? <Added /> : <NotAdded />):<NotAdded />}
+        {isLoggedIn ? isFavourite ? <Added /> : <NotAdded /> : <NotAdded />}
       </Flex>
     </Box>
   );

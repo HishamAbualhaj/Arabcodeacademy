@@ -28,7 +28,7 @@
  * visitors with a clear and attractive overview of the academy's goals and how it serves its audience.
  */
 
-import { Text, Flex } from "@chakra-ui/react";
+import { Text, Flex, AbsoluteCenter } from "@chakra-ui/react";
 import React from "react";
 import CustomButton from "../CustomButton/CustomButton";
 import Image from "next/image";

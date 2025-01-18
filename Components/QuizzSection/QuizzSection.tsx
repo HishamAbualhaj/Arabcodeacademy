@@ -31,7 +31,7 @@
  * with content dynamically.
  */
 
-import { Box, Grid, GridItem } from "@chakra-ui/react";
+import { Box, Flex, Grid, GridItem } from "@chakra-ui/react";
 import Image from "next/image";
 import { Image as ImageChakara } from "@chakra-ui/react";
 import React from "react";

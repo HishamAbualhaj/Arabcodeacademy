@@ -30,8 +30,7 @@
 import { Box, Flex } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { Avatar } from "@/Components/ui/avatar"
-import CustomButton from "../CustomButton";
-import CustomButton from "../CustomButton/CustomButton";
+import CustomButton from "@/Components/CustomButton/CustomButton";
 import Login from "@/public/icons/login.svg";
 import LoginMoblie from "@/public/icons/loginMobile.svg";
 import SignupMobile from "@/public/icons/signupMobile.svg";
