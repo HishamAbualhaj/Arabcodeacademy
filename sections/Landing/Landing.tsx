@@ -27,7 +27,7 @@ export default function Landing() {
       <VideoBackground videoSrc={videoSrc}>
         <Intro />
       </VideoBackground>
-      {/* <Suspense
+      <Suspense
         fallback={
           <Box
             display="flex"
@@ -40,11 +40,11 @@ export default function Landing() {
         }
       >
         <CourseSection />
-      </Suspense> */}
+      </Suspense>
       <QuizzSection />
       <Brief />
       <Contact />
-      {/* <Suspense
+      <Suspense
         fallback={
           <Box
             display="flex"
@@ -57,7 +57,7 @@ export default function Landing() {
         }
       >
         <ReviewSection />
-      </Suspense> */}
+      </Suspense>
     </>
   );
 }

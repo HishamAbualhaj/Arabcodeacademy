@@ -79,17 +79,14 @@ const SignUpForm = () => {
   const onSubmit: SubmitHandler<CurrentPageSchemaType> = (data) => {
     if (page === 1) submitPageOneHandler(data);
     else submitPageTwoHandler(data);
-    console.log("well hello");
   };
   const submitPageOneHandler = (data: CurrentPageSchemaType) => {
     userInfoContext?.setUserInformation(data);
     setPage(2);
-    console.log(data);
   };
   const submitPageTwoHandler = (data: CurrentPageSchemaType) => {
     userInfoContext?.setUserInformation({...data, country});
     console.log(data);
-    console.log("context", userInfoContext);
   };
   return (
     <Flex

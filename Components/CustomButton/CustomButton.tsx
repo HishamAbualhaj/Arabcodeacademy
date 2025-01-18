@@ -66,6 +66,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
 
   return sizeType == "primary" ? (
     <Box
+      as={"button"}
       display="flex"
       cursor="pointer"
       alignItems="center"
@@ -92,6 +93,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
     </Box>
   ) : sizeType == "secondary" ? (
     <Box
+      as={"button"}
       display="flex"
       cursor="pointer"
       alignItems="center"
@@ -116,7 +118,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
     </Box>
   ) : (
     <Box
-      as={'button'}
+      as={"button"}
       display="flex"
       cursor="pointer"
       alignItems="center"
