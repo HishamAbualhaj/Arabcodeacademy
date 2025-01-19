@@ -1,13 +1,35 @@
-import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
+/**
+ * Login Component
+ *
+ * A user authentication section of the web application designed to facilitate user login. 
+ * The component provides a login form, alternative sign-in options, and a decorative image, 
+ * offering a seamless and visually appealing user experience. The layout is responsive 
+ * and adapts to different screen sizes for better accessibility.
+ *
+ * @component
+ *
+ * @example
+ * <Login />
+ *
+ * @returns {React.ReactElement}
+ * Renders a login interface featuring:
+ * - A login form component (`LoginForm`) for user credentials.
+ * - Alternative sign-in buttons for Google and Facebook via the `SignWithButton` component.
+ * - A decorative image to visually enhance the login section.
+ * The component uses a flexible box layout to structure the elements and ensures proper spacing 
+ * and alignment across various screen sizes.
+ *
+ * Features:
+ * - Responsive layout: Adjusts seamlessly between mobile and desktop views.
+ * - Themed styling: Integrates with the app's global color scheme.
+ * - Accessibility: Designed to offer a user-friendly experience across devices.
+ */
+"use client"
+import { Box, Flex, Image, Text} from "@chakra-ui/react";
 import React from "react";
 import { colors } from "@/styles/global-info";
-import { Checkbox } from "@/Components/ui/checkbox";
+import SignWithButton from "../FormComponents/SignWithButton";
 import LoginForm from "./LoginForm";
-import CustomButton from "@/Components/CustomButton/CustomButton";
-import  Profile  from '@/public/icons/profile.svg';
-import  LoginIcon  from '@/public/icons/login.svg';
-import GooglePlus from '@/public/icons/google-plus-g.svg';
-import Facebook from '@/public/icons/facebook-f.svg'
 
 const Login: React.FC = () => {
   return (
@@ -15,15 +37,14 @@ const Login: React.FC = () => {
       <Flex
         justifyContent="center"
         alignItems="center"
-        height={{ base: "857px", lg: "818px", md: "1384px", sm: "857px" }}
-        gap={10}
       >
         <Flex
           boxShadow="0px 1px 10px 0px rgba(0, 0, 0, 0.25)"
           justifyContent="center"
           alignItems="center"
-          direction={{ base: "column", lg: "row" }}
-          width={{ base: "270px", lg: "1100px", md: "667px", sm: "370px" }}
+          margin="10%"
+          direction={{ base: "column-reverse", lg: "row" }}
+         
         >
          
           <Box width={{ base: "100%", lg: "50%" }}>
@@ -35,53 +56,28 @@ const Login: React.FC = () => {
             >
               تسجيل الدخول
             </Text>
-            <LoginForm />
-            <Text
-              color={colors.mainColor}
-              textAlign={{ base: "start",lg:"start", md: "center", sm: "center" }}
-              marginStart={{ base: "0px", lg: "106px" }}
-              marginTop="55px"
-            >
-              نسيت كلمة المرور؟
-            </Text>
-            <Flex
-              
-              justifyContent={{ base: "flex-start",lg:"flex-start", md: "center", sm: "center" }}
-              marginStart={{ base: "0px", lg: "106px" }}
-              marginTop="25px"
-            >
-              <Checkbox dir="rtl" color={colors.mainColor}>البقاء متصلا</Checkbox>
+           <LoginForm/>
+           <Flex alignItems="center" gap={2} justifyContent="center">
+             <Box height='1px' width={{base:"160px",lg:"190px",md:"200px"}} bg={colors.mainColor} display={{base:"none",sm:"block"}}></Box>
+           <Text color={colors.mainColor}>يمكنك تسجيل الدخول باستخدام </Text>
+           <Box height='1px' width={{base:"160px",lg:"190px" ,md:"200px"}} bg={colors.mainColor} display={{base:"none",sm:"block"}}></Box>
+
+           </Flex>
+          
+            <Flex gap={8} justify="center" marginBlock="30px">
+            <SignWithButton type="facebook"/>
+            <SignWithButton type="google"/>
             </Flex>
-            <Flex flexDirection={{ base: "column", xl: "row" }} gap="10px" marginBlock="25px" justify="center">
-            <CustomButton
-                text="تسجيل دخول"
-                ButtonColor="green"
-                sizeType="secondary"
-                icon={<LoginIcon  width="25px" height="25px"/>}
-              ></CustomButton>
-              <CustomButton
-               text="إنشاء حساب"
-                ButtonColor="orange"
-                sizeType="secondary"
-                icon={<Profile width="25px" height="25px" />}
-              ></CustomButton>
-            </Flex>
-            <Button  
-            width={{base:"100px",lg:"170px",md:"190px"}}
-            height={{base:"40px",lg:"58px",md:"64px"}}
-            bg="#DB4A39"
-              fontWeight="bold"
-              fontSize={{base:"10px",lg:"20px",md:"22px"}}
-              textAlign={{ base: "center",lg:"center", md: "start", sm: "center" }}
-              marginBlock="40px">
-               Google  <GooglePlus width="35px" height="35px" /> 
-            </Button>
+          
           </Box>   
-          <Box width={{ base: "100%", lg: "50%" }}>
-            <Image src="/images/login.png" alt="login img" />
+
+          <Box width={{ base: "100%", lg: "50%" }} >
+            <Image src="/images/login.png" alt="login img" width="full" height="full"/>
           </Box>
         </Flex>
+      
       </Flex>
+      
     </>
   );
 };
