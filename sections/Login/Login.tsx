@@ -28,7 +28,7 @@
 import { Box, Flex, Image, Text} from "@chakra-ui/react";
 import React from "react";
 import { colors } from "@/styles/global-info";
-import SignWithButton from "../FormComponents/SignWithButton";
+import SignWithButton from "@/Components/FormComponents/SignWithButton";
 import LoginForm from "./LoginForm";
 
 const Login: React.FC = () => {
