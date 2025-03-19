@@ -282,7 +282,7 @@ const Header: React.FC = () => {
             color="white.600"
           />:(isLoggedIn  ? (<>
               
-    <Link href="/signup" >   <Avatar name={firstLetter.email.charAt(0) ?? ''} colorPalette="pink" /></Link>
+    <Link href="/profile" >   <Avatar name={firstLetter.email.charAt(0) ?? ''} colorPalette="pink" /></Link>
      
      
             <Image src="/icons/logout.svg" alt="logout"  onClick={handleLogout} width={33} height={33}/> 
