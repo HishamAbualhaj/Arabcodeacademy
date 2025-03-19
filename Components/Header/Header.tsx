@@ -93,7 +93,7 @@ const Header: React.FC = () => {
     {
       key: 1,
       value: "إنشاء حساب",
-      link: "/",
+      link: "/signup",
       icon: SignupMobile,
       dropDown: false,
     },
@@ -282,17 +282,17 @@ const Header: React.FC = () => {
             color="white.600"
           />:(isLoggedIn  ? (<>
               
-       <Avatar name={firstLetter.email.charAt(0) ?? ''} colorPalette="pink" />
+    <Link href="/signup" >   <Avatar name={firstLetter.email.charAt(0) ?? ''} colorPalette="pink" /></Link>
      
      
             <Image src="/icons/logout.svg" alt="logout"  onClick={handleLogout} width={33} height={33}/> 
             
-            </>): <> <CustomButton
+            </>): <> <Link href="/signup" >  <CustomButton
                 text="إنشاء حساب"
                 ButtonColor="green"
                 sizeType="secondary"
                 icon={<Profile width="25px" height="25px" />}
-              ></CustomButton>
+              ></CustomButton></Link>
               <Link href="/login" > 
               <CustomButton
                 text="تسجيل دخول"
