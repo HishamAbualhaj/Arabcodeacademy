@@ -1,17 +1,11 @@
+import { Provider } from "@/Components/ui/provider";
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.css";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import "../styles/globals.css";
+import DiscountBanner from "@/Components/DiscountBanner/DiscountBanner";
+import { Footer } from "@/Components/Footer/Footer";
+import Header from "@/Components/Header/Header";
+import { ToastContainer } from 'react-toastify';
+import UserInformation from "@/Components/ContextData/UserInformation";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,13 +14,30 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+    <html lang="ar" suppressHydrationWarning>
+      <body dir="rtl">
+        <Provider>
+
+        <DiscountBanner
+        startDate="12-22-2024"
+        endDate="12-24-2024"
+        announcementText="احصل على خصم بمقدار 20%"
+      ></DiscountBanner>
+     
+       <Header/>
+         
+        
+          <UserInformation>
+          <main>{children}</main>
+          <ToastContainer/>
+          </UserInformation>
+
+          <Footer />
+        </Provider>
       </body>
     </html>
   );
